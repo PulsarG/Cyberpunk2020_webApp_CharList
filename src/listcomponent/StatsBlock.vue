@@ -20,8 +20,6 @@
             <more-stats></more-stats>
         </div>
     </div>
-
-    <button @click="setNickFromStore">2312312312</button>
 </template>
 
 <script>

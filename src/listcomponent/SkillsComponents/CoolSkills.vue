@@ -2,12 +2,12 @@
     <div class="skillslist">
         <div class="title">
             <button @click="closeSkills" class="title">
-                <h4>SPECIALABILITIES</h4>
+                <h4>COOL / WILL</h4>
             </button>
         </div>
 
         <div class="skillsmenu" v-show="!isSkillClose">
-            <div v-for="i in $store.state.Skillspecial" :key="i.name">
+            <div v-for="i in $store.state.Skillscool" :key="i.name">
                 <test-skills :i="i"></test-skills>
             </div>
         </div>

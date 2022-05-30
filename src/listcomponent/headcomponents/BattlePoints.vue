@@ -15,7 +15,10 @@
         <div class="takedmg">
             <div class="takedmgrow">
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <div style="width: 100%">
+                        <strong>_.LIGHT_</strong>
+                    </div>
+
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="check1" class="pointinp" value="2">
                         <input type="checkbox" name="" id="" class="pointinp" value="2">
@@ -27,7 +30,7 @@
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>SERIOUS</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -35,11 +38,11 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -1</strong>
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>CRITICAL</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -47,11 +50,11 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -2</strong>
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>MORTAL0</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -59,11 +62,11 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -3</strong>
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>MORTAL1</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -71,13 +74,13 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -4</strong>
                     </div>
                 </div>
             </div>
             <div class="takedmgrow">
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>MORTAL2</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -85,11 +88,11 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -5</strong>
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>MORTAL3</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -97,11 +100,11 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -6</strong>
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>MORTAL4</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -109,11 +112,11 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -7</strong>
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>MORTAL5</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -121,11 +124,11 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -8</strong>
                     </div>
                 </div>
                 <div class="fourpoints">
-                    <strong>LIGHT</strong>
+                    <strong>MORTAL6</strong>
                     <div class="dmgpoints">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
@@ -133,7 +136,7 @@
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
                     <div class="dmglvl">
-                        <strong style="color: white">Stun 0</strong>
+                        <strong style="color: white">Stun -9</strong>
                     </div>
                 </div>
 
@@ -193,11 +196,11 @@ export default {
     },
 
     methods: {
-        
+
     },
 
     watch: {
-        
+
     }
 }
 </script>
@@ -243,10 +246,12 @@ export default {
     display: flex;
     flex-direction: row;
     border: 1px solid black;
+    width: 100%;
 }
 
 .dmglvl {
     background-color: black;
+    width: 100%;
 }
 
 .takedmg {
