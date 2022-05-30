@@ -7,6 +7,22 @@ const store = createStore({
             nick: "Lopapopa",
         },
 
+
+
+        Skillsatr: [
+            {
+                name: "Personal Crooming",
+                count: "",
+            },
+            {
+                name: "Wardrobe & Style",
+                count: "",
+            }
+        ],
+        hiddenEmptySkills: false,
+
+
+
         isLoadChar: false,
     }),
     getters: {
@@ -15,6 +31,14 @@ const store = createStore({
     mutations: {
         setNick(state, nick) {
             state.Char.nick = nick;
+        },
+
+        hiddenSkillsEmpty(state) {
+            if (!state.hiddenEmptySkills) {
+                state.hiddenEmptySkills = true;
+            } else {
+                state.hiddenEmptySkills = false;
+            }
         }
     },
     actions: {

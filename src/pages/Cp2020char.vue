@@ -1,5 +1,5 @@
 <template>
-    <div class="fullcharlist">
+    <div class="fullcharlist" id="mainlist">
 
         <div class="">
             <button class="btn" @click="openCharlist">
@@ -19,6 +19,8 @@
             </div>
         </div>
     </div>
+
+    <button @click="setWidth">SET WIDTH</button>
 </template>
 
 <script>
@@ -29,10 +31,10 @@ export default {
     components: { CharList, DeckList },
     data() {
         return {
-           
-
             isOpenCharlist: true,
             isOpenDeck: false,
+
+            setWidthcount: 1,
         }
     },
     methods: {
@@ -50,6 +52,17 @@ export default {
             } else {
                 this.isOpenDeck = false;
             }
+        },
+
+        setWidth() {
+            if (this.setWidthcount) {
+                document.getElementById('mainlist').style.width = '60%';
+                this.setWidthcount -= 1;
+            } else {
+                document.getElementById('mainlist').style.width = '50%';
+                this.setWidthcount += 1;
+            }
+
         }
     }
 }

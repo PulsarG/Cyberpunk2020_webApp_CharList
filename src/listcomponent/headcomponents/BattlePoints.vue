@@ -17,8 +17,8 @@
                 <div class="fourpoints">
                     <strong>LIGHT</strong>
                     <div class="dmgpoints">
-                        <input type="checkbox" name="" id="" class="pointinp">
-                        <input type="checkbox" name="" id="" class="pointinp">
+                        <input type="checkbox" name="" id="check1" class="pointinp" value="2">
+                        <input type="checkbox" name="" id="" class="pointinp" value="2">
                         <input type="checkbox" name="" id="" class="pointinp">
                         <input type="checkbox" name="" id="" class="pointinp">
                     </div>
@@ -145,7 +145,60 @@
 
 <script>
 export default {
+    data() {
+        return {
+            el1: document.getElementById('check1'),
 
+            check1: false,
+            check2: 0,
+            check3: 0,
+            check4: 0,
+            check5: 0,
+            check6: 0,
+            check7: 0,
+            check8: 0,
+            check9: 0,
+            check10: 0,
+            check11: 0,
+            check12: 0,
+            check13: 0,
+            check14: 0,
+            check15: 0,
+            check16: 0,
+            check17: 0,
+            check18: 0,
+            check19: 0,
+            check20: 0,
+            check21: 0,
+            check22: 0,
+            check23: 0,
+            check24: 0,
+            check25: 0,
+            check26: 0,
+            check27: 0,
+            check28: 0,
+            check29: 0,
+            check30: 0,
+            check31: 0,
+            check32: 0,
+            check33: 0,
+            check34: 0,
+            check35: 0,
+            check36: 0,
+            check37: 0,
+            check38: 0,
+            check39: 0,
+            check40: 0,
+        }
+    },
+
+    methods: {
+        
+    },
+
+    watch: {
+        
+    }
 }
 </script>
 
