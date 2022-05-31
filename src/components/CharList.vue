@@ -5,6 +5,8 @@
 
         <skills-block></skills-block>
 
+        <cybernetics-block></cybernetics-block>
+
         <div class="check">
             <div v-for="i in 10">
                 <input type="checkbox" :checked="i <= checkedCount"
@@ -17,9 +19,10 @@
 <script>
 import StatsBlock from "@/listcomponent/StatsBlock.vue"
 import SkillsBlock from "@/listcomponent/SkillsBlock.vue"
+import CyberneticsBlock from "@/listcomponent/CyberneticsBlock.vue";
 
 export default {
-    components: { StatsBlock, SkillsBlock },
+    components: { StatsBlock, SkillsBlock, CyberneticsBlock },
     props: {
 
     },
@@ -33,7 +36,7 @@ export default {
 
 <style scoped>
 .charlist {
-   /*  border: 1px solid black; */
+    /*  border: 1px solid black; */
 }
 
 .check {

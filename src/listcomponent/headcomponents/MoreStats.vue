@@ -27,6 +27,7 @@ export default {
 .morestats {
     display: flex;
     flex-direction: row;
+    height: 10%;
 }
 
 .rep {

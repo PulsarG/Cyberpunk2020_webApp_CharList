@@ -12,7 +12,7 @@
         </div>
         <div class="skillsmanage">
             <button @click="hiddenEmptySkills">Hidden Empty Skills</button>
-            <button>123123123</button>
+            <button>Show recomended for {{$store.state.role}}</button>
             <button>123123123</button>
         </div>
     </div>
@@ -28,6 +28,7 @@
         <div class="skillsmenu">
             <int-skills></int-skills>
             <other-skills></other-skills>
+            <button @click="addOtherSkill" class="addbtn">Add skill</button>
         </div>
         <div class="skillsmenu">
             <ref-skills></ref-skills>
@@ -53,6 +54,9 @@ export default {
     methods: {
         hiddenEmptySkills() {
             this.$store.commit('hiddenSkillsEmpty');
+        },
+        addOtherSkill() {
+            this.$store.commit('addOtherSkill');
         }
     }
 }
@@ -63,6 +67,7 @@ export default {
     display: flex;
     flex-direction: row;
     margin: auto;
+    margin-top: 5px;
 
 }
 
@@ -91,5 +96,24 @@ export default {
     display: flex;
     flex-direction: column;
     width: 33%;
+}
+
+.addbtn {
+    width: 23%;
+    display: flex;
+    align-self: center;
+    background: none;
+    border: none;
+    margin-top: 10px;
+}
+
+.skillsmanage {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background: none;
+    border: 1px dotted black;
 }
 </style>

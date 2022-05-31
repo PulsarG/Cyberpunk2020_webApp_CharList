@@ -1,8 +1,22 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <div style="display:flex; flex-direction: row">
+      <form action="">
+        <label for="login">Login</label>
+        <input type="text" id="login">
+        <label for="pass">Password</label>
+        <input type="text" id="pass">
+        <button>Login</button>
+      </form>
+      <button>Registry</button>
+    </div>
+
+    <a href="">
+      ver 0.9.053022
+    </a>
   </nav>
-  <router-view/>
+  <router-link to="/">Home</router-link> |
+  <router-view />
 </template>
 
 <style>
@@ -16,6 +30,12 @@
 
 nav {
   padding: 30px;
+  width: 50%;
+  display: flex;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 nav a {

@@ -7,7 +7,7 @@
         </div>
 
         <div class="skillsmenu" v-show="!isSkillClose">
-            <div v-for="i in $store.state.Skillsempathy" :key="i.name">
+            <div v-for="i in $store.state.skills.Skillsempathy" :key="i.name">
                 <test-skills :i="i"></test-skills>
             </div>
         </div>
