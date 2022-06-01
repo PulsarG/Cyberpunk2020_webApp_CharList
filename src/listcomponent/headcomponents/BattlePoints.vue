@@ -224,6 +224,8 @@ export default {
     display: flex;
     flex-direction: column;
     width: 90%;
+    justify-content: center;
+    align-items: center;
 }
 
 .savetitle {
@@ -232,6 +234,7 @@ export default {
 
 .savebtminp {
     height: 75px;
+    width: 90%;
 }
 
 

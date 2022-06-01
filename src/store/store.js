@@ -2,12 +2,14 @@ import { createStore } from "vuex";
 
 import skills from "@/modules/skills.js";
 import cyberneticsshop from "@/modules/cyberneticsshop.js";
+import customs from "@/modules/customs";
 
 const store = createStore({
 
     modules: {
         cyberneticsshop,
         skills,
+        customs,
     },
 
     state: () => ({
@@ -21,15 +23,6 @@ const store = createStore({
         role: "",
 
         isLoadChar: false,
-
-        Customcybernetics: [
-            {
-                name: "",
-                code: "",
-                price: 0,
-                humanity: ""
-            }
-        ]
 
     }),
 
@@ -50,10 +43,6 @@ const store = createStore({
             }
         },
 
-        /* addOtherSkill(state) {
-            state.Skillsother.push({ name: "", count: "" });
-        }, */
-
         setRole(state, role) {
             state.role = role;
         },
@@ -71,9 +60,6 @@ const store = createStore({
             return state.Cybernetics
         },
 
-        addCustomCybernetics(state) {
-            state.cyberneticsshop.Neuro.push(state.Customcybernetics)
-        }
     },
 
     actions: {

@@ -41,9 +41,8 @@
                 <deck-list></deck-list>
             </div>
         </div>
+        <button @click="setWidth">SET WIDTH</button>
     </div>
-
-    <button @click="setWidth">SET WIDTH</button>
 </template>
 
 <script>

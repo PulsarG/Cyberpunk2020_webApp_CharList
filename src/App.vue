@@ -1,14 +1,18 @@
 <template>
   <nav>
-    <div class="login">
-      <form action="">
-        <label for="login">Login</label>
-        <input v-model="this.user.login" type="text" id="login">
-        <label for="pass">Password</label>
-        <input v-model="this.user.pass" type="text" id="pass">
-        <button>Login</button>
-      </form>
+    <div class="login" v-show="!isLogin">
+
+      <label for="login">Login</label>
+      <input v-model="login" type="text" id="login">
+      <label for="pass">Password</label>
+      <input v-model="pass" type="text" id="pass">
+      <button @click="singUp">Login</button>
+
       <button class="btnreg" @click="regUser">Registry</button>
+    </div>
+
+    <div class="login" v-show="isLogin">
+      <h1>{{ this.login }}</h1>
     </div>
 
 
@@ -39,29 +43,78 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      user: {
-        login: "",
-        pass: ""
-      }
+      isLogin: false,
+
+      login: "",
+      pass: "",
+
+      Users: [],
     }
   },
 
   methods: {
-    regUser() {
-      if (this.user.login == "" || this.user.pass == "") {
+    async regUser() {
+      if (this.login == "" || this.pass == "") {
         alert("Не введен Логин или Пароль")
       } else {
         try {
-          axios.post("hhttps://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/user", {
-            login: this.user.login,
-            pass: this.user.pass
+          await axios.post("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/user.json", {
+            login: this.login,
+            pass: this.pass
           });
+          alert("Регистрация прошла успешно");
         } catch (e) {
           alert(e);
         }
+        this.login = "";
+        this.pass = "";
       }
+    },
+
+
+    singUp() {
+      this.loadUsersDb();
+
+      setTimeout(() => {
+        for (var i in this.Users) {
+          console.log(this.Users[i].login);
+
+          if (this.Users[i].login == this.login) {
+            this.isLogin = true;
+
+            // добавить функцию персонажей у Юзера   this.getChars(this.login)
+
+            break;
+          }
+
+        };
+      }, 1000)
+    },
+
+    async loadUsersDb() {
+      try {
+        await axios.get("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/user.json")
+          .then((response) => {
+            let array = [];
+            for (var i in response.data)
+              array.push([i, response.data[i]]);
+            let j = array.length;
+            for (let i = 0; i < j; i++) {
+              this.Users.push(array[i][1]);
+            }
+          });
+
+      } catch (e) {
+        alert(e);
+      };
     }
-  }
+  },
+
+  /* watch: {
+    login(v) {
+      this.loadUsersDb();
+    }
+  } */
 }
 </script>
 

@@ -75,6 +75,9 @@ export default {
     background-color: black;
     width: 10%;
     margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .skillslearn {

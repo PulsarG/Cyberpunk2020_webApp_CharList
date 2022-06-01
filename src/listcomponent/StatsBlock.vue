@@ -89,7 +89,7 @@ export default {
 .photo {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 45%;
     margin-left: 3px;
     align-items: center;
     justify-content: center;
@@ -118,7 +118,7 @@ img {
 }
 
 .allstats {
-    width: 50%;
+    width: 55%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
