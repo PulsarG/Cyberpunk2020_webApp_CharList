@@ -18,11 +18,28 @@ export default {
         }
     },
 
+     methods: {
+        setRoleFromStore() {
+            this.role = this.$store.state.role;
+        }
+    },
+
+    computed: {
+        isLoadChar() {
+            return this.$store.state.isLoadChar;
+        }
+    },
     watch: {
+        isLoadChar(v) {
+            if (v)
+                this.setRoleFromStore();
+        },
+
         role(v) {
             this.$store.commit('setRole', v)
         },
-    },
+    }
+
 }
 </script>
 

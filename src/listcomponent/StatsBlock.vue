@@ -6,7 +6,7 @@
             <role-char></role-char>
             <div class="charpoints">
                 <label for="charpoints" class="cplabel"><strong style="color: white">CHARACTER POINTS</strong></label>
-                <input type="number" id="charpoints" class="charpointsinput">
+                <input type="number" id="charpoints" class="charpointsinput" v-model="this.charpoints">
             </div>
             <stats-char></stats-char>
             <armor-char></armor-char>
@@ -15,7 +15,7 @@
 
         <div class="photo">
             <div class="fotoimg">
-                <img :src='imgRole' alt="">
+                <img :src='imgRole' alt="Упс. Картинки пока не доступны">
             </div>
             <more-stats></more-stats>
         </div>
@@ -37,27 +37,35 @@ export default {
     },
     data() {
         return {
-            Char: {
-                nick: ""
-            },
+
+            charpoints: "",
 
             link: "http://drive.google.com/uc?export=view&id=",
             imgRole: "https://klike.net/uploads/posts/2019-11/1572778667_3.jpg",
         }
     },
     methods: {
-        setNickFromStore() {
-            this.Char.nick = this.$store.state.Char.nick;
+        setCPFromStore() {
+            this.charpoints = this.$store.state.Char.charpoints;
         }
     },
+
     computed: {
         role() {
             return this.$store.state.role
+        },
+        isLoadChar() {
+            return this.$store.state.isLoadChar;
         }
     },
     watch: {
-        nick(v) {
-            this.$store.commit('setNick', v);
+        charpoints(v) {
+            this.$store.commit('setCP', v);
+        },
+
+        isLoadChar(v) {
+            if (v)
+                this.setCPFromStore();
         },
 
         role(v) {

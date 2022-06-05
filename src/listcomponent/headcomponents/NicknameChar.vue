@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            nick: ""
+            nick: "",
         }
     },
     methods: {
@@ -17,10 +17,20 @@ export default {
             this.nick = this.$store.state.Char.nick;
         }
     },
+    computed: {
+        isLoadChar() {
+            return this.$store.state.isLoadChar;
+        }
+    },
     watch: {
         nick(v) {
             this.$store.commit('setNick', v);
         },
+
+        isLoadChar(v) {
+            if (v)
+                this.setNickFromStore();
+        }
     }
 }
 </script>

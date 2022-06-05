@@ -7,6 +7,10 @@
 
         <cybernetics-block></cybernetics-block>
 
+        <gear-block></gear-block>
+
+        <weapons-block></weapons-block>
+
         <div class="check">
             <div v-for="i in 10">
                 <input type="checkbox" :checked="i <= checkedCount"
@@ -20,9 +24,11 @@
 import StatsBlock from "@/listcomponent/StatsBlock.vue"
 import SkillsBlock from "@/listcomponent/SkillsBlock.vue"
 import CyberneticsBlock from "@/listcomponent/CyberneticsBlock.vue";
+import GearBlock from "@/listcomponent/GearBlock.vue";
+import WeaponsBlock from "@/listcomponent/WeaponsBlock.vue";
 
 export default {
-    components: { StatsBlock, SkillsBlock, CyberneticsBlock },
+    components: { StatsBlock, SkillsBlock, CyberneticsBlock, GearBlock, WeaponsBlock, },
     props: {
 
     },

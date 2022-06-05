@@ -1,25 +1,36 @@
 <template>
+  <div class="menu">
+    <left-menu :Chars="Chars"></left-menu>
+  </div>
+
+  <div class="shopmenu">
+    <shop-menu></shop-menu>
+  </div>
+
   <nav>
     <div class="login" v-show="!isLogin">
 
-      <label for="login">Login</label>
-      <input v-model="login" type="text" id="login">
-      <label for="pass">Password</label>
-      <input v-model="pass" type="text" id="pass">
+      <!-- <label for="login">Login</label> -->
+      <input v-model="login" type="text" id="login" autocomplete="off" placeholder="login">
+      <!--  <label for="pass">Password</label> -->
+      <input v-model="pass" type="text" id="pass" autocomplete="off" placeholder="password">
       <button @click="singUp">Login</button>
 
       <button class="btnreg" @click="regUser">Registry</button>
     </div>
 
-    <div class="login" v-show="isLogin">
-      <h1>{{ this.login }}</h1>
+    <div class="loginin" v-show="isLogin">
+      <h1>Привет, {{ this.login }}</h1>
+      <form action="">
+        <button class="exitbtn" @click="logOut">Выход</button>
+      </form>
     </div>
 
 
     <div class="links">
       <div class="ver">
         <a href="">
-          ver 0.9.053022
+          ver 0.9.220605:7
         </a>
       </div>
       <div class="comunity">
@@ -31,16 +42,19 @@
 
       </div>
     </div>
-
   </nav>
-  <router-link to="/">Home</router-link> |
-  <router-view />
+
+  <router-view :Chars="Chars" />
 </template>
 
 <script>
 import axios from 'axios'
 
+import LeftMenu from "@/components/LeftMenu.vue";
+import ShopMenu from './components/ShopMenu.vue';
+
 export default {
+  components: { LeftMenu, ShopMenu },
   data() {
     return {
       isLogin: false,
@@ -49,6 +63,10 @@ export default {
       pass: "",
 
       Users: [],
+
+      Chars: [],
+
+      ii: 0,
     }
   },
 
@@ -73,22 +91,39 @@ export default {
 
 
     singUp() {
-      this.loadUsersDb();
+      let L = this.loadUsersDb()
+
+      if (L == 0)
+        return;
 
       setTimeout(() => {
         for (var i in this.Users) {
-          console.log(this.Users[i].login);
 
           if (this.Users[i].login == this.login) {
-            this.isLogin = true;
 
-            // добавить функцию персонажей у Юзера   this.getChars(this.login)
+            if (this.Users[i].pass == this.pass) {
+              this.isLogin = true;
+
+              this.getChars(this.login);
+              this.setLogin();
+
+            } else {
+              alert("Неверный пароль");
+              this.pass = "";
+              return
+            }
 
             break;
           }
-
         };
+        if (!this.isLogin) {
+          alert("Не верный или не существующий Логин");
+          this.login = "";
+          this.pass = "";
+        }
       }, 1000)
+      this.Users.length = 0;
+
     },
 
     async loadUsersDb() {
@@ -102,19 +137,59 @@ export default {
             for (let i = 0; i < j; i++) {
               this.Users.push(array[i][1]);
             }
+            console.log(this.Users)
+          });
+      } catch (e) {
+        alert("База данных сейчас недоступна. Извините");
+        alert(e);
+        return 0;
+      };
+    },
+
+    logOut() {
+      this.login = "";
+      this.pass = "";
+      this.isLogin = false;
+    },
+
+    setLogin() {
+      this.$store.commit('setLogin', this.login)
+    },
+
+    async getChars(l) {
+      try {
+        await axios.get("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/" + l + ".json")
+          .then((response) => {
+            let array = [];
+            for (var i in response.data)
+              array.push([i, response.data[i]]);
+            let j = array.length;
+            this.Chars.length = 0;
+            for (let i = 0; i < j; i++) {
+              this.Chars.push(array[i][1]);
+            }
           });
 
       } catch (e) {
         alert(e);
       };
+      /* console.log(this.Char[1]) */
+    },
+
+  },
+
+  computed: {
+    isReloadChars() {
+      return this.$store.state.isReloadChars;
     }
   },
 
-  /* watch: {
-    login(v) {
-      this.loadUsersDb();
+  watch: {
+    isReloadChars(v) {
+      if (v)
+        this.getChars(this.login);
     }
-  } */
+  }
 }
 </script>
 
@@ -151,8 +226,15 @@ nav a.router-link-exact-active {
   height: 50%;
 }
 
+.loginin {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+}
+
 .btnreg {
   height: 27%;
+  margin-left: 3%;
 }
 
 .links {
@@ -192,5 +274,40 @@ a {
 
 .dislogo {
   width: 125%;
+}
+
+.exitbtn {
+  border: none;
+  background: none;
+}
+
+.menu {
+  width: 15%;
+  position: fixed;
+  height: 100vh;
+  border-right: 20px solid red;
+  left: -280px;
+  transition: all 0.2s ease;
+  background: rgba(20, 20, 20, 0.9);
+}
+
+.menu:hover {
+  left: 0;
+  transition: all 0.2s ease;
+}
+
+.shopmenu {
+  width: 50%;
+  position: fixed;
+  height: 100vh;
+  border-left: 20px solid red;
+  right: -950px;
+  transition: all 0.2s ease;
+  background: rgb(255, 255, 255);
+}
+
+.shopmenu:hover {
+  right: 0;
+  transition: all 0.2s ease;
 }
 </style>

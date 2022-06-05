@@ -9,55 +9,55 @@
             <div class="statsrow">
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>INT</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.int">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>REF</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.ref">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>TECH</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.tech">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>COOL</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.cool">
                 </div>
             </div>
             <div class="statsrow">
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>ATTR</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.attr">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>LUCK</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.luck">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>MA</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.ma">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>BODY</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.body">
                 </div>
             </div>
             <div class="statsrow">
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>EMP</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.emp">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>Run</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.run">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>Leap</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.leap">
                 </div>
                 <div class="stat">
                     <label for="stat" class="statlabel"> <strong>Lift</strong> </label>
-                    <input type="number" name="stat" id="stat" class="statinp">
+                    <input type="number" name="stat" id="stat" class="statinp" v-model="this.Stats.lift">
                 </div>
             </div>
         </div>
@@ -66,7 +66,50 @@
 
 <script>
 export default {
+    data() {
+        return {
+            Stats: {
+                int: "",
+                ref: "",
+                tech: "",
+                cool: "",
+                attr: "",
+                luck: "",
+                ma: "",
+                body: "",
+                emp: "",
+                run: "",
+                leap: "",
+                lift: "",
+            },
+        }
+    },
 
+    methods: {
+        setStatsFromStore() {
+            this.Stats = this.$store.state.Stats;
+        }
+    },
+
+    computed: {
+        isLoadChar() {
+            return this.$store.state.isLoadChar;
+        }
+    },
+
+    watch: {
+        Stats: {
+            handler(i) {
+                this.$store.commit('setStats', i);
+            },
+            deep: true,
+        },
+
+        isLoadChar(v) {
+            if (v)
+                this.setStatsFromStore();
+        }
+    }
 }
 </script>
 

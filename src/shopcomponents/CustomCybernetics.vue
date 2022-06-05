@@ -9,6 +9,7 @@
                 <th class="price" style="color: blue">PRICE</th>
                 <th class="hum" style="color: blue">HUMANITY</th>
                 <th class="btn" style="color: blue"></th>
+                <th class="btn" style="color: blue"></th>
             </tr>
         </thead>
         <tbody style="display: flex; flex-direction: column">
@@ -17,14 +18,18 @@
                 <td class="code">{{ i.code }}</td>
                 <td class="price">{{ i.price }}</td>
                 <td class="hum">{{ i.humanity }}</td>
+                <button class="btn" @click="deleteCustomCybernetics(i)"> Delete</button>
                 <button class="btn" @click="addCybernetics(i)"> + BUY</button>
             </tr>
-            <tr class="item" style="margin-top: 50px">
-                <th class="nameitem"><input v-model="this.customitem.name" type="text"></th>
-                <td class="code"><input v-model="this.customitem.code" type="text"></td>
-                <td class="price"><input v-model="this.customitem.price" type="number" name="" id=""></td>
-                <td class="hum"><input v-model="this.customitem.humanity" type="text"></td>
-                <button class="btn" @click="addCustomCybernetics"> Create implant</button>
+
+            <h4>Добавить свои импланты</h4>
+
+            <tr class="item" style="margin-top: 1px">
+                <th class="nameitem"><input type="text" id="name"></th>
+                <td class="code"><input type="text" id="code"></td>
+                <td class="price"><input type="number" name="" id="price"></td>
+                <td class="hum"><input type="text" id="humanity"></td>
+                <button class="btnaddimp" @click="addCustomCybernetics"> Create implant</button>
             </tr>
         </tbody>
     </table>
@@ -35,13 +40,6 @@ export default {
     data() {
         return {
             isShow: false,
-
-            customitem: {
-                name: "",
-                code: "",
-                price: "",
-                humanity: ""
-            }
         }
     },
     methods: {
@@ -54,19 +52,43 @@ export default {
         },
 
         addCustomCybernetics() {
-            this.$store.commit('addCustomCybernetics', this.customitem);
+
+            let name = document.getElementById("name").value;
+            let code = document.getElementById("code").value;
+            let price = document.getElementById("price").value;
+            let humanity = document.getElementById("humanity").value;
+
+            let X = {
+                name,
+                code,
+                price,
+                humanity
+            };
+
+            this.$store.commit('addCustomCybernetics', X);
+
+            document.getElementById("name").value = "";
+            document.getElementById("code").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("humanity").value = "";
+
         },
 
         addCybernetics(i) {
             this.$store.commit('addCybernetics', i);
         },
+
+        deleteCustomCybernetics(i) {
+            this.$store.commit('deleteCustomCybernetics', i);
+        }
     }
 }
 </script>
 
 <style scoped>
+
 .btnsubmenu {
-    width: 35%;
+    width: 40%;
     margin-top: 5px;
 }
 
@@ -82,6 +104,7 @@ export default {
     width: 100%;
     display: flex;
     margin-top: 2px;
+    background: white;
 }
 
 .hum {
@@ -105,6 +128,10 @@ export default {
 }
 
 .btn {
+    width: 10%;
+}
+
+.btnaddimp {
     width: 20%;
 }
 

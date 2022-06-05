@@ -1,6 +1,6 @@
 <template>
 
-    <button class="btnsubmenu" @click="showTable">Нейроимпланты</button>
+    <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button>
 
     <table class="table" v-show="isShow">
         <thead>
@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="item" v-for="i in $store.state.cyberneticsshop.Neuro" :key="i.name">
+            <tr class="item" v-for="i in Items" :key="i.name">
                 <th class="nameitem">{{ i.name }}</th>
                 <td class="code">{{ i.code }}</td>
                 <td class="price">{{ i.price }}</td>
@@ -26,6 +26,10 @@
 
 <script>
 export default {
+    props: {
+        Items: Array,
+        NameShop: String,
+    },
     data() {
         return {
             isShow: false,
@@ -40,10 +44,6 @@ export default {
             }
         },
 
-        addCustomCybernetics() {
-            this.$store.commit('addCustomCybernetics');
-        },
-
         addCybernetics(i) {
             this.$store.commit('addCybernetics', i);
         }
@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 .btnsubmenu {
-    width: 35%;
+    width: 40%;
     margin-top: 5px;
 }
 
@@ -69,30 +69,39 @@ export default {
     width: 100%;
     display: flex;
     margin-top: 2px;
+    background: white;
 }
 
 .hum {
     width: 15%;
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }
 
 .price {
     width: 10%;
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }
 
 .code {
     width: 10%;
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }
 
 .nameitem {
     width: 50%;
     border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
 }
 
 .btn {
     width: 20%;
 }
-
 </style>

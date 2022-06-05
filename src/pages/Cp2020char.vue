@@ -1,16 +1,11 @@
 <template>
     <div class="fullcharlist" id="mainlist">
 
-        <div>
-            <button class="btn" @click="openSettings">Settings</button>
-            <div class="settings" v-show="isOpenSettings">
-                <button>Char-list</button>
-                <button>Auto-armor</button>
-                <button>Save current char</button>
-            </div>
-        </div>
+        <!-- <chars-block :Chars="Chars"></chars-block>
 
-        <div>
+        <settings-block></settings-block> -->
+
+        <!-- <div>
             <button class="btn" @click="openShop">Shop</button>
             <div class="shopmenu" v-show="isOpenShop">
 
@@ -22,7 +17,7 @@
                 <button class="btnsm">Armor</button>
                 <button class="btnsm">Weapons</button>
             </div>
-        </div>
+        </div> -->
 
         <div class="">
             <button class="btn" @click="openCharlist">
@@ -48,19 +43,22 @@
 <script>
 import CharList from "@/components/CharList.vue";
 import DeckList from "@/components/DeckList.vue";
+import SettingsBlock from "@/components/SettingsBlock.vue";
+import CharsBlock from "@/components/CharsBlock.vue";
 
 import CyberneticsShop from "@/shopcomponents/CyberneticsShop.vue";
+import LeftMenuVue from '@/components/LeftMenu.vue';
 
 export default {
-    components: { CharList, DeckList, CyberneticsShop },
+    components: { CharList, DeckList, CyberneticsShop, SettingsBlock, CharsBlock,},
     data() {
         return {
             isOpenCharlist: true,
             isOpenDeck: false,
-            isOpenSettings: false,
-            isOpenShop: true,
 
-            isCybershopOpen: false,
+            /* isOpenShop: true,
+
+            isCybershopOpen: false, */
 
             setWidthcount: 1,
         }
@@ -82,11 +80,7 @@ export default {
             }
         },
 
-        openSettings() {
-            if (!this.isOpenSettings) { this.isOpenSettings = true } else { this.isOpenSettings = false }
-        },
-
-        openShop() {
+        /* openShop() {
             if (!this.isOpenShop) {
                 this.isOpenShop = true;
             } else {
@@ -101,7 +95,7 @@ export default {
             } else {
                 this.isCybershopOpen = false
             }
-        },
+        }, */
 
         setWidth() {
             if (this.setWidthcount) {
@@ -112,7 +106,7 @@ export default {
                 this.setWidthcount += 1;
             }
 
-        }
+        },
     }
 }
 </script>
@@ -130,6 +124,8 @@ export default {
 .btn {
     height: 30px;
     width: 100%;
+    margin-bottom: 3%;
+    border: none;
 }
 
 .shopmenu {
