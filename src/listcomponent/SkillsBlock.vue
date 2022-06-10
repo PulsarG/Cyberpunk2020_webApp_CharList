@@ -11,9 +11,8 @@
                 напротив поля с очками навыка.</p>
         </div>
         <div class="skillsmanage">
-            <button @click="hiddenEmptySkills">Hidden Empty Skills</button>
-            <button>Show recomended for {{$store.state.role}}</button>
-            <button>123123123</button>
+            <button @click="hiddenEmptySkills">Скрыть неиспользуемые</button>
+            <button>Показать рекомендованные для {{$store.state.role}}</button>
         </div>
     </div>
 

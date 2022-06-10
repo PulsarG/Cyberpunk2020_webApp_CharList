@@ -3,7 +3,7 @@
     <left-menu :Chars="Chars"></left-menu>
   </div>
 
-  <div class="shopmenu">
+  <div class="shopmenu" id="shop">
     <shop-menu></shop-menu>
   </div>
 
@@ -14,9 +14,9 @@
       <input v-model="login" type="text" id="login" autocomplete="off" placeholder="login">
       <!--  <label for="pass">Password</label> -->
       <input v-model="pass" type="text" id="pass" autocomplete="off" placeholder="password">
-      <button @click="singUp">Login</button>
+      <button @click="singUp">Войти</button>
 
-      <button class="btnreg" @click="regUser">Registry</button>
+      <button class="btnreg" @click="regUser">Регистрация</button>
     </div>
 
     <div class="loginin" v-show="isLogin">
@@ -30,7 +30,7 @@
     <div class="links">
       <div class="ver">
         <a href="">
-          ver 0.9.220605:7
+          ver 0.9.220610:5
         </a>
       </div>
       <div class="comunity">
@@ -75,18 +75,33 @@ export default {
       if (this.login == "" || this.pass == "") {
         alert("Не введен Логин или Пароль")
       } else {
-        try {
-          await axios.post("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/user.json", {
-            login: this.login,
-            pass: this.pass
-          });
-          alert("Регистрация прошла успешно");
-        } catch (e) {
-          alert(e);
-        }
-        this.login = "";
-        this.pass = "";
+
+        this.loadUsersDb()
+        setTimeout(() => {
+          for (var i in this.Users) {
+
+            if (this.Users[i].login == this.login) {
+              alert("Такой Логин существует");
+              return
+            }
+
+          }
+
+          try {
+            axios.post("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/user.json", {
+              login: this.login,
+              pass: this.pass
+            });
+            alert("Регистрация прошла успешно");
+          } catch (e) {
+            alert(e);
+          }
+          this.login = "";
+          this.pass = "";
+        }, 1000)
+
       }
+      this.Users.length = 0;
     },
 
 
@@ -279,6 +294,7 @@ a {
 .exitbtn {
   border: none;
   background: none;
+  margin-bottom: 5px;
 }
 
 .menu {
@@ -304,6 +320,7 @@ a {
   right: -950px;
   transition: all 0.2s ease;
   background: rgb(255, 255, 255);
+  /* overflow: auto; */
 }
 
 .shopmenu:hover {

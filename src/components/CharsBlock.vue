@@ -5,7 +5,9 @@
             <div v-for="i in this.Chars" :key="i.Role">
                 <div class="charslist">
                     <button class="btnchars" @click="setChar(i)">
-                        {{ i.Char.nick }} * {{ i.Role }}
+                        <p style="color: red">
+                            {{ i.Char.nick }} * {{ i.Role }}
+                        </p>
                     </button>
                 </div>
             </div>
@@ -20,7 +22,7 @@ export default {
     },
     data() {
         return {
-            isOpenSettings: false,
+            isOpenSettings: true,
 
         }
     },

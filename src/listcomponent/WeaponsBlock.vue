@@ -10,25 +10,32 @@
         <table class="table" v-show="isOpenImplants">
             <thead>
                 <tr class="item">
-                    <th class="nameitem" style="color: blue">Name</th>
-                    <th class="wi" style="color: blue">Type</th>
-                    <th class="wi" style="color: blue">WA</th>
-                    <th class="wi" style="color: blue">Con</th>
-                    <th class="wi" style="color: blue">Avall</th>
-                    <th class="wi" style="color: blue">Dammage</th>
-                    <th class="wi" style="color: blue">Ammo</th>
-                    <th class="wi" style="color: blue">Shots</th>
-                    <th class="wi" style="color: blue">ROF</th>
-                    <th class="wi" style="color: blue">Rel</th>
+                    <th class="type" style="color: blue">Type</th>
+                    <th class="nameitem" style="color: blue">NAME</th>
+                    <th class="wa" style="color: blue">WA</th>
+                    <th class="con" style="color: blue">Con</th>
+                    <th class="avail" style="color: blue">Avail</th>
+                    <th class="damage" style="color: blue">Damage</th>
+                    <th class="shots" style="color: blue">Shots</th>
+                    <th class="rof" style="color: blue">Rof</th>
+                    <th class="rel" style="color: blue">Rel</th>
+                    <th class="range" style="color: blue">Range</th>
                     <th class="btn" style="color: blue"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="item" v-for="i in $store.state.Weapons" :key="i.name">
+                    <td class="type">{{ i.type }}</td>
                     <th class="nameitem">{{ i.name }}</th>
-                    <td class="hum">{{ i.humanity }}</td>
-                    <td class="price">{{ i.price }}</td>
-                    <button class="btn" @click="deleteCybernetics(i)"> - delete implant</button>
+                    <td class="wa">{{ i.wa }}</td>
+                    <td class="con">{{ i.con }}</td>
+                    <th class="avail">{{ i.avail }}</th>
+                    <td class="damage">{{ i.damage }}</td>
+                    <td class="shots">{{ i.shots }}</td>
+                    <td class="rof">{{ i.rof }}</td>
+                    <th class="rel">{{ i.rel }}</th>
+                    <td class="range">{{ i.range }}</td>
+                    <button class="btn" @click="deleteWeapons(i)"> -delete</button>
                 </tr>
             </tbody>
         </table>
@@ -51,7 +58,7 @@ export default {
             }
         },
 
-        deleteCybernetics(i) {
+        deleteWeapons(i) {
             this.$store.commit('deleteWeapons', i);
         }
     }
@@ -84,28 +91,75 @@ export default {
     margin-top: 2px;
 }
 
-.hum {
-    width: 15%;
-    border: 1px solid black;
-}
-
-.price {
-    width: 10%;
-    border: 1px solid black;
-}
-
-.code {
-    width: 10%;
-    border: 1px solid black;
-}
 
 .nameitem {
-    width: 50%;
+    width: 30%;
     border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
 }
 
-.wi {
+.type {
+    width: 5%;
     border: 1px solid black;
-    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.wa {
+    width: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.con {
+    width: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.rof {
+    width: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.rel {
+    width: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.avail {
+    width: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.damage {
+    width: 18%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.shots {
+    width: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.range {
+    width: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }
 </style>

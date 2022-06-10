@@ -178,6 +178,90 @@ export default {
                 price: 700,
                 humanity: "2d6"
             },
-        ]
+        ],
+
+        Bioupgrade: [
+            {
+                name: "Наращенные мышцы",
+                code: "MA",
+                price: 1000,
+                humanity: "2d6"
+            },
+            {
+                name: "Оплетка мускул и костей",
+                code: "N",
+                price: 1500,
+                humanity: "1d6/2"
+            },
+            {
+                name: "Прошивка кожи",
+                code: "N",
+                price: 2000,
+                humanity: "2d6"
+            },
+            {
+                name: "Усиленные антитела",
+                code: "N",
+                price: 3000,
+                humanity: "1d6 / 2"
+            },
+            {
+                name: "Блокировщики токсинов",
+                code: "N",
+                price: 3000,
+                humanity: "1d6/2"
+            },
+            {
+                name: "Нанохирурги",
+                code: "N",
+                price: 6000,
+                humanity: "1d6/2"
+            },
+        ],
+
+        Meleeweapons: [
+            {
+                name: "Коготки",
+                code: "N",
+                price: 100,
+                humanity: "2d6"
+            },
+            {
+                name: "Клыки вампира",
+                code: "N",
+                price: 200,
+                humanity: "3d6"
+            },
+            {
+                name: "Потрошители",
+                code: "M",
+                price: 400,
+                humanity: "3d6"
+            },
+            {
+                name: "Волки",
+                code: "M",
+                price: 600,
+                humanity: "3d6+1"
+            },
+            {
+                name: "Большие костяшки",
+                code: "M",
+                price: 500,
+                humanity: "3d6"
+            },
+            {
+                name: "Моноструна",
+                code: "M",
+                price: 700,
+                humanity: "3d6"
+            },
+            {
+                name: "Кибер-змея",
+                code: "MA",
+                price: 1200,
+                humanity: "4d6"
+            },
+        ],
     }),
 }

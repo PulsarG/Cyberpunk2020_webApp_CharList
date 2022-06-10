@@ -2,24 +2,58 @@
     <div class="morestats">
         <div class="rep">
             <h4>REP</h4>
-            <input type="text" class="morestatsinp">
+            <input type="text" v-model="Morestats.rep" class="morestatsinp">
         </div>
 
         <div class="rep">
             <h4>CURRENT IP</h4>
-            <input type="text" class="morestatsinp">
+            <input type="text" v-model="Morestats.ip" class="morestatsinp">
         </div>
 
         <div class="rep">
             <h4>HUMANITY</h4>
-            <input type="text" class="morestatsinp">
+            <input type="text" v-model="Morestats.humanity" class="morestatsinp">
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            Morestats: {
+                rep: "",
+                ip: "",
+                humanity: ""
+            },
+        }
+    },
 
+    methods: {
+        setMorestatsFromStore() {
+            this.Morestats = this.$store.state.Morestats;
+        }
+    },
+
+    computed: {
+        isLoadChar() {
+            return this.$store.state.isLoadChar;
+        }
+    },
+
+    watch: {
+        Morestats: {
+            handler(i) {
+                this.$store.commit('setMorestats', i);
+            },
+            deep: true,
+        },
+
+        isLoadChar(v) {
+            if (v)
+                this.setMorestatsFromStore();
+        }
+    }
 }
 </script>
 

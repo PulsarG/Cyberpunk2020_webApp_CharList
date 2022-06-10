@@ -3,16 +3,26 @@
         <h2>Магазин</h2>
     </div>
     <div>
-        <button class="btn" @click="openShop"> <h1>SHOP</h1> </button>
+        <button class="btn" @click="openShop">
+            <h1>SHOP</h1>
+        </button>
         <div class="shopmenu" v-show="isOpenShop">
 
-            <button class="btnsm" @click="openCybershop">Cybernetics / Импланты</button>
+            <button class="btnsm" @click="openCybershop">Импланты</button>
             <div class="submenu" v-show="isCybershopOpen">
                 <cybernetics-shop></cybernetics-shop>
             </div>
 
-            <button class="btnsm">Armor</button>
-            <button class="btnsm">Weapons</button>
+            <button class="btnsm">Броня</button>
+            <div class="submenu" v-show="isCybershopOpen">
+
+            </div>
+
+            <button class="btnsm" @click="openWeaponsshop">Оружие</button>
+            <div class="submenu" v-show="isWeaponsshopOpen">
+                <weapons-shop></weapons-shop>
+            </div>
+
             <button class="btnsm">Other Items</button>
         </div>
     </div>
@@ -20,13 +30,15 @@
 
 <script>
 import CyberneticsShop from "@/shopcomponents/CyberneticsShop.vue";
+import WeaponsShop from "@/shopcomponents/WeaponsShop.vue";
 export default {
-    components: { CyberneticsShop },
+    components: { CyberneticsShop, WeaponsShop, },
     data() {
         return {
             isOpenShop: true,
 
             isCybershopOpen: false,
+            isWeaponsshopOpen: false,
         }
     },
     methods: {
@@ -44,6 +56,13 @@ export default {
                 this.isCybershopOpen = true;
             } else {
                 this.isCybershopOpen = false
+            }
+        },
+        openWeaponsshop() {
+            if (!this.isWeaponsshopOpen) {
+                this.isWeaponsshopOpen = true;
+            } else {
+                this.isWeaponsshopOpen = false
             }
         },
     }
@@ -70,6 +89,8 @@ export default {
     display: flex;
     flex-direction: column;
     margin-left: 5%;
+    overflow: auto;
+    height: 70vh;
 }
 
 .btnsm {

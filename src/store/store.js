@@ -3,11 +3,13 @@ import { createStore } from "vuex";
 import skills from "@/modules/skills.js";
 import cyberneticsshop from "@/modules/cyberneticsshop.js";
 import customs from "@/modules/customs";
+import weaponsshop from "@/modules/weaponsshop.js";
 
 const store = createStore({
 
     modules: {
         cyberneticsshop,
+        weaponsshop,
         skills,
         customs,
     },
@@ -39,6 +41,12 @@ const store = createStore({
             humanity: "",
         },
 
+        Morestats: {
+            rep: "",
+            ip: "",
+            humanity: ""
+        },
+
         Cybernetics: [],
         Gear: [],
         Weapons: [],
@@ -61,6 +69,9 @@ const store = createStore({
 
         setStats(state, s) {
             state.Stats = s;
+        },
+        setMorestats(state, s) {
+            state.Morestats = s;
         },
 
         setCP(state, v) {
@@ -133,16 +144,18 @@ const store = createStore({
             state.Char = i.Char;
 
             state.Stats = i.Stats;
+            state.Morestats = i.Morestats;
 
             state.role = i.Role;
 
-            state.skills.Skillscpecial = i.Skillscpecial;
+            state.skills = i.Skills;
 
             state.Cybernetics = i.Cybernetics;
             state.Gear = i.Gear;
             state.Weapons = i.Weapons;
 
             state.customs.Customcybernetics = i.Customcybernetics;
+            state.customs.Customweapons = i.Customweapons;
 
             state.isLoadChar = true;
 

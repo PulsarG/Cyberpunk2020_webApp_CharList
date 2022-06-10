@@ -28,22 +28,21 @@ export default {
         async saveChar() {
             try {
                 await axios.post("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/" + this.login + ".json", {
-                    Character: {
 
-                        Char: this.$store.state.Char,
 
-                        Stats: this.$store.state.Stats,
+                    Char: this.$store.state.Char,
+                    Role: this.$store.state.role,
 
-                        Cybernetics: this.$store.state.Cybernetics,
+                    Stats: this.$store.state.Stats,
+                    Morestats: this.$store.state.Morestats,
 
-                        Role: this.$store.state.role,
+                    Skills: this.$store.state.skills,
 
-                        Customcybernetics: this.$store.state.customs.Customcybernetics,
+                    Cybernetics: this.$store.state.Cybernetics,
+                    Weapons: this.$store.state.Weapons,
 
-                        Skillspecial: this.$store.state.skills.Skillsspecial,
-
-                    }
-
+                    Customcybernetics: this.$store.state.customs.Customcybernetics,
+                    Customweapons: this.$store.state.customs.Customweapons,
                 });
                 alert("Сохранено");
                 this.reloadChars(true);

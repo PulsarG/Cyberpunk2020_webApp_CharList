@@ -1,9 +1,9 @@
 export default {
     state() {
         return {
-            Customcybernetics: [
+            Customcybernetics: [],
 
-            ]
+            Customweapons: [],
         }
     },
 
@@ -20,6 +20,20 @@ export default {
                 }
             }
             return state.Customcybernetics
+        },
+
+        addCustomWeapons(state, x) {
+            state.Customweapons.push(x);
+        },
+
+        deleteCustomWeapons(state, v) {
+            for (let i = 0; i < state.Customweapons.length; i++) {
+                if (state.Customweapons[i] == v) {
+                    state.Customweapons.splice(i, 1);
+                    i--
+                }
+            }
+            return state.Customweapons
         },
     },
 }
