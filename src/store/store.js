@@ -154,8 +154,8 @@ const store = createStore({
             state.Gear = i.Gear;
             state.Weapons = i.Weapons;
 
-            state.customs.Customcybernetics = i.Customcybernetics;
-            state.customs.Customweapons = i.Customweapons;
+            /* state.customs.Customcybernetics = i.Customcybernetics;
+            state.customs.Customweapons = i.Customweapons; */
 
             state.isLoadChar = true;
 

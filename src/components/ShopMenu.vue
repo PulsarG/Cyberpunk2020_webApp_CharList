@@ -24,11 +24,15 @@
             </div>
 
             <button class="btnsm">Other Items</button>
+
+            <button class="btnsm" @click="SaveCustomItems">Save All Custom Items</button>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 import CyberneticsShop from "@/shopcomponents/CyberneticsShop.vue";
 import WeaponsShop from "@/shopcomponents/WeaponsShop.vue";
 export default {
@@ -42,6 +46,20 @@ export default {
         }
     },
     methods: {
+
+        async SaveCustomItems() {
+            try {
+                await axios.post("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/" + this.login + "custom" + ".json", {
+                     Customcybernetics: this.$store.state.customs.Customcybernetics,
+                     Customweapons: this.$store.state.customs.Customweapons,
+                });
+                alert("Сохранено");
+
+            } catch (e) {
+                alert(e);
+            }
+        },
+
         openShop() {
             if (!this.isOpenShop) {
                 this.isOpenShop = true;
@@ -65,8 +83,13 @@ export default {
                 this.isWeaponsshopOpen = false
             }
         },
-    }
+    },
 
+    computed: {
+        login() {
+            return this.$store.state.login
+        },
+    }
 }
 </script>
 

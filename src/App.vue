@@ -30,7 +30,7 @@
     <div class="links">
       <div class="ver">
         <a href="">
-          ver 0.9.220610:5
+          ver 0.9.220818:1
         </a>
       </div>
       <div class="comunity">
@@ -65,6 +65,8 @@ export default {
       Users: [],
 
       Chars: [],
+
+      Customs: [],
 
       ii: 0,
     }
@@ -120,6 +122,7 @@ export default {
               this.isLogin = true;
 
               this.getChars(this.login);
+              this.getCustoms(this.login);
               this.setLogin();
 
             } else {
@@ -189,6 +192,44 @@ export default {
         alert(e);
       };
       /* console.log(this.Char[1]) */
+    },
+
+    async getCustoms(l) {
+      try {
+        await axios.get("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/" + l + "custom" + ".json")
+          .then((response) => {
+            let array = [];
+            for (var i in response.data)
+              array.push([i, response.data[i]]);
+
+            let j = array.length;
+            j--;
+            this.Customs = array[j];
+
+          });
+
+      } catch (e) {
+        alert(e);
+      };
+
+      let j = this.Customs[1].Customcybernetics.length;
+
+      for (let i = 0; i < j; i++) {
+        let X = {
+          name,
+          code,
+          price,
+          humanity
+        };
+        X.name = this.Customs[1].Customcybernetics[i].name;
+        X.code = this.Customs[1].Customcybernetics[i].code;
+        X.price = this.Customs[1].Customcybernetics[i].price;
+        X.humanity = this.Customs[1].Customcybernetics[i].humanity;
+
+        this.$store.commit('addCustomCybernetics', X);
+
+      };
+      console.log(this.Customs[1].Customweapons.length)
     },
 
   },

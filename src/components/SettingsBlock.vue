@@ -41,8 +41,8 @@ export default {
                     Cybernetics: this.$store.state.Cybernetics,
                     Weapons: this.$store.state.Weapons,
 
-                    Customcybernetics: this.$store.state.customs.Customcybernetics,
-                    Customweapons: this.$store.state.customs.Customweapons,
+                   /*  Customcybernetics: this.$store.state.customs.Customcybernetics,
+                    Customweapons: this.$store.state.customs.Customweapons, */
                 });
                 alert("Сохранено");
                 this.reloadChars(true);

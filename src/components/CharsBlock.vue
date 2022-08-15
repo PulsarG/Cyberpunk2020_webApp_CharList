@@ -9,6 +9,7 @@
                             {{ i.Char.nick }} * {{ i.Role }}
                         </p>
                     </button>
+                    <button @click="deleteChar(i);">Delete char</button>
                 </div>
             </div>
         </div>
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+/* import db from '@/main.js' */
 export default {
     props: {
         Chars: Array,
@@ -34,6 +36,10 @@ export default {
 
         setChar(i) {
             this.$store.commit('setChar', i);
+        },
+
+        deleteChar(i) {
+            db.child('Furylon').remove(i);
         }
     },
 
