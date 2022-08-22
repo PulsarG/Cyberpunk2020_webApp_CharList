@@ -1,129 +1,138 @@
 <template>
-    <div class="title">
-        <h2>Магазин</h2>
+  <div class="title">
+    <h2>Магазин</h2>
+  </div>
+  <div>
+    <button class="btn" @click="openShop">
+      <h1>SHOP</h1>
+    </button>
+    <div class="shopmenu" v-show="isOpenShop">
+      <button class="btnsm" @click="openCybershop">Импланты</button>
+      <div class="submenu" v-show="isCybershopOpen">
+        <cybernetics-shop></cybernetics-shop>
+      </div>
+
+      <button class="btnsm">Броня</button>
+      <div class="submenu" v-show="isCybershopOpen"></div>
+
+      <button class="btnsm" @click="openWeaponsshop">Оружие</button>
+      <div class="submenu" v-show="isWeaponsshopOpen">
+        <weapons-shop></weapons-shop>
+      </div>
+
+      <button class="btnsm">Other Items</button>
+
+      <button class="btnsm" @click="SaveCustomItems">
+        Save All Custom Items
+      </button>
     </div>
-    <div>
-        <button class="btn" @click="openShop">
-            <h1>SHOP</h1>
-        </button>
-        <div class="shopmenu" v-show="isOpenShop">
-
-            <button class="btnsm" @click="openCybershop">Импланты</button>
-            <div class="submenu" v-show="isCybershopOpen">
-                <cybernetics-shop></cybernetics-shop>
-            </div>
-
-            <button class="btnsm">Броня</button>
-            <div class="submenu" v-show="isCybershopOpen">
-
-            </div>
-
-            <button class="btnsm" @click="openWeaponsshop">Оружие</button>
-            <div class="submenu" v-show="isWeaponsshopOpen">
-                <weapons-shop></weapons-shop>
-            </div>
-
-            <button class="btnsm">Other Items</button>
-
-            <button class="btnsm" @click="SaveCustomItems">Save All Custom Items</button>
-        </div>
-    </div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
+import { db } from "@/main";
+import {
+  collection,
+  getDocs,
+  setDoc,
+  addDoc,
+  doc,
+  deleteDoc,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
+
+import axios from "axios";
 
 import CyberneticsShop from "@/shopcomponents/CyberneticsShop.vue";
 import WeaponsShop from "@/shopcomponents/WeaponsShop.vue";
 export default {
-    components: { CyberneticsShop, WeaponsShop, },
-    data() {
-        return {
-            isOpenShop: true,
+  components: { CyberneticsShop, WeaponsShop },
+  data() {
+    return {
+      isOpenShop: true,
 
-            isCybershopOpen: false,
-            isWeaponsshopOpen: false,
-        }
-    },
-    methods: {
-
-        async SaveCustomItems() {
-            try {
-                await axios.post("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/" + this.login + "custom" + ".json", {
-                     Customcybernetics: this.$store.state.customs.Customcybernetics,
-                     Customweapons: this.$store.state.customs.Customweapons,
-                });
-                alert("Сохранено");
-
-            } catch (e) {
-                alert(e);
-            }
-        },
-
-        openShop() {
-            if (!this.isOpenShop) {
-                this.isOpenShop = true;
-            } else {
-                this.isOpenShop = false;
-            }
-        },
-
-
-        openCybershop() {
-            if (!this.isCybershopOpen) {
-                this.isCybershopOpen = true;
-            } else {
-                this.isCybershopOpen = false
-            }
-        },
-        openWeaponsshop() {
-            if (!this.isWeaponsshopOpen) {
-                this.isWeaponsshopOpen = true;
-            } else {
-                this.isWeaponsshopOpen = false
-            }
-        },
+      isCybershopOpen: false,
+      isWeaponsshopOpen: false,
+    };
+  },
+  methods: {
+    async SaveCustomItems() {
+      try {
+        await setDoc(doc(db, this.login, "CustomShop"), {
+          Customcybernetics: this.$store.state.customs.Customcybernetics,
+          Customweapons: this.$store.state.customs.Customweapons,
+        });
+        alert("Сохранено");
+      } catch (e) {
+        alert(e);
+      }
     },
 
-    computed: {
-        login() {
-            return this.$store.state.login
-        },
-    }
-}
+    openShop() {
+      if (!this.isOpenShop) {
+        this.isOpenShop = true;
+      } else {
+        this.isOpenShop = false;
+      }
+    },
+
+    openCybershop() {
+      if (!this.isCybershopOpen) {
+        this.isCybershopOpen = true;
+      } else {
+        this.isCybershopOpen = false;
+      }
+    },
+    openWeaponsshop() {
+      if (!this.isWeaponsshopOpen) {
+        this.isWeaponsshopOpen = true;
+      } else {
+        this.isWeaponsshopOpen = false;
+      }
+    },
+  },
+
+  computed: {
+    login() {
+      return this.$store.state.login;
+    },
+  },
+};
 </script>
 
 <style scoped>
 .title {
-    width: 200px;
-    position: relative;
-    right: 150px;
-    height: 15vh;
+  width: 200px;
+  position: relative;
+  right: 150px;
+  height: 15vh;
 }
 
 .btn {
-    height: 30px;
-    width: 100%;
-    border: none;
-    background: none;
+  height: 30px;
+  width: 100%;
+  border: none;
+  background: none;
 }
 
 .shopmenu {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-    overflow: auto;
-    height: 70vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  overflow: auto;
+  height: 70vh;
 }
 
 .btnsm {
-    width: 50%;
-    margin-top: 10px;
+  width: 50%;
+  margin-top: 10px;
 }
 
 .submenu {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 </style>

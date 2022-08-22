@@ -9,11 +9,22 @@
 
   <nav>
     <div class="login" v-show="!isLogin">
-
       <!-- <label for="login">Login</label> -->
-      <input v-model="login" type="text" id="login" autocomplete="off" placeholder="login">
+      <input
+        v-model="login"
+        type="text"
+        id="login"
+        autocomplete="off"
+        placeholder="login"
+      />
       <!--  <label for="pass">Password</label> -->
-      <input v-model="pass" type="text" id="pass" autocomplete="off" placeholder="password">
+      <input
+        v-model="pass"
+        type="text"
+        id="pass"
+        autocomplete="off"
+        placeholder="password"
+      />
       <button @click="singUp">Войти</button>
 
       <button class="btnreg" @click="regUser">Регистрация</button>
@@ -26,32 +37,46 @@
       </form>
     </div>
 
-
     <div class="links">
       <div class="ver">
-        <a href="">
-          ver 0.9.220818:1
-        </a>
+        <a href=""> ver 0.9.220822:1 </a>
       </div>
       <div class="comunity">
         <h4>Ru-Community</h4>
 
-        <a href="https://vk.com/cyberpunk2020"><img class="vklogo" src="@/assets/vk.png" alt=""></a>
+        <a href="https://vk.com/cyberpunk2020"
+          ><img class="vklogo" src="@/assets/vk.png" alt=""
+        /></a>
 
-        <a href="https://discord.gg/PPpHEzf67H"><img class="dislogo" src="@/assets/Diskord-logo.png" alt=""></a>
-
+        <a href="https://discord.gg/PPpHEzf67H"
+          ><img class="dislogo" src="@/assets/Diskord-logo.png" alt=""
+        /></a>
       </div>
     </div>
   </nav>
 
-  <router-view :Chars="Chars" />
+  <router-view :Chars="Chars" :isLogin="isLogin"/>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
+
+import { db } from "@/main";
+import {
+  collection,
+  getDocs,
+  setDoc,
+  addDoc,
+  doc,
+  getDoc,
+  deleteDoc,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
 
 import LeftMenu from "@/components/LeftMenu.vue";
-import ShopMenu from './components/ShopMenu.vue';
+import ShopMenu from "./components/ShopMenu.vue";
 
 export default {
   components: { LeftMenu, ShopMenu },
@@ -62,194 +87,143 @@ export default {
       login: "",
       pass: "",
 
-      Users: [],
-
       Chars: [],
 
       Customs: [],
 
-      ii: 0,
-    }
+      items: [],
+    };
   },
 
   methods: {
     async regUser() {
       if (this.login == "" || this.pass == "") {
-        alert("Не введен Логин или Пароль")
+        alert("Не введен Логин или Пароль");
       } else {
-
-        this.loadUsersDb()
-        setTimeout(() => {
-          for (var i in this.Users) {
-
-            if (this.Users[i].login == this.login) {
-              alert("Такой Логин существует");
-              return
-            }
-
-          }
-
-          try {
-            axios.post("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/user.json", {
-              login: this.login,
-              pass: this.pass
-            });
-            alert("Регистрация прошла успешно");
-          } catch (e) {
-            alert(e);
-          }
-          this.login = "";
-          this.pass = "";
-        }, 1000)
-
-      }
-      this.Users.length = 0;
-    },
-
-
-    singUp() {
-      let L = this.loadUsersDb()
-
-      if (L == 0)
-        return;
-
-      setTimeout(() => {
-        for (var i in this.Users) {
-
-          if (this.Users[i].login == this.login) {
-
-            if (this.Users[i].pass == this.pass) {
-              this.isLogin = true;
-
-              this.getChars(this.login);
-              this.getCustoms(this.login);
-              this.setLogin();
-
-            } else {
-              alert("Неверный пароль");
-              this.pass = "";
-              return
-            }
-
-            break;
-          }
-        };
-        if (!this.isLogin) {
-          alert("Не верный или не существующий Логин");
-          this.login = "";
-          this.pass = "";
-        }
-      }, 1000)
-      this.Users.length = 0;
-
-    },
-
-    async loadUsersDb() {
-      try {
-        await axios.get("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/user.json")
-          .then((response) => {
-            let array = [];
-            for (var i in response.data)
-              array.push([i, response.data[i]]);
-            let j = array.length;
-            for (let i = 0; i < j; i++) {
-              this.Users.push(array[i][1]);
-            }
-            console.log(this.Users)
+        try {
+          addDoc(collection(db, "User"), {
+            login: this.login,
+            pass: this.pass,
+            email: "",
+            isLogin: true,
           });
+          alert("Регистрация прошла успешно");
+        } catch (e) {
+          alert(e);
+        }
+        this.login = "";
+        this.pass = "";
+      }
+    },
+
+    async singUp() {
+      try {
+        const q = query(
+          collection(db, "User"),
+          where("pass", "==", this.pass),
+          where("login", "==", this.login)
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        querySnapshot.forEach((doc) => {
+          this.items.push(doc.data());
+        });
+        console.log(this.items);
+        if (this.items[0].isLogin) {
+          this.isLogin = true;
+        }
       } catch (e) {
-        alert("База данных сейчас недоступна. Извините");
-        alert(e);
-        return 0;
-      };
+        console.log(e);
+      }
+
+      if (this.isLogin) {
+        localStorage.login = this.items[0].login;
+        localStorage.isLogin = this.isLogin;
+        this.setLogin();
+        this.getChars(this.login);
+        this.getCustoms(this.login);
+      } else {
+        alert("Не верные данные");
+      }
     },
 
     logOut() {
       this.login = "";
       this.pass = "";
       this.isLogin = false;
+
+      localStorage.removeItem("login");
+      localStorage.removeItem("isLogin");
     },
 
     setLogin() {
-      this.$store.commit('setLogin', this.login)
+      this.$store.commit("setLogin", this.login);
     },
 
     async getChars(l) {
       try {
-        await axios.get("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/" + l + ".json")
-          .then((response) => {
-            let array = [];
-            for (var i in response.data)
-              array.push([i, response.data[i]]);
-            let j = array.length;
-            this.Chars.length = 0;
-            for (let i = 0; i < j; i++) {
-              this.Chars.push(array[i][1]);
-            }
-          });
-
+        this.Chars.length = 0;
+        const querySnapshot = await getDocs(collection(db, l));
+        querySnapshot.forEach((doc) => {
+          if (doc.id == "CustomShop") {
+            return;
+          }
+          this.Chars.push(doc.data());
+        });
       } catch (e) {
         alert(e);
-      };
-      /* console.log(this.Char[1]) */
+      }
     },
 
     async getCustoms(l) {
       try {
-        await axios.get("https://cp2020-bcaf6-default-rtdb.europe-west1.firebasedatabase.app/" + l + "custom" + ".json")
-          .then((response) => {
-            let array = [];
-            for (var i in response.data)
-              array.push([i, response.data[i]]);
+        const docRef = doc(db, l, "CustomShop");
+        const docSnap = await getDoc(docRef);
 
-            let j = array.length;
-            j--;
-            this.Customs = array[j];
+        let j = docSnap.data().Customcybernetics.length;
+        for (let i = 0; i < j; i++) {
+          let X = docSnap.data().Customcybernetics[i];
+          this.$store.commit("addCustomCybernetics", X);
+        }
 
-          });
-
+        let k = docSnap.data().Customweapons.length;
+        for (let i = 0; i < k; i++) {
+          let Y = docSnap.data().Customweapons[i];
+          this.$store.commit("addCustomWeapons", Y);
+        }
       } catch (e) {
         alert(e);
-      };
-
-      let j = this.Customs[1].Customcybernetics.length;
-
-      for (let i = 0; i < j; i++) {
-        let X = {
-          name,
-          code,
-          price,
-          humanity
-        };
-        X.name = this.Customs[1].Customcybernetics[i].name;
-        X.code = this.Customs[1].Customcybernetics[i].code;
-        X.price = this.Customs[1].Customcybernetics[i].price;
-        X.humanity = this.Customs[1].Customcybernetics[i].humanity;
-
-        this.$store.commit('addCustomCybernetics', X);
-
-      };
-      console.log(this.Customs[1].Customweapons.length)
+      }
     },
-
   },
 
   computed: {
     isReloadChars() {
       return this.$store.state.isReloadChars;
+    },
+  },
+
+  mounted() {
+    if (localStorage.login) {
+      this.login = localStorage.login;
+      this.isLogin = localStorage.isLogin;
+      this.setLogin();
+      this.getChars(this.login);
+      this.getCustoms(this.login);
     }
   },
 
   watch: {
     isReloadChars(v) {
-      if (v)
-        this.getChars(this.login);
-    }
-  }
-}
+      if (v) this.getChars(this.login);
+    },
+  },
+};
 </script>
 
 <style scoped>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -260,7 +234,6 @@ export default {
 
 nav {
   width: 50%;
-  display: flex;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -300,7 +273,6 @@ nav a.router-link-exact-active {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-
 }
 
 h4 {
@@ -309,7 +281,6 @@ h4 {
 
 .ver {
   width: auto;
-
 }
 
 .comunity {

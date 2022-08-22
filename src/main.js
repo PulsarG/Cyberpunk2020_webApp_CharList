@@ -3,10 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from "@/store/store"
 
-/* import * as firebase from "firebase/app";
 import 'firebase/database';
 
-import { getFirestore } from 'firebase/firestore/lite';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAEoDugezqAzpygOzLk9lrSCn9OMPCBA_8",
@@ -19,11 +20,10 @@ const firebaseConfig = {
     measurementId: "G-4VC2102SER"
 };
 
-const app = firebase.initializeApp(firebaseConfig);
-const db = getFirestore(app); */
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 
 createApp(App)
     .use(store)
     .use(router)
-    /* .use(db) */
     .mount('#app')
