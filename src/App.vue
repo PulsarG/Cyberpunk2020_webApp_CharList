@@ -136,25 +136,8 @@ export default {
       this.$store.dispatch("api/getChars", l);
     },
 
-    async getCustoms(l) {
-      try {
-        const docRef = doc(db, l, "CustomShop");
-        const docSnap = await getDoc(docRef);
-
-        let j = docSnap.data().Customcybernetics.length;
-        for (let i = 0; i < j; i++) {
-          let X = docSnap.data().Customcybernetics[i];
-          this.$store.commit("addCustomCybernetics", X);
-        }
-
-        let k = docSnap.data().Customweapons.length;
-        for (let i = 0; i < k; i++) {
-          let Y = docSnap.data().Customweapons[i];
-          this.$store.commit("addCustomWeapons", Y);
-        }
-      } catch (e) {
-        alert(e);
-      }
+    getCustoms(l) {
+      this.$store.dispatch("api/getCustoms")
     },
   },
 
@@ -168,9 +151,6 @@ export default {
     if (localStorage.login) {
       this.login = localStorage.login;
       this.$store.commit("api/setIsLoginIn", localStorage.isLogin);
-      /* this.setLogin();
-      this.getChars(this.login);
-      this.getCustoms(this.login); */
     }
   },
 

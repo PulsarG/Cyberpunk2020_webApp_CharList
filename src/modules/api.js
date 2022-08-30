@@ -92,6 +92,39 @@ export default {
         }
       }
     },
+
+    async saveCustomItems({ state }) {
+      try {
+        await setDoc(doc(db, store.state.login, "CustomShop"), {
+          Customcybernetics: store.state.customs.Customcybernetics,
+          Customweapons: store.state.customs.Customweapons,
+        });
+        alert("Сохранено");
+      } catch (e) {
+        alert(e);
+      }
+    },
+
+    async getCustoms({state}){
+      try {
+        const docRef = doc(db, store.state.login, "CustomShop");
+        const docSnap = await getDoc(docRef);
+
+        let j = docSnap.data().Customcybernetics.length;
+        for (let i = 0; i < j; i++) {
+          let X = docSnap.data().Customcybernetics[i];
+          store.commit("addCustomCybernetics", X);
+        }
+
+        let k = docSnap.data().Customweapons.length;
+        for (let i = 0; i < k; i++) {
+          let Y = docSnap.data().Customweapons[i];
+          store.commit("addCustomWeapons", Y);
+        }
+      } catch (e) {
+        alert(e);
+      } 
+    }
   },
 
   namespaced: true,

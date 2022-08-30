@@ -23,28 +23,13 @@
       <button class="btnsm">Other Items</button>
 
       <button class="btnsm" @click="SaveCustomItems">
-        Save All Custom Items
+        СОХРАНИТЬ кастомные вещи
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import { db } from "@/main";
-import {
-  collection,
-  getDocs,
-  setDoc,
-  addDoc,
-  doc,
-  deleteDoc,
-  onSnapshot,
-  query,
-  where,
-} from "firebase/firestore";
-
-import axios from "axios";
-
 import CyberneticsShop from "@/shopcomponents/CyberneticsShop.vue";
 import WeaponsShop from "@/shopcomponents/WeaponsShop.vue";
 export default {
@@ -58,16 +43,8 @@ export default {
     };
   },
   methods: {
-    async SaveCustomItems() {
-      try {
-        await setDoc(doc(db, this.login, "CustomShop"), {
-          Customcybernetics: this.$store.state.customs.Customcybernetics,
-          Customweapons: this.$store.state.customs.Customweapons,
-        });
-        alert("Сохранено");
-      } catch (e) {
-        alert(e);
-      }
+    SaveCustomItems() {
+      this.$store.dispatch('api/saveCustomItems')
     },
 
     openShop() {
@@ -91,12 +68,6 @@ export default {
       } else {
         this.isWeaponsshopOpen = false;
       }
-    },
-  },
-
-  computed: {
-    login() {
-      return this.$store.state.login;
     },
   },
 };
