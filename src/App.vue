@@ -136,7 +136,7 @@ export default {
       this.$store.dispatch("api/getChars", l);
     },
 
-    getCustoms() {
+    getCustoms(l) {
       this.$store.dispatch("api/getCustoms")
     },
   },
@@ -178,7 +178,7 @@ export default {
 }
 
 nav {
-  width: 50%;
+  max-width: 1000px;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -198,6 +198,7 @@ nav a.router-link-exact-active {
   display: flex;
   flex-direction: row;
   height: 50%;
+  max-width: 1000px;
 }
 
 .loginin {
@@ -212,7 +213,7 @@ nav a.router-link-exact-active {
 }
 
 .links {
-  width: 30%;
+  width: 330px;
   height: auto;
   display: flex;
   flex-direction: column;

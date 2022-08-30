@@ -26,7 +26,7 @@
         <deck-list></deck-list>
       </div>
     </div>
-    <button @click="setWidth">SET WIDTH</button>
+    <!-- <button @click="setWidth">SET WIDTH</button> -->
   </div>
 </template>
 
@@ -110,7 +110,7 @@ export default {
 .fullcharlist {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  max-width: 1000px;
   /*  justify-self: center; */
   align-self: center;
   margin: auto;
