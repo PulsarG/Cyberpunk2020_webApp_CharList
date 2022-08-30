@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <left-menu :Chars="Chars"></left-menu>
+    <left-menu></left-menu>
   </div>
 
   <div class="shopmenu" id="shop">
@@ -8,7 +8,7 @@
   </div>
 
   <nav>
-    <div class="login" v-show="!isLogin">
+    <div class="login" v-show="!this.$store.state.api.isLoginIn">
       <!-- <label for="login">Login</label> -->
       <input
         v-model="login"
@@ -25,12 +25,21 @@
         autocomplete="off"
         placeholder="password"
       />
-      <button @click="singUp">Войти</button>
+      <button
+        @click="
+          this.$store.dispatch('api/LoginIn', {
+            login: this.login,
+            pass: this.pass,
+          })
+        "
+      >
+        Войти
+      </button>
 
       <button class="btnreg" @click="regUser">Регистрация</button>
     </div>
 
-    <div class="loginin" v-show="isLogin">
+    <div class="loginin" v-show="this.$store.state.api.isLoginIn">
       <h1>Привет, {{ this.login }}</h1>
       <form action="">
         <button class="exitbtn" @click="logOut">Выход</button>
@@ -55,12 +64,10 @@
     </div>
   </nav>
 
-  <router-view :Chars="Chars" :isLogin="isLogin"/>
+  <router-view />
 </template>
 
 <script>
-import axios from "axios";
-
 import { db } from "@/main";
 import {
   collection,
@@ -82,12 +89,8 @@ export default {
   components: { LeftMenu, ShopMenu },
   data() {
     return {
-      isLogin: false,
-
       login: "",
       pass: "",
-
-      Chars: [],
 
       Customs: [],
 
@@ -116,42 +119,10 @@ export default {
       }
     },
 
-    async singUp() {
-      try {
-        const q = query(
-          collection(db, "User"),
-          where("pass", "==", this.pass),
-          where("login", "==", this.login)
-        );
-
-        const querySnapshot = await getDocs(q);
-
-        querySnapshot.forEach((doc) => {
-          this.items.push(doc.data());
-        });
-        console.log(this.items);
-        if (this.items[0].isLogin) {
-          this.isLogin = true;
-        }
-      } catch (e) {
-        console.log(e);
-      }
-
-      if (this.isLogin) {
-        localStorage.login = this.items[0].login;
-        localStorage.isLogin = this.isLogin;
-        this.setLogin();
-        this.getChars(this.login);
-        this.getCustoms(this.login);
-      } else {
-        alert("Не верные данные");
-      }
-    },
-
     logOut() {
       this.login = "";
       this.pass = "";
-      this.isLogin = false;
+      this.$store.commit("api/setIsLoginIn", false);
 
       localStorage.removeItem("login");
       localStorage.removeItem("isLogin");
@@ -161,19 +132,8 @@ export default {
       this.$store.commit("setLogin", this.login);
     },
 
-    async getChars(l) {
-      try {
-        this.Chars.length = 0;
-        const querySnapshot = await getDocs(collection(db, l));
-        querySnapshot.forEach((doc) => {
-          if (doc.id == "CustomShop") {
-            return;
-          }
-          this.Chars.push(doc.data());
-        });
-      } catch (e) {
-        alert(e);
-      }
+    getChars(l) {
+      this.$store.dispatch("api/getChars", l);
     },
 
     async getCustoms(l) {
@@ -199,31 +159,36 @@ export default {
   },
 
   computed: {
-    isReloadChars() {
-      return this.$store.state.isReloadChars;
+    isLoginIn() {
+      return this.$store.state.api.isLoginIn;
     },
   },
 
   mounted() {
     if (localStorage.login) {
       this.login = localStorage.login;
-      this.isLogin = localStorage.isLogin;
-      this.setLogin();
+      this.$store.commit("api/setIsLoginIn", localStorage.isLogin);
+      /* this.setLogin();
       this.getChars(this.login);
-      this.getCustoms(this.login);
+      this.getCustoms(this.login); */
     }
   },
 
   watch: {
-    isReloadChars(v) {
-      if (v) this.getChars(this.login);
+    isLoginIn(v) {
+      if (v) {
+        localStorage.login = this.login;
+        localStorage.isLogin = true;
+        this.setLogin();
+        this.getChars(this.login);
+        this.getCustoms(this.login);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

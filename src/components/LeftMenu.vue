@@ -15,7 +15,7 @@
 
         <div>
 
-            <chars-block class="cb" :Chars="Chars"></chars-block>
+            <chars-block class="cb"></chars-block>
 
             <settings-block class="sett"></settings-block>
         </div>
@@ -35,9 +35,6 @@ import SettingsBlock from "@/components/SettingsBlock.vue";
 import CharsBlock from "@/components/CharsBlock.vue";
 export default {
     components: { SettingsBlock, CharsBlock, },
-    props: {
-        Chars: Array,
-    },
 }
 </script>
 

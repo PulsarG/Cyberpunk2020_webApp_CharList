@@ -2,7 +2,7 @@
   <div>
     <button class="btn" @click="openSettings">Ваши персонажи:</button>
     <div class="settings" v-show="isOpenSettings">
-      <div v-for="i in this.Chars" :key="i.Role">
+      <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
         <div class="charslist">
           <button class="btnchars" @click="setChar(i)">
             <p style="color: red">{{ i.Char.nick }} * {{ i.Role }}</p>
@@ -12,6 +12,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -29,9 +30,6 @@ import {
 } from "firebase/firestore";
 
 export default {
-  props: {
-    Chars: Array,
-  },
   data() {
     return {
       isOpenSettings: true,

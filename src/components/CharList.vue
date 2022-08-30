@@ -11,12 +11,12 @@
 
         <weapons-block></weapons-block>
 
-        <div class="check">
+        <!-- <div class="check">
             <div v-for="i in 10">
                 <input type="checkbox" :checked="i <= checkedCount"
                     @change="checkedCount = checkedCount < i ? i : i - 1">
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -29,9 +29,6 @@ import WeaponsBlock from "@/listcomponent/WeaponsBlock.vue";
 
 export default {
     components: { StatsBlock, SkillsBlock, CyberneticsBlock, GearBlock, WeaponsBlock, },
-    props: {
-
-    },
     data() {
         return {
             checkedCount: 0,
@@ -41,10 +38,6 @@ export default {
 </script>
 
 <style scoped>
-.charlist {
-    /*  border: 1px solid black; */
-}
-
 .check {
     display: flex;
     flex-direction: row;
