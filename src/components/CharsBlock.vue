@@ -1,6 +1,7 @@
 <template>
   <div>
     <button class="btn" @click="openSettings">Ваши персонажи:</button>
+    <modul-deletechar v-model:isShowDel="isShowDel" :nickCharForDelete="nickCharForDelete"></modul-deletechar>
     <div class="settings" v-show="isOpenSettings">
       <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
         <div class="charslist">
@@ -12,27 +13,18 @@
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>
-import { db } from "@/main";
-import {
-  collection,
-  getDocs,
-  setDoc,
-  addDoc,
-  doc,
-  deleteDoc,
-  onSnapshot,
-  query,
-  where,
-} from "firebase/firestore";
+import ModulDeletechar from "@/components/ModulDeletechar";
 
 export default {
+  components: { ModulDeletechar },
   data() {
     return {
       isOpenSettings: true,
+      isShowDel: false,
+      nickCharForDelete: "",
     };
   },
 
@@ -49,21 +41,20 @@ export default {
       this.$store.commit("setChar", i);
     },
 
-    async deleteChar(i) {
-      await deleteDoc(doc(db, this.login, i.Char.nick));
-      this.reloadChars(true);
-      alert("Персонаж удален!");
+    deleteChar(i) {
+      this.nickCharForDelete = i.Char.nick;
+      this.isShowDel = true;
     },
 
-    reloadChars(b) {
+    /* reloadChars(b) {
       this.$store.commit("reloadChars", b);
-    },
+    }, */
   },
 
   computed: {
-    login() {
+    /* login() {
       return this.$store.state.login;
-    },
+    }, */
   },
 };
 </script>

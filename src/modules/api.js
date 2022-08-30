@@ -51,10 +51,10 @@ export default {
       }
     },
 
-    async getChars({ state, commit }, l) {
+    async getChars({ state, commit }) {
       try {
         state.Chars.length = 0;
-        const querySnapshot = await getDocs(collection(db, l));
+        const querySnapshot = await getDocs(collection(db, store.state.login));
         querySnapshot.forEach((doc) => {
           if (doc.id == "CustomShop") {
             return;
@@ -67,7 +67,7 @@ export default {
       }
     },
 
-    async saveChar({ state }) {
+    async saveChar({ dispatch }) {
       if (store.state.Char.nick === "") {
         alert("Введине имя персонажа");
       } else {
@@ -86,7 +86,7 @@ export default {
           });
 
           alert("Сохранено");
-          store.commit("reloadChars", true);
+          dispatch("getChars");
         } catch (e) {
           alert(e);
         }
@@ -105,7 +105,7 @@ export default {
       }
     },
 
-    async getCustoms({state}){
+    async getCustoms({ state }) {
       try {
         const docRef = doc(db, store.state.login, "CustomShop");
         const docSnap = await getDoc(docRef);
@@ -123,8 +123,18 @@ export default {
         }
       } catch (e) {
         alert(e);
-      } 
-    }
+      }
+    },
+
+    async deleteChar({ dispatch }, nick) {
+      try {
+        await deleteDoc(doc(db, store.state.login, nick));
+        alert("Персонаж удален!");
+      } catch (e) {
+        console.log(e);
+      }
+      dispatch("getChars");
+    },
   },
 
   namespaced: true,

@@ -160,7 +160,7 @@ export default {
         localStorage.login = this.login;
         localStorage.isLogin = true;
         this.setLogin();
-        this.getChars(this.login);
+        this.getChars();
         this.getCustoms(this.login);
       }
     },
