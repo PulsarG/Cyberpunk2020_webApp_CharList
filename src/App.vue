@@ -136,7 +136,7 @@ export default {
       this.$store.dispatch("api/getChars", l);
     },
 
-    getCustoms(l) {
+    getCustoms() {
       this.$store.dispatch("api/getCustoms")
     },
   },
@@ -161,7 +161,7 @@ export default {
         localStorage.isLogin = true;
         this.setLogin();
         this.getChars();
-        this.getCustoms(this.login);
+        this.getCustoms();
       }
     },
   },

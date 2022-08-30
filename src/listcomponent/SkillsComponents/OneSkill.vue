@@ -8,7 +8,7 @@
                 <input v-model="i.count" type="number" name="" id="" class="skillpointsinp">
             </div>
             <div class="skillchip">
-                <input type="checkbox" name="" id="">
+                <input type="checkbox" v-model="i.chekbox" name="" id="">
             </div>
         </div>
     </div>
@@ -27,6 +27,8 @@ export default {
             isNotEmpty: false,
 
             isUse: true,
+
+            chekbox: this.i.chekbox,
 
         }
     },

@@ -1,405 +1,494 @@
 export default {
-    state() {
-        return {
-            Skillspecial: [
-                {
-                    name: "Authority",
-                    count: ""
-                },
-                {
-                    name: "Charismatic Leadership",
-                    count: ""
-                },
-                {
-                    name: "Combat Sense",
-                    count: ""
-                },
-                {
-                    name: "Credibility",
-                    count: ""
-                },
-                {
-                    name: "Family",
-                    count: ""
-                },
-                {
-                    name: "Interface",
-                    count: ""
-                },
-                {
-                    name: "Jury Rig",
-                    count: ""
-                },
-                {
-                    name: "Medical Tech",
-                    count: ""
-                },
-                {
-                    name: "Resources",
-                    count: ""
-                },
-                {
-                    name: "Streerdeal",
-                    count: ""
-                },
-            ],
+  state() {
+    return {
+      Skillspecial: [
+        {
+          name: "Authority",
+          /* count: "111",
+          chekbox: true, */
+        },
+        {
+          name: "Charismatic Leadership",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Combat Sense",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Credibility",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Family",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Interface",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Jury Rig",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Medical Tech",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Resources",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Streerdeal",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
+      Skillsatr: [
+        {
+          name: "Personal Crooming",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Wardrobe & Style",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
+      Skillsbody: [
+        {
+          name: "Endurance",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Strength Feat",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Swimming",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
-            Skillsatr: [
-                {
-                    name: "Personal Crooming",
-                    count: "",
-                },
-                {
-                    name: "Wardrobe & Style",
-                    count: "",
-                }
-            ],
+      Skillscool: [
+        {
+          name: "Interrogation",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Intimidate",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Oratory",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Resist Torture/Drugs",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Streetwise",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
-            Skillsbody: [
-                {
-                    name: "Endurance",
-                    count: "",
-                },
-                {
-                    name: "Strength Feat",
-                    count: "",
-                },
-                {
-                    name: "Swimming",
-                    count: "",
-                },
-            ],
+      Skillsempathy: [
+        {
+          name: "Human Perception",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Interview",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Leadershio",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Seduction",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Social",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Persuasion & Fast Talk",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Perform",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
-            Skillscool: [
-                {
-                    name: "Interrogation",
-                    count: "",
-                },
-                {
-                    name: "Intimidate",
-                    count: "",
-                },
-                {
-                    name: "Oratory",
-                    count: "",
-                },
-                {
-                    name: "Resist Torture/Drugs",
-                    count: "",
-                },
-                {
-                    name: "Streetwise",
-                    count: "",
-                },
-            ],
+      Skillsint: [
+        {
+          name: "Accounting",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Antropology",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Awareness/Notice",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Biology",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Botany",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Chemistry",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Composition",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Diagnose illness",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Education & Gen. Know",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Expert___",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Gamble",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Geology",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Hide/Evade",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "History",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Library Search",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Mathematics",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Physics",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Programming",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Shadow/Track",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "StockMarket",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "System Knowledge",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Teaching",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Wilderness Survival",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Zoology",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
-            Skillsempathy: [
-                {
-                    name: "Human Perception",
-                    count: "",
-                },
-                {
-                    name: "Interview",
-                    count: "",
-                },
-                {
-                    name: "Leadershio",
-                    count: "",
-                },
-                {
-                    name: "Seduction",
-                    count: "",
-                },
-                {
-                    name: "Social",
-                    count: "",
-                },
-                {
-                    name: "Persuasion & Fast Talk",
-                    count: "",
-                },
-                {
-                    name: "Perform",
-                    count: "",
-                },
-            ],
+      Skillsref: [
+        {
+          name: "Archery",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Athletics",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Brawling",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Dance",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Dodge & Escape",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Driving",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Fencing",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Handgun",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Heavy Weapons",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Melee",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Motorcycle",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Operate Hvy. Machinery",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pilot(Gyro)",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pilot(Fixed Wing)",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pilot(Dirigible)",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pilot(Vect. Thrust Vehicle)",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Rifle",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Stealth",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Submachinegun",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
-            Skillsint: [
-                {
-                    name: "Accounting",
-                    count: "",
-                },
-                {
-                    name: "Antropology",
-                    count: "",
-                },
-                {
-                    name: "Awareness/Notice",
-                    count: "",
-                },
-                {
-                    name: "Biology",
-                    count: "",
-                },
-                {
-                    name: "Botany",
-                    count: "",
-                },
-                {
-                    name: "Chemistry",
-                    count: "",
-                },
-                {
-                    name: "Composition",
-                    count: "",
-                },
-                {
-                    name: "Diagnose illness",
-                    count: "",
-                },
-                {
-                    name: "Education & Gen. Know",
-                    count: "",
-                },
-                {
-                    name: "Expert___",
-                    count: "",
-                },
-                {
-                    name: "Gamble",
-                    count: "",
-                },
-                {
-                    name: "Geology",
-                    count: "",
-                },
-                {
-                    name: "Hide/Evade",
-                    count: "",
-                },
-                {
-                    name: "History",
-                    count: "",
-                },
-                {
-                    name: "Library Search",
-                    count: "",
-                },
-                {
-                    name: "Mathematics",
-                    count: "",
-                },
-                {
-                    name: "Physics",
-                    count: "",
-                },
-                {
-                    name: "Programming",
-                    count: "",
-                },
-                {
-                    name: "Shadow/Track",
-                    count: "",
-                },
-                {
-                    name: "StockMarket",
-                    count: "",
-                },
-                {
-                    name: "System Knowledge",
-                    count: "",
-                },
-                {
-                    name: "Teaching",
-                    count: "",
-                },
-                {
-                    name: "Wilderness Survival",
-                    count: "",
-                },
-                {
-                    name: "Zoology",
-                    count: "",
-                },
-            ],
+      Skillstech: [
+        {
+          name: "Aero Tech",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "AV Tech",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Basic Tech",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Cryotank Operation",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Cyberdeck Design",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "CyberTech",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Demolitions",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Disguise",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Electronics",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Elect. Security",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "First Aid",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Forgery",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "GyroTech",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Paint or Draw",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Photo & Film",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pharmacuticals",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pick Lock",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pick Pocket",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Pay Instrument",
+          count: "",
+          chekbox: false,
+        },
+        {
+          name: "Weaponsmith",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
-            Skillsref: [
-                {
-                    name: "Archery",
-                    count: "",
-                },
-                {
-                    name: "Athletics",
-                    count: "",
-                },
-                {
-                    name: "Brawling",
-                    count: "",
-                },
-                {
-                    name: "Dance",
-                    count: "",
-                },
-                {
-                    name: "Dodge & Escape",
-                    count: "",
-                },
-                {
-                    name: "Driving",
-                    count: "",
-                },
-                {
-                    name: "Fencing",
-                    count: "",
-                },
-                {
-                    name: "Handgun",
-                    count: "",
-                },
-                {
-                    name: "Heavy Weapons",
-                    count: "",
-                },
-                {
-                    name: "Melee",
-                    count: "",
-                },
-                {
-                    name: "Motorcycle",
-                    count: "",
-                },
-                {
-                    name: "Operate Hvy. Machinery",
-                    count: "",
-                },
-                {
-                    name: "Pilot(Gyro)",
-                    count: "",
-                },
-                {
-                    name: "Pilot(Fixed Wing)",
-                    count: "",
-                },
-                {
-                    name: "Pilot(Dirigible)",
-                    count: "",
-                },
-                {
-                    name: "Pilot(Vect. Thrust Vehicle)",
-                    count: "",
-                },
-                {
-                    name: "Rifle",
-                    count: "",
-                },
-                {
-                    name: "Stealth",
-                    count: "",
-                },
-                {
-                    name: "Submachinegun",
-                    count: "",
-                },
-            ],
+      Skillsother: [
+        {
+          name: "",
+          count: "",
+          chekbox: false,
+        },
+      ],
 
-            Skillstech: [
-                {
-                    name: "Aero Tech",
-                    count: "",
-                },
-                {
-                    name: "AV Tech",
-                    count: "",
-                },
-                {
-                    name: "Basic Tech",
-                    count: "",
-                },
-                {
-                    name: "Cryotank Operation",
-                    count: "",
-                },
-                {
-                    name: "Cyberdeck Design",
-                    count: "",
-                },
-                {
-                    name: "CyberTech",
-                    count: "",
-                },
-                {
-                    name: "Demolitions",
-                    count: "",
-                },
-                {
-                    name: "Disguise",
-                    count: "",
-                },
-                {
-                    name: "Electronics",
-                    count: "",
-                },
-                {
-                    name: "Elect. Security",
-                    count: "",
-                },
-                {
-                    name: "First Aid",
-                    count: "",
-                },
-                {
-                    name: "Forgery",
-                    count: "",
-                },
-                {
-                    name: "GyroTech",
-                    count: "",
-                },
-                {
-                    name: "Paint or Draw",
-                    count: "",
-                },
-                {
-                    name: "Photo & Film",
-                    count: "",
-                },
-                {
-                    name: "Pharmacuticals",
-                    count: "",
-                },
-                {
-                    name: "Pick Lock",
-                    count: "",
-                },
-                {
-                    name: "Pick Pocket",
-                    count: "",
-                },
-                {
-                    name: "Pay Instrument",
-                    count: "",
-                },
-                {
-                    name: "Weaponsmith",
-                    count: "",
-                },
-            ],
+      hiddenEmptySkills: false,
+    };
+  },
 
-            Skillsother: [
-                {
-                    name: "",
-                    count: "",
-                },
-            ],
-
-            hiddenEmptySkills: false,
-        }
-    },
-
-    mutations: {
-        /* hiddenSkillsEmpty(state) {
+  mutations: {
+    /* hiddenSkillsEmpty(state) {
             if (!state.hiddenEmptySkills) {
                 state.hiddenEmptySkills = true;
             } else {
@@ -407,8 +496,8 @@ export default {
             }
         }, */
 
-        addOtherSkill(state) {
-            state.Skillsother.push({ name: "", count: "" });
-        },
+    addOtherSkill(state) {
+      state.Skillsother.push({ name: "", count: "", chekbox: false });
     },
-}
+  },
+};

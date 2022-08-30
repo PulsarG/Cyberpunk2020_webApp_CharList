@@ -156,9 +156,6 @@ const store = createStore({
             state.Gear = i.Gear;
             state.Weapons = i.Weapons;
 
-            /* state.customs.Customcybernetics = i.Customcybernetics;
-            state.customs.Customweapons = i.Customweapons; */
-
             state.isLoadChar = true;
 
             setTimeout(() => { state.isLoadChar = false }, 1000);
