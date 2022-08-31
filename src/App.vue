@@ -1,11 +1,12 @@
 <template>
   <div class="menu">
     <left-menu></left-menu>
+    <!-- <shop-menu></shop-menu> -->
   </div>
 
-  <div class="shopmenu" id="shop">
+  <!-- <div class="shopmenu" id="shop">
     <shop-menu></shop-menu>
-  </div>
+  </div> -->
 
   <nav>
     <div class="login" v-show="!this.$store.state.api.isLoginIn">
@@ -40,7 +41,7 @@
     </div>
 
     <div class="loginin" v-show="this.$store.state.api.isLoginIn">
-      <h1>Привет, {{ this.login }}</h1>
+      <h1>Привет, {{ this.login }} </h1>
       <form action="">
         <button class="exitbtn" @click="logOut">Выход</button>
       </form>
@@ -64,7 +65,7 @@
     </div>
   </nav>
 
-  <router-view />
+  <router-view class="router" />
 </template>
 
 <script>
@@ -83,10 +84,10 @@ import {
 } from "firebase/firestore";
 
 import LeftMenu from "@/components/LeftMenu.vue";
-import ShopMenu from "./components/ShopMenu.vue";
+/* import ShopMenu from "./components/ShopMenu.vue"; */
 
 export default {
-  components: { LeftMenu, ShopMenu },
+  components: { LeftMenu },
   data() {
     return {
       login: "",
@@ -137,7 +138,7 @@ export default {
     },
 
     getCustoms(l) {
-      this.$store.dispatch("api/getCustoms")
+      this.$store.dispatch("api/getCustoms");
     },
   },
 
@@ -183,6 +184,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transition: 0.5s;
 }
 
 nav a {
@@ -256,33 +258,51 @@ a {
 }
 
 .menu {
-  width: 15%;
+  width: 700px;
   position: fixed;
   height: 100vh;
   border-right: 20px solid red;
-  left: -280px;
-  transition: all 0.2s ease;
-  background: rgba(20, 20, 20, 0.9);
+  transition: 0.5s;
+  background: rgba(20, 20, 20, 1);
+  transform: translateX(-99%);
+  z-index: 99;
 }
 
 .menu:hover {
   left: 0;
-  transition: all 0.2s ease;
+  transform: translateX(0%);
 }
 
-.shopmenu {
-  width: 50%;
+.menu:hover ~ .router{
+  transform: translateX(400px);
+}
+.menu:hover ~ nav{
+  transform: translateX(400px);
+}
+
+.router {
+  transition: 0.5s;
+  z-index: 0;
+}
+
+@media (max-width: 1919px) {
+  .menu:hover ~ .router{
+  transform: translateX(0);
+}
+}
+
+/* .shopmenu {
+  width: 600px;
   position: fixed;
   height: 100vh;
   border-left: 20px solid red;
-  right: -950px;
   transition: all 0.2s ease;
   background: rgb(255, 255, 255);
-  /* overflow: auto; */
+  transform: translate(100%);
 }
 
 .shopmenu:hover {
   right: 0;
-  transition: all 0.2s ease;
-}
+  transform: translate(200%);
+} */
 </style>

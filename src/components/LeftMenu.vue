@@ -1,94 +1,106 @@
 <template>
-    <div class="menu">
-
-        <div class="title">
-            <h2>Меню и Персонажи</h2>
-        </div>
-
-        <div class="mainmenu">
-
-            <h1>CYBERPUNK</h1>
-            <button class="btn">2020</button>
-            <button class="btn" disabled>RED (soon)</button>
-
-        </div>
-
-        <div>
-
-            <chars-block class="cb"></chars-block>
-
-            <settings-block class="sett"></settings-block>
-        </div>
+  <div class="menu">
+    <div class="title">
+      <h2>
+        М <br />
+        E <br />
+        Н <br />
+        Ю
+      </h2>
     </div>
 
-    <div class="foott">
-
-        <div class="footer">
-            <a href="" style="color: white">by Github.com/PulsarG / 2022</a>
-        </div>
+    <div class="mainmenu">
+      <h1>CYBERPUNK</h1>
+      <button class="btn" @click="this.showChars = true">2020</button>
+      <button class="btn" disabled>RED (soon)</button>
+      <button class="btn" @click="this.showChars = false">SHOP</button>
     </div>
 
+    <div v-show="this.showChars">
+      <chars-block class="cb"></chars-block>
+      <settings-block class="sett"></settings-block>
+    </div>
+
+    <div v-show="!this.showChars">
+      <shop-menu></shop-menu>
+    </div>
+  </div>
+
+  <div class="foott">
+    <div class="footer">
+      <a href="" style="color: white">by Github.com/PulsarG / 2022</a>
+    </div>
+  </div>
 </template>
 
 <script>
 import SettingsBlock from "@/components/SettingsBlock.vue";
+import ShopMenu from "@/components/ShopMenu.vue";
 import CharsBlock from "@/components/CharsBlock.vue";
 export default {
-    components: { SettingsBlock, CharsBlock, },
-}
+  components: { SettingsBlock, CharsBlock, ShopMenu },
+  data() {
+    return {
+      showChars: true,
+    };
+  },
+};
 </script>
 
 <style scoped>
-
 .title {
-    margin-left: 110%;
-    width: 220px;
+  position: absolute;
+  right: -50px;
+  top: 0;
+  width: auto;
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 .btn {
-    width: 50%;
-    height: 5vh;
+  width: 100px;
+  height: 5vh;
 }
 
 .mainmenu {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .footer {
-    /* position: absolute;
+  /* position: absolute;
     bottom: 5%; */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .foott {
-    position: absolute;
-    bottom: 5%;
-    width: 100%;
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
 }
 
 .cb {
-    width: 50%;
-    margin-top: 10%;
+  width: 50%;
+  margin-top: 10%;
 }
 
 .sett {
-    width: 50%;
-    margin-top: 10%;
+  width: 50%;
+  margin-top: 10%;
 }
 
 h1 {
-    color: white;
+  color: white;
+  font-family: "Cyberpunk";
 }
 </style>

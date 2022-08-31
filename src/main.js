@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from "@/store/store"
+import '@/fonts/CyberpunkFont/font.css'
 
 import 'firebase/database';
 
