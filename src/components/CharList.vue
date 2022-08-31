@@ -11,6 +11,7 @@
 
         <weapons-block></weapons-block>
 
+        <char-bio></char-bio>
         <!-- <div class="check">
             <div v-for="i in 10">
                 <input type="checkbox" :checked="i <= checkedCount"
@@ -26,9 +27,10 @@ import SkillsBlock from "@/listcomponent/SkillsBlock.vue"
 import CyberneticsBlock from "@/listcomponent/CyberneticsBlock.vue";
 import GearBlock from "@/listcomponent/GearBlock.vue";
 import WeaponsBlock from "@/listcomponent/WeaponsBlock.vue";
+import CharBio from '@/listcomponent/CharBio';
 
 export default {
-    components: { StatsBlock, SkillsBlock, CyberneticsBlock, GearBlock, WeaponsBlock, },
+    components: { StatsBlock, SkillsBlock, CyberneticsBlock, GearBlock, WeaponsBlock, CharBio},
     data() {
         return {
             checkedCount: 0,

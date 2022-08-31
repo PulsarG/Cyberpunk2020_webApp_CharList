@@ -83,6 +83,8 @@ export default {
 
             Cybernetics: store.state.Cybernetics,
             Weapons: store.state.Weapons,
+
+            BioText: store.state.BioText,
           });
 
           alert("Сохранено");

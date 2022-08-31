@@ -49,7 +49,7 @@
 
     <div class="links">
       <div class="ver">
-        <a href=""> ver 0.9.220822:1 </a>
+        <a href=""> ver 0.9.220831:014.1 </a>
       </div>
       <div class="comunity">
         <h4>Ru-Community</h4>
