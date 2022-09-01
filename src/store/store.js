@@ -42,11 +42,22 @@ const store = createStore({
       humanity: "",
     },
 
+    Armor: {
+      headArmor: "",
+      torsoArmor: "",
+      RArmArmor: "",
+      LArmArmor: "",
+      RLegArmor: "",
+      LLegArmor: "",
+    },
+
     Morestats: {
       rep: "",
       ip: "",
       humanity: "",
     },
+
+    savePoint: "",
 
     Cybernetics: [],
     Gear: [],
@@ -70,8 +81,15 @@ const store = createStore({
     setStats(state, s) {
       state.Stats = s;
     },
+    setArmor(state, a) {
+      state.Armor = a;
+    },
     setMorestats(state, s) {
       state.Morestats = s;
+    },
+
+    setSavePoint(state, s) {
+      state.savePoint = s;
     },
 
     setCP(state, v) {
@@ -153,6 +171,9 @@ const store = createStore({
 
       state.Stats = i.Stats;
       state.Morestats = i.Morestats;
+      state.Armor = i.Armor;
+
+      state.savePoint = i.savePoint;
 
       state.role = i.Role;
 

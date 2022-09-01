@@ -1,16 +1,11 @@
 <template>
   <div class="charlist">
     <stats-block></stats-block>
-
     <skills-block></skills-block>
-
     <cybernetics-block></cybernetics-block>
-
     <gear-block></gear-block>
-
     <weapons-block></weapons-block>
-
-    <char-bio> </char-bio>
+    <char-bio></char-bio>
     <char-look></char-look>
     <!-- <div class="check">
             <div v-for="i in 10">

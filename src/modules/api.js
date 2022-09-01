@@ -78,6 +78,9 @@ export default {
 
             Stats: store.state.Stats,
             Morestats: store.state.Morestats,
+            Armor: store.state.Armor,
+
+            savePoint: store.state.savePoint,
 
             Skills: store.state.skills,
 
@@ -92,6 +95,7 @@ export default {
           dispatch("getChars");
         } catch (e) {
           alert(e);
+          console.log(e);
         }
       }
     },
