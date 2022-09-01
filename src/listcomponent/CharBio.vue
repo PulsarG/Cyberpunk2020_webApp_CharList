@@ -5,7 +5,7 @@
         <strong style="color: white">BIOGRAPHY</strong>
       </h3>
     </button>
-
+    <slot></slot>
     <textarea
       v-show="isOpenBio"
       class="textarea"

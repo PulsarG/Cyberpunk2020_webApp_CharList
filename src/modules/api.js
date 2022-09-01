@@ -85,6 +85,7 @@ export default {
             Weapons: store.state.Weapons,
 
             BioText: store.state.BioText,
+            LookText: store.state.LookText,
           });
 
           alert("Сохранено");

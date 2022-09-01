@@ -52,6 +52,7 @@ const store = createStore({
     Gear: [],
     Weapons: [],
     BioText: "",
+    LookText: "",
 
     role: "",
 
@@ -143,6 +144,9 @@ const store = createStore({
     setBioText(state, t) {
       state.BioText = t;
     },
+    setLookText(state, t) {
+      state.LookText = t;
+    },
 
     setChar(state, i) {
       state.Char = i.Char;
@@ -158,6 +162,7 @@ const store = createStore({
       state.Gear = i.Gear;
       state.Weapons = i.Weapons;
       state.BioText = i.BioText;
+      state.LookText = i.LookText;
 
       state.isLoadChar = true;
 
