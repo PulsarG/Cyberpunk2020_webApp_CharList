@@ -19,7 +19,7 @@
     <!-- <div v-show="this.showChars"> -->
     <chars-block class="cb" v-show="this.showChars"></chars-block>
 
-    <div v-show="!this.showChars">
+    <div style="margin-top: 15px" v-show="!this.showChars">
       <shop-menu></shop-menu>
     </div>
     <!-- </div> -->
@@ -59,7 +59,7 @@ export default {
   flex-direction: column;
   overflow-x: hidden;
   height: 100vh;
-  border: 1 ps solid red;
+  border: 1px solid red;
 }
 
 .btn {
