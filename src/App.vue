@@ -37,11 +37,13 @@
         Войти
       </button>
 
-      <button class="btnreg" @click="regUser">Регистрация</button>
+      <modale-registration v-model:isShowReg="isShowReg"></modale-registration>
+
+      <button class="btnreg" @click="showModuleReg">Регистрация</button>
     </div>
 
     <div class="loginin" v-show="this.$store.state.api.isLoginIn">
-      <h1>Привет, {{ this.login }} </h1>
+      <h1>Привет, {{ this.login }}</h1>
       <form action="">
         <button class="exitbtn" @click="logOut">Выход</button>
       </form>
@@ -69,25 +71,13 @@
 </template>
 
 <script>
-import { db } from "@/main";
-import {
-  collection,
-  getDocs,
-  setDoc,
-  addDoc,
-  doc,
-  getDoc,
-  deleteDoc,
-  onSnapshot,
-  query,
-  where,
-} from "firebase/firestore";
+import ModaleRegistration from "@/components/ModaleRegistration.vue";
 
 import LeftMenu from "@/components/LeftMenu.vue";
 /* import ShopMenu from "./components/ShopMenu.vue"; */
 
 export default {
-  components: { LeftMenu },
+  components: { LeftMenu, ModaleRegistration },
   data() {
     return {
       login: "",
@@ -96,12 +86,14 @@ export default {
       Customs: [],
 
       items: [],
+
+      isShowReg: false,
     };
   },
 
   methods: {
-    async regUser() {
-      if (this.login == "" || this.pass == "") {
+    showModuleReg() {
+      /* if (this.login == "" || this.pass == "") {
         alert("Не введен Логин или Пароль");
       } else {
         try {
@@ -117,7 +109,8 @@ export default {
         }
         this.login = "";
         this.pass = "";
-      }
+      } */
+      this.isShowReg = true;
     },
 
     logOut() {
@@ -273,10 +266,10 @@ a {
   transform: translateX(0%);
 }
 
-.menu:hover ~ .router{
+.menu:hover ~ .router {
   transform: translateX(400px);
 }
-.menu:hover ~ nav{
+.menu:hover ~ nav {
   transform: translateX(400px);
 }
 
@@ -286,9 +279,9 @@ a {
 }
 
 @media (max-width: 1919px) {
-  .menu:hover ~ .router{
-  transform: translateX(0);
-}
+  .menu:hover ~ .router {
+    transform: translateX(0);
+  }
 }
 
 /* .shopmenu {

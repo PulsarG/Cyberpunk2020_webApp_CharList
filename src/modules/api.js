@@ -109,7 +109,7 @@ export default {
         });
         alert("Сохранено");
       } catch (e) {
-        alert(e);
+        console.log(e);
       }
     },
 
@@ -130,7 +130,7 @@ export default {
           store.commit("addCustomWeapons", Y);
         }
       } catch (e) {
-        alert(e);
+        console.log(e);
       }
     },
 
@@ -142,6 +142,40 @@ export default {
         console.log(e);
       }
       dispatch("getChars");
+    },
+
+    async checkUser({ dispatch }, user) {
+      try {
+        const q = query(
+          collection(db, "User"),
+          where("login", "==", user.login)
+        );
+
+        const querySnapshot = await getDocs(q);
+        let items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+
+        if (items[0].isLogin) alert("Такой пользователь существует");
+      } catch (e) {
+        console.log(e);
+        dispatch("regUser", user);
+      }
+    },
+
+    async regUser({ state }, user) {
+      try {
+        addDoc(collection(db, "User"), {
+          login: user.login,
+          pass: user.pass,
+          email: user.email,
+          isLogin: true,
+        });
+        alert("Регистрация прошла успешно");
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 

@@ -1,7 +1,8 @@
 <template>
   <div>
     <button class="btn" @click="openSettings">Ваши персонажи:</button>
-    <modul-deletechar v-model:isShowDel="isShowDel" :nickCharForDelete="nickCharForDelete"></modul-deletechar>
+    <modale-deletechar v-model:isShowDel="isShowDel" :nickCharForDelete="nickCharForDelete">
+    </modale-deletechar>
     <div class="settings" v-show="isOpenSettings">
       <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
         <div class="charslist">
@@ -16,10 +17,10 @@
 </template>
 
 <script>
-import ModulDeletechar from "@/components/ModulDeletechar";
+import ModaleDeletechar from "@/components/ModaleDeletechar";
 
 export default {
-  components: { ModulDeletechar },
+  components: { ModaleDeletechar },
   data() {
     return {
       isOpenSettings: true,
