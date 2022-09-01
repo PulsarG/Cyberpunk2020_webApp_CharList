@@ -16,16 +16,15 @@
       <button class="btn" @click="this.showChars = false">SHOP</button>
     </div>
 
-    <div v-show="this.showChars">
-      <chars-block class="cb"></chars-block>
-      <settings-block class="sett"></settings-block>
-    </div>
+    <!-- <div v-show="this.showChars"> -->
+    <chars-block class="cb" v-show="this.showChars"></chars-block>
 
     <div v-show="!this.showChars">
       <shop-menu></shop-menu>
     </div>
+    <!-- </div> -->
   </div>
-
+  <settings-block class="sett" v-show="this.showChars"></settings-block>
   <div class="foott">
     <div class="footer">
       <a href="" style="color: white">by Github.com/PulsarG / 2022</a>
@@ -59,6 +58,8 @@ export default {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  height: 100vh;
+  border: 1 ps solid red;
 }
 
 .btn {
@@ -90,13 +91,15 @@ export default {
 }
 
 .cb {
-  width: 50%;
   margin-top: 10%;
+  display: flex;
+  align-self: center;
 }
 
 .sett {
+  position: absolute;
   width: 50%;
-  margin-top: 10%;
+  bottom: 10%;
 }
 
 h1 {

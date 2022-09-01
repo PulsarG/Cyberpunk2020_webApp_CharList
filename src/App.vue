@@ -72,12 +72,11 @@
 
 <script>
 import ModaleRegistration from "@/components/ModaleRegistration.vue";
-
 import LeftMenu from "@/components/LeftMenu.vue";
 /* import ShopMenu from "./components/ShopMenu.vue"; */
 
 export default {
-  components: { LeftMenu, ModaleRegistration },
+  components: { LeftMenu, ModaleRegistration,},
   data() {
     return {
       login: "",

@@ -4,13 +4,21 @@
       <h3 v-show="!this.$store.state.api.isLoginIn">
         Зарегистрирйтесь, чтобы сохранить персонажей и кастомные вещи
       </h3>
-      <button
+
+      <base-buttonneon
+        id="savebtn"
+        v-show="this.$store.state.api.isLoginIn"
+        @click="saveChar"
+      >
+        Сохранить / Обновить персонажа</base-buttonneon
+      >
+      <!-- <button
         id="savebtn"
         v-show="this.$store.state.api.isLoginIn"
         @click="saveChar"
       >
         Сохранить / Обновить персонажа
-      </button>
+      </button> -->
     </div>
 
     <div class="">
@@ -31,6 +39,7 @@
 </template>
 
 <script>
+import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import CharList from "@/components/CharList.vue";
 import DeckList from "@/components/DeckList.vue";
 import SettingsBlock from "@/components/SettingsBlock.vue";
@@ -45,6 +54,7 @@ export default {
     CyberneticsShop,
     SettingsBlock,
     CharsBlock,
+    BaseButtonneon,
   },
   data() {
     return {

@@ -1,0 +1,33 @@
+<template>
+  <button class="neonbtn">
+    <p class="neonp">
+      <div>
+        <slot></slot>
+      </div>
+    </p>
+  </button>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+.neonbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  background-color: aliceblue;
+  transition: all 0.5s;
+  transform: skewX(-50deg);
+}
+.neonbtn:hover {
+  border-color: red;
+  box-shadow: 0px 0px 30px red;
+  color: red;
+}
+p {
+  transform: skewX(50deg);
+}
+</style>

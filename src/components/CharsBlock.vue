@@ -1,15 +1,27 @@
 <template>
-  <div>
-    <button class="btn" @click="openSettings">Ваши персонажи:</button>
-    <modale-deletechar v-model:isShowDel="isShowDel" :nickCharForDelete="nickCharForDelete">
+  <div class="mainmenu">
+    <!-- <button class="btn" @click="openSettings">Ваши персонажи:</button> -->
+    <modale-deletechar
+      v-model:isShowDel="isShowDel"
+      :nickCharForDelete="nickCharForDelete"
+    >
     </modale-deletechar>
     <div class="settings" v-show="isOpenSettings">
       <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
         <div class="charslist">
-          <button class="btnchars" @click="setChar(i)">
-            <p style="color: red">{{ i.Char.nick }} * {{ i.Role }}</p>
-          </button>
-          <button @click="deleteChar(i)">Delete char</button>
+          <base-buttonslice class="btnchars" @click="setChar(i)"
+            >{{ i.Char.nick }} ( {{ i.Role }} )</base-buttonslice
+          >
+
+          <!-- <button class="btnchars" @click="setChar(i)">
+            <p style="color: red; font-size: 15px">{{ i.Char.nick }}.....{{ i.Role }}</p>
+          </button> -->
+
+          <base-buttonneonred class="deletebtn" @click="deleteChar(i)"
+            >Удалить</base-buttonneonred
+          >
+
+          <!-- <button class="deletebtn" @click="deleteChar(i)">Delete char</button> -->
         </div>
       </div>
     </div>
@@ -17,10 +29,11 @@
 </template>
 
 <script>
+import BaseButtonslice from "@/components/BaseButtonslice.vue";
 import ModaleDeletechar from "@/components/ModaleDeletechar";
-
+import BaseButtonneonred from "@/components/BaseButtonneonred.vue";
 export default {
-  components: { ModaleDeletechar },
+  components: { ModaleDeletechar, BaseButtonneonred, BaseButtonslice },
   data() {
     return {
       isOpenSettings: true,
@@ -63,17 +76,34 @@ export default {
 <style scoped>
 .btn {
   height: 30px;
-  width: 100%;
 }
 
 .btnchars {
-  margin-top: 3px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   /* border: none; */
+}
+
+.deletebtn {
+  margin-left: 5px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.settings {
+  width: 70%;
 }
 
 .charslist {
   display: flex;
-  justify-self: flex-end;
-  align-self: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 </style>

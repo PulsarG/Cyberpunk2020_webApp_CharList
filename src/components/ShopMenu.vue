@@ -1,7 +1,4 @@
 <template>
-  <div class="title">
-    <h2>Магазин</h2>
-  </div>
   <div>
     <button class="btn" @click="openShop">
       <h1>SHOP</h1>
