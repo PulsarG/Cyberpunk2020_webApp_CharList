@@ -20,7 +20,7 @@ export default {
   position: relative;
   transition: 0.5s;
   overflow: hidden;
-  color: red;
+  color: brown;
   background-color: aliceblue;
   z-index: 1;
   transform: skewX(-50deg);

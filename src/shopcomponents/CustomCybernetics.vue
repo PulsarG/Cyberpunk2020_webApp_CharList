@@ -22,7 +22,7 @@
                 <button class="btn" @click="addCybernetics(i)"> + BUY</button>
             </tr>
 
-            <h4>Добавить свои импланты</h4>
+            <h4 style="color: orange">Добавить свои импланты</h4>
 
             <tr class="item" style="margin-top: 1px">
                 <th class="nameitem"><input type="text" id="name"></th>
@@ -89,7 +89,7 @@ export default {
 
 .btnsubmenu {
     width: 40%;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .cybershop {

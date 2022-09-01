@@ -7,6 +7,9 @@
     >
     </modale-deletechar>
     <div class="settings" v-show="isOpenSettings">
+      <div>
+        <h2 style="color: orange">Ваши Персонажи</h2>
+      </div>
       <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
         <div class="charslist">
           <base-buttonslice class="btnchars" @click="setChar(i)"

@@ -11,9 +11,16 @@
 
     <div class="mainmenu">
       <h1>CYBERPUNK</h1>
-      <button class="btn" @click="this.showChars = true">2020</button>
+      <base-buttonneon class="btn" @click="this.showChars = true"
+        >2020</base-buttonneon
+      >
       <button class="btn" disabled>RED (soon)</button>
-      <button class="btn" @click="this.showChars = false">SHOP</button>
+      <base-buttonneon class="btn" @click="this.showChars = false"
+        >SHOP</base-buttonneon
+      >
+      <!-- <button class="btn" @click="this.showChars = true">2020</button> -->
+      <!-- <button class="btn" disabled>RED (soon)</button> -->
+      <!-- <button class="btn" @click="this.showChars = false">SHOP</button> -->
     </div>
 
     <!-- <div v-show="this.showChars"> -->
@@ -33,11 +40,12 @@
 </template>
 
 <script>
+import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import SettingsBlock from "@/components/SettingsBlock.vue";
 import ShopMenu from "@/components/ShopMenu.vue";
 import CharsBlock from "@/components/CharsBlock.vue";
 export default {
-  components: { SettingsBlock, CharsBlock, ShopMenu },
+  components: { SettingsBlock, CharsBlock, ShopMenu, BaseButtonneon },
   data() {
     return {
       showChars: true,
@@ -47,6 +55,27 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  animation: color 10s infinite;
+}
+
+@keyframes color {
+  0% {
+    color: red;
+  }
+  25% {
+    color: gold;
+  }
+  50% {
+    color: blue;
+  }
+  75% {
+    color: blueviolet;
+  }
+  100% {
+    color: red;
+  }
+}
 .title {
   position: absolute;
   right: -50px;
@@ -65,6 +94,7 @@ export default {
 .btn {
   width: 100px;
   height: 5vh;
+  font-size: 20px;
 }
 
 .mainmenu {

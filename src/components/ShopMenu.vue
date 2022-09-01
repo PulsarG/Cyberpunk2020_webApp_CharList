@@ -111,7 +111,7 @@ export default {
 .shopmenu {
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
+  margin-left: 3%;
   overflow: auto;
 }
 
