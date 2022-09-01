@@ -28,13 +28,30 @@
             <input
               type="checkbox"
               name=""
-              id="check1"
               class="pointinp"
-              value="2"
+              v-model="DmgChecks.check1"
             />
-            <input type="checkbox" name="" id="" class="pointinp" value="2" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check2"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check3"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check4"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun 0</strong>
@@ -43,10 +60,34 @@
         <div class="fourpoints">
           <strong>SERIOUS</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check5"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check6"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check7"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check8"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -1</strong>
@@ -55,10 +96,34 @@
         <div class="fourpoints">
           <strong>CRITICAL</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check9"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check10"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check11"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check12"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -2</strong>
@@ -67,10 +132,34 @@
         <div class="fourpoints">
           <strong>MORTAL0</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check13"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check14"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check15"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check16"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -3</strong>
@@ -79,10 +168,34 @@
         <div class="fourpoints">
           <strong>MORTAL1</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check17"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check18"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check19"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check20"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -4</strong>
@@ -93,10 +206,34 @@
         <div class="fourpoints">
           <strong>MORTAL2</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check21"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check22"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check23"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check24"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -5</strong>
@@ -105,10 +242,34 @@
         <div class="fourpoints">
           <strong>MORTAL3</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check25"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check26"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check27"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check28"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -6</strong>
@@ -117,10 +278,34 @@
         <div class="fourpoints">
           <strong>MORTAL4</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check29"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check30"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check31"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check32"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -7</strong>
@@ -129,10 +314,34 @@
         <div class="fourpoints">
           <strong>MORTAL5</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check33"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check34"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check35"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check36"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -8</strong>
@@ -141,10 +350,34 @@
         <div class="fourpoints">
           <strong>MORTAL6</strong>
           <div class="dmgpoints">
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
-            <input type="checkbox" name="" id="" class="pointinp" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check37"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check38"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check39"
+            />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="pointinp"
+              v-model="DmgChecks.check40"
+            />
           </div>
           <div class="dmglvl">
             <strong style="color: white">Stun -9</strong>
@@ -162,46 +395,48 @@ export default {
       /* el1: document.getElementById("check1"), */
       savePoint: "",
 
-      check1: false,
-      check2: 0,
-      check3: 0,
-      check4: 0,
-      check5: 0,
-      check6: 0,
-      check7: 0,
-      check8: 0,
-      check9: 0,
-      check10: 0,
-      check11: 0,
-      check12: 0,
-      check13: 0,
-      check14: 0,
-      check15: 0,
-      check16: 0,
-      check17: 0,
-      check18: 0,
-      check19: 0,
-      check20: 0,
-      check21: 0,
-      check22: 0,
-      check23: 0,
-      check24: 0,
-      check25: 0,
-      check26: 0,
-      check27: 0,
-      check28: 0,
-      check29: 0,
-      check30: 0,
-      check31: 0,
-      check32: 0,
-      check33: 0,
-      check34: 0,
-      check35: 0,
-      check36: 0,
-      check37: 0,
-      check38: 0,
-      check39: 0,
-      check40: 0,
+      DmgChecks: {
+        check1: false,
+        check2: false,
+        check3: false,
+        check4: false,
+        check5: false,
+        check6: false,
+        check7: false,
+        check8: false,
+        check9: false,
+        check10: false,
+        check11: false,
+        check12: false,
+        check13: false,
+        check14: false,
+        check15: false,
+        check16: false,
+        check17: false,
+        check18: false,
+        check19: false,
+        check20: false,
+        check21: false,
+        check22: false,
+        check23: false,
+        check24: false,
+        check25: false,
+        check26: false,
+        check27: false,
+        check28: false,
+        check29: false,
+        check30: false,
+        check31: false,
+        check32: false,
+        check33: false,
+        check34: false,
+        check35: false,
+        check36: false,
+        check37: false,
+        check38: false,
+        check39: false,
+        check40: false,
+      },
     };
   },
   computed: {
@@ -211,16 +446,28 @@ export default {
   },
 
   watch: {
+    DmgChecks: {
+      handler(i) {
+        this.$store.commit("setDmgChecks", i);
+      },
+      deep: true,
+    },
     savePoint(v) {
       this.$store.commit("setSavePoint", v);
     },
     isLoadChar(v) {
-      if (v) this.setSavePoint();
+      if (v) {
+        this.setSavePoint();
+        this.setDmgChecks();
+      }
     },
   },
   methods: {
     setSavePoint() {
       this.savePoint = this.$store.state.savePoint;
+    },
+    setDmgChecks() {
+      this.DmgChecks = this.$store.state.DmgChecks;
     },
   },
 };
@@ -277,6 +524,7 @@ export default {
 .dmglvl {
   background-color: black;
   width: 100%;
+  text-align: center;
 }
 
 .takedmg {

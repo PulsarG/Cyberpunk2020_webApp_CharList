@@ -58,6 +58,48 @@ const store = createStore({
     },
 
     savePoint: "",
+    DmgChecks: {
+      check1: false,
+      check2: false,
+      check3: false,
+      check4: false,
+      check5: false,
+      check6: false,
+      check7: false,
+      check8: false,
+      check9: false,
+      check10: false,
+      check11: false,
+      check12: false,
+      check13: false,
+      check14: false,
+      check15: false,
+      check16: false,
+      check17: false,
+      check18: false,
+      check19: false,
+      check20: false,
+      check21: false,
+      check22: false,
+      check23: false,
+      check24: false,
+      check25: false,
+      check26: false,
+      check27: false,
+      check28: false,
+      check29: false,
+      check30: false,
+      check31: false,
+      check32: false,
+      check33: false,
+      check34: false,
+      check35: false,
+      check36: false,
+      check37: false,
+      check38: false,
+      check39: false,
+      check40: false,
+    },
 
     Cybernetics: [],
     Gear: [],
@@ -90,6 +132,9 @@ const store = createStore({
 
     setSavePoint(state, s) {
       state.savePoint = s;
+    },
+    setDmgChecks(state, c) {
+      state.DmgChecks = c;
     },
 
     setCP(state, v) {
@@ -174,6 +219,7 @@ const store = createStore({
       state.Armor = i.Armor;
 
       state.savePoint = i.savePoint;
+      state.DmgChecks = i.DmgChecks;
 
       state.role = i.Role;
 

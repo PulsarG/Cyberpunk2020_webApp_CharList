@@ -1,13 +1,14 @@
 <template>
-  3215555
+ 123
 </template>
 
-<script>
-export default {
 
-}
+
+<script>
+
+export default {
+  
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

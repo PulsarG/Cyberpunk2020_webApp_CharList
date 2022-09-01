@@ -147,6 +147,8 @@ export default {
 .statinp {
     width: 30%;
     height: 25px;
+    text-align: center;
+    font-size: 15px;
 }
 
 .statlabel {

@@ -81,6 +81,7 @@ export default {
             Armor: store.state.Armor,
 
             savePoint: store.state.savePoint,
+            DmgChecks: store.state.DmgChecks,
 
             Skills: store.state.skills,
 
