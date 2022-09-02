@@ -1,73 +1,78 @@
 <template>
-  <div class="menu">
-    <left-menu></left-menu>
-    <!-- <shop-menu></shop-menu> -->
+  <div class="appp">
+    <div class="menu">
+      <left-menu></left-menu>
+      <!-- <shop-menu></shop-menu> -->
+    </div>
+
+    <!-- <div class="shopmenu" id="shop">
+      <shop-menu></shop-menu>
+    </div> -->
+
+    <nav>
+      <div class="login" v-show="!this.$store.state.api.isLoginIn">
+        <!-- <label for="login">Login</label> -->
+        <input
+          v-model="login"
+          type="text"
+          id="login"
+          autocomplete="off"
+          placeholder="login"
+        />
+        <!--  <label for="pass">Password</label> -->
+        <input
+          v-model="pass"
+          type="text"
+          id="pass"
+          autocomplete="off"
+          placeholder="password"
+        />
+        <button
+          class="exitbtn"
+          @click="
+            this.$store.dispatch('api/LoginIn', {
+              login: this.login,
+              pass: this.pass,
+            })
+          "
+        >
+          Войти
+        </button>
+
+        <modale-registration
+          v-model:isShowReg="isShowReg"
+        ></modale-registration>
+
+        <button class="btnreg" @click="showModuleReg">Регистрация</button>
+      </div>
+
+      <div class="loginin" v-show="this.$store.state.api.isLoginIn">
+        <h1 class="hiname">{{ this.login }}</h1>
+        <form action="">
+          <button class="exitbtn" @click="logOut">Выход</button>
+        </form>
+      </div>
+
+      <div class="links">
+        <div class="ver">
+          <a href=""> ver 0.9.015.1:220901 </a>
+        </div>
+        <div class="comunity">
+          <h4>Ru-Community_</h4>
+
+          <a class="aa" href="https://vk.com/cyberpunk2020"
+            ><img class="vklogo" src="@/assets/vk.png" alt=""
+          /></a>
+
+          <a class="aaa" href="https://discord.gg/PPpHEzf67H"
+            ><img class="dislogo" src="@/assets/dsl.png" alt=""
+          /></a>
+        </div>
+      </div>
+    </nav>
+
+    <router-view class="router" />
   </div>
-
-  <!-- <div class="shopmenu" id="shop">
-    <shop-menu></shop-menu>
-  </div> -->
-
-  <nav>
-    <div class="login" v-show="!this.$store.state.api.isLoginIn">
-      <!-- <label for="login">Login</label> -->
-      <input
-        v-model="login"
-        type="text"
-        id="login"
-        autocomplete="off"
-        placeholder="login"
-      />
-      <!--  <label for="pass">Password</label> -->
-      <input
-        v-model="pass"
-        type="text"
-        id="pass"
-        autocomplete="off"
-        placeholder="password"
-      />
-      <button
-        @click="
-          this.$store.dispatch('api/LoginIn', {
-            login: this.login,
-            pass: this.pass,
-          })
-        "
-      >
-        Войти
-      </button>
-
-      <modale-registration v-model:isShowReg="isShowReg"></modale-registration>
-
-      <button class="btnreg" @click="showModuleReg">Регистрация</button>
-    </div>
-
-    <div class="loginin" v-show="this.$store.state.api.isLoginIn">
-      <h1>Привет, {{ this.login }}</h1>
-      <form action="">
-        <button class="exitbtn" @click="logOut">Выход</button>
-      </form>
-    </div>
-
-    <div class="links">
-      <div class="ver">
-        <a href=""> ver 0.9.015.1:220901 </a>
-      </div>
-      <div class="comunity">
-        <h4>Ru-Community</h4>
-
-        <a href="https://vk.com/cyberpunk2020"
-          ><img class="vklogo" src="@/assets/vk.png" alt=""
-        /></a>
-
-        <a href="https://discord.gg/PPpHEzf67H"
-          ><img class="dislogo" src="@/assets/Diskord-logo.png" alt=""
-        /></a>
-      </div>
-    </div>
-  </nav>
-
-  <router-view class="router" />
 </template>
 
 <script>
@@ -76,7 +81,7 @@ import LeftMenu from "@/components/LeftMenu.vue";
 /* import ShopMenu from "./components/ShopMenu.vue"; */
 
 export default {
-  components: { LeftMenu, ModaleRegistration,},
+  components: { LeftMenu, ModaleRegistration },
   data() {
     return {
       login: "",
@@ -214,9 +219,14 @@ nav a.router-link-exact-active {
   justify-content: center;
   align-items: flex-end;
 }
-
+.hiname {
+  font-family: "Qore";
+  text-shadow: 0px 0px 30px blue;
+  color: blue;
+}
 h4 {
   width: auto;
+  font-family: "Qore";
 }
 
 .ver {
@@ -233,6 +243,7 @@ h4 {
 
 .vklogo {
   width: 100%;
+  border-radius: 50%;
 }
 
 a {
@@ -240,7 +251,9 @@ a {
 }
 
 .dislogo {
-  width: 125%;
+  width: 110%;
+  margin-left: 3px;
+  border-radius: 50%;
 }
 
 .exitbtn {
@@ -254,6 +267,7 @@ a {
   position: fixed;
   height: 100vh;
   border-right: 20px solid red;
+  border-left: 15px solid red;
   transition: 0.5s;
   background: rgba(20, 20, 20, 1);
   transform: translateX(-99%);
@@ -277,10 +291,22 @@ a {
   z-index: 0;
 }
 
-@media (max-width: 1919px) {
+/* @media (max-width: 1919px) {
   .menu:hover ~ .router {
     transform: translateX(0);
   }
+} */
+
+.exitbtn:hover {
+  color: red;
+  transition: 0.5s;
+  text-shadow: 0px 0px 30px red;
+}
+img:hover {
+  border-radius: 50%;
+  color: red;
+  transition: 0.5s;
+  box-shadow: 0px 0px 30px blue;
 }
 
 /* .shopmenu {

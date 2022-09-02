@@ -23,9 +23,12 @@
 
     <div class="">
       <button class="btn" @click="openCharlist">Charlist</button>
-      <div v-show="isOpenCharlist">
-        <char-list></char-list>
-      </div>
+      <transition name="slide-fade">
+        <char-list
+          class="hero glitch layers"
+          v-show="isOpenCharlist"
+        ></char-list>
+      </transition>
     </div>
 
     <div class="">
@@ -68,11 +71,13 @@ export default {
     openCharlist() {
       if (!this.isOpenCharlist) {
         this.isOpenCharlist = true;
+        /* document.getElementById("char").slideToggle(300); */
       } else {
         this.isOpenCharlist = false;
       }
-      /*   return this.isOpenCharlist */
+      return this.isOpenCharlist;
     },
+
     openDeck() {
       if (!this.isOpenDeck) {
         this.isOpenDeck = true;
@@ -109,6 +114,25 @@ export default {
 </script>
 
 <style scoped>
+ 
+
+.slide-fade-enter-active {
+  transition: all 0.2s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(40px);
+  opacity: 0;
+}
+/* .charlist {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+  will-change: auto;
+} */
 .save {
   display: flex;
   margin: auto;

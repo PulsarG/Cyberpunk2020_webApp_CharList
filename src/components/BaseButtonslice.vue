@@ -16,12 +16,12 @@ export default {
 
 <style scoped>
 .btnslice {
-  border: 1px solid black;
+  border: none;
   position: relative;
   transition: 0.5s;
   overflow: hidden;
-  color: brown;
-  background-color: aliceblue;
+  color: red;
+  background: none;
   z-index: 1;
   transform: skewX(-50deg);
 }
@@ -54,6 +54,6 @@ export default {
 
 p {
   transform: skewX(50deg);
-  font-size: 15px;
+  font-size: 18px;
 }
 </style>

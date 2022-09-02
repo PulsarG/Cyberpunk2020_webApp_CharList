@@ -1,9 +1,9 @@
 <template>
   <button class="neonbtn">
     <p class="neonp">
-      <div>
+      
         <slot></slot>
-      </div>
+      
     </p>
   </button>
 </template>
@@ -18,7 +18,7 @@ export default {};
   align-items: center;
   justify-content: center;
   height: 25px;
-  background-color: aliceblue;
+  background-color: white;
   transition: all 0.5s;
 }
 .neonbtn:hover {
@@ -26,4 +26,5 @@ export default {};
   box-shadow: 0px 0px 15px blue;
   color: blue;
 }
+
 </style>

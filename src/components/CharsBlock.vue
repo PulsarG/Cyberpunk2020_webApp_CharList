@@ -88,6 +88,8 @@ export default {
   align-items: center;
   width: 100%;
   /* border: none; */
+  font-family: "Qore";
+  text-transform: uppercase;
 }
 
 .deletebtn {

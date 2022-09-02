@@ -66,7 +66,7 @@ export default {
       let el = document.getElementById(e);
       let color = el.style.backgroundColor;
       if (color == "orange") {
-        el.style.backgroundColor = "aliceblue";
+        el.style.background = "none";
       } else {
         el.style.backgroundColor = "orange";
       }
