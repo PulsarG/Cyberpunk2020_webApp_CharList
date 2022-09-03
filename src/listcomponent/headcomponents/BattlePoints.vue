@@ -478,6 +478,7 @@ export default {
   margin: 3px;
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
 }
 
 .savepoints {
@@ -505,6 +506,10 @@ export default {
   width: 90%;
   text-align: center;
   font-size: 20px;
+  background-color: #E4DBBF;
+  border: 1px solid #383127;
+  color: #383127;
+  text-align: center;
 }
 
 .fourpoints {

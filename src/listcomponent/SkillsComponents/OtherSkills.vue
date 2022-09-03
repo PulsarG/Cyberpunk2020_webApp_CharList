@@ -72,6 +72,7 @@ export default {
 
 .skillpointsinp {
     width: 70%;
+    
 }
 
 .skillname {

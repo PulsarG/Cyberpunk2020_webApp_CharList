@@ -150,7 +150,7 @@ export default {
 .armorblock {
   display: flex;
   flex-direction: row;
-  margin-top: 3px;
+  margin-top: 10px;
 }
 
 .armortitle {
@@ -187,6 +187,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .armorinp {
@@ -195,5 +196,8 @@ export default {
   height: 90%;
   text-align: center;
   font-size: 20px;
+  background-color: #E4DBBF;
+  border: 1px solid #383127;
+  color: #383127;
 }
 </style>

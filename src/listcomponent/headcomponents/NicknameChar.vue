@@ -64,5 +64,8 @@ export default {
   text-align: center;
   font-size: 20px;
   /* background: #d8881f; */
+  background-color: #e4dbbf;
+  border: 1px solid #383127;
+  color: #383127;
 }
 </style>

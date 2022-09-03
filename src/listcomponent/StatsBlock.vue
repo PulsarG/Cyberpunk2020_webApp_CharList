@@ -21,7 +21,11 @@
 
     <div class="photo">
       <div class="fotoimg">
-        <img :src="imgRole" alt="Упс. Картинки пока не доступны" />
+        <img
+          :src="imgRole"
+          v-show="isRole"
+          alt="Упс. Картинки пока не доступны"
+        />
       </div>
       <more-stats></more-stats>
     </div>
@@ -48,6 +52,7 @@ export default {
   props: {},
   data() {
     return {
+      isRole: false,
       charpoints: "",
 
       link: "http://drive.google.com/uc?export=view&id=",
@@ -78,6 +83,7 @@ export default {
     },
 
     role(v) {
+      this.isRole = true;
       if (v == "Cop")
         this.imgRole = this.link + "1RX4eC1sC_94-9cf1meUzvbSIkUxiPjIS";
       else if (v == "Solo")
@@ -119,12 +125,16 @@ export default {
   width: 70%;
   justify-content: center;
   align-items: center;
+  background-color: #e4dbbf;
+  border: 1px solid #383127;
+  color: #383127;
 }
 
 img {
   width: 70%;
   height: 70%;
   margin: auto;
+  background-color: none;
 }
 
 @media (max-width: 1000px) {
@@ -182,5 +192,9 @@ img {
 .charpointsinput {
   width: 10%;
   height: 25px;
+  background-color: #e4dbbf;
+  border: 1px solid #383127;
+  color: #383127;
+  text-align: center;
 }
 </style>

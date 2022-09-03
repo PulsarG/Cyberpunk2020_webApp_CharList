@@ -154,6 +154,7 @@ export default {
   /*  justify-self: center; */
   align-self: center;
   margin: auto;
+  /* background-color: rgb(3, 3, 61); */
 }
 
 .btn {

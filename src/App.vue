@@ -55,7 +55,7 @@
 
       <div class="links">
         <div class="ver">
-          <a href=""> ver 0.9.015.1:220901 </a>
+          <a href=""> ver 0.9.017.1:220903 </a>
         </div>
         <div class="comunity">
           <h4>Ru-Community_</h4>
@@ -168,7 +168,7 @@ export default {
 <style scoped>
   * {
     /* background-color: #da8f2d; */
-    background-color: #d8881f;
+    background-color: #E4DBBF;
   }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -225,7 +225,7 @@ nav a.router-link-exact-active {
 .hiname {
   font-family: "Qore";
   text-shadow: 0px 0px 30px blue;
-  color: blue;
+  color: rgb(146, 9, 201);
 }
 h4 {
   width: auto;

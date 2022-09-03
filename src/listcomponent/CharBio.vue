@@ -60,6 +60,11 @@ export default {
   max-width: 990px;
   max-height: 200px;
   min-height: 200px;
+  background-color: #e4dbbf;
+  border: 1px solid #383127;
+  color: #383127;
+  color: black;
+  font-size: 18px;
 }
 
 .cnblock {
