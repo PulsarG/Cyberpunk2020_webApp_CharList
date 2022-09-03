@@ -2,10 +2,10 @@
   <div class="menu">
     <div class="title">
       <h2>
-        М <br />
+        M <br />
         E <br />
-        Н <br />
-        Ю
+        N <br />
+        U
       </h2>
     </div>
 
@@ -15,14 +15,19 @@
           <span>CYBERPUNK</span>
         </h1>
       </div>
-
-      <!-- <h1>CYBERPUNK</h1> -->
-      <base-buttonneon class="btn" @click="this.showChars = true"
-        >2020</base-buttonneon
+      <base-buttonglitch class="btn" @click="this.showChars = true"
+        >2020</base-buttonglitch
       >
-      <button class="btn" disabled>RED (soon)</button>
+      <!-- <h1>CYBERPUNK</h1> -->
+      <!--  <base-buttonneon class="btn" @click="this.showChars = true"
+        >2020</base-buttonneon
+      > -->
+      <base-buttonglitch class="btn bred">.RED</base-buttonglitch>
+      <!-- <button class="btn" disabled>RED (soon)</button>
       <base-buttonneon class="btn" @click="this.showChars = false"
-        >SHOP</base-buttonneon
+        >SHOP</base-buttonneon -->
+      <base-buttonglitch class="btn bshop" @click="this.showChars = false"
+        >SHOP</base-buttonglitch
       >
       <!-- <button class="btn" @click="this.showChars = true">2020</button> -->
       <!-- <button class="btn" disabled>RED (soon)</button> -->
@@ -46,12 +51,19 @@
 </template>
 
 <script>
+import BaseButtonglitch from "@/components/BaseButtonglitch.vue";
 import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import SettingsBlock from "@/components/SettingsBlock.vue";
 import ShopMenu from "@/components/ShopMenu.vue";
 import CharsBlock from "@/components/CharsBlock.vue";
 export default {
-  components: { SettingsBlock, CharsBlock, ShopMenu, BaseButtonneon },
+  components: {
+    SettingsBlock,
+    CharsBlock,
+    ShopMenu,
+    BaseButtonneon,
+    BaseButtonglitch,
+  },
   data() {
     return {
       showChars: true,
@@ -88,6 +100,7 @@ h1 {
   right: -50px;
   top: 0;
   width: auto;
+  font-family: "Qore";
 }
 
 .menu {
@@ -100,9 +113,23 @@ h1 {
 .btn {
   width: 100px;
   height: 5vh;
-  font-size: 20px;
+  font-size: 30px;
+  color: yellow;
+  text-shadow: 0 0 20px yellow;
+  /*  color: blue;
+  text-shadow: 0 0 20px blue; */
+  font-family: "Qore";
+  margin-top: 15px;
+  cursor: pointer;
 }
-
+.bred {
+  color: red;
+  text-shadow: 0 0 20px red;
+}
+.bshop {
+  color: yellow;
+  text-shadow: 0 0 20px yellow;
+}
 .mainmenu {
   width: 100%;
   display: flex;
@@ -127,7 +154,7 @@ h1 {
 }
 
 .cb {
-  margin-top: 10%;
+  margin-top: 90px;
   display: flex;
   align-self: center;
 }
@@ -137,8 +164,6 @@ h1 {
   width: 50%;
   bottom: 10%;
 }
-
-
 
 .layers {
   position: relative;
@@ -557,5 +582,4 @@ h1 {
   animation: paths 5s step-end infinite, opacity 5s step-end infinite,
     font 7s step-end infinite, movement 8s step-end infinite;
 }
-
 </style>

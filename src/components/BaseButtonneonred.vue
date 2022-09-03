@@ -18,7 +18,9 @@ export default {};
   align-items: center;
   justify-content: center;
   height: 25px;
-  background-color: aliceblue;
+  color: red;
+  background: none;
+  /* background-color: aliceblue; */
   transition: all 0.5s;
   transform: skewX(-50deg);
 }

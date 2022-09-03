@@ -1,47 +1,49 @@
 <template>
-  <div class="fullcharlist" id="mainlist">
-    <div class="save">
-      <h3 v-show="!this.$store.state.api.isLoginIn">
-        Зарегистрирйтесь, чтобы сохранить персонажей и кастомные вещи
-      </h3>
+    <div class="fullcharlist" id="mainlist">
+      <div class="save">
+        <h3 v-show="!this.$store.state.api.isLoginIn">
+          Зарегистрирйтесь, чтобы сохранить персонажей и кастомные вещи
+        </h3>
 
-      <base-buttonneon
-        id="savebtn"
-        v-show="this.$store.state.api.isLoginIn"
-        @click="saveChar"
-      >
-        Сохранить / Обновить персонажа</base-buttonneon
-      >
-      <!-- <button
+        <base-buttonneon
+          id="savebtn"
+          v-show="this.$store.state.api.isLoginIn"
+          @click="saveChar"
+        >
+          Сохранить / Обновить персонажа</base-buttonneon
+        >
+        <!-- <button
         id="savebtn"
         v-show="this.$store.state.api.isLoginIn"
         @click="saveChar"
       >
         Сохранить / Обновить персонажа
       </button> -->
-    </div>
-
-    <div class="">
-      <button class="btn" @click="openCharlist">Charlist</button>
-      <transition name="slide-fade">
-        <char-list
-          class="hero glitch layers"
-          v-show="isOpenCharlist"
-        ></char-list>
-      </transition>
-    </div>
-
-    <div class="">
-      <button class="btn" @click="openDeck">Deck</button>
-      <div v-show="isOpenDeck">
-        <deck-list></deck-list>
       </div>
+
+      <div class="">
+        <button class="btn" @click="openCharlist">Charlist</button>
+        <transition name="slide-fade">
+          <char-list
+            class="hero glitch layers"
+            v-show="isOpenCharlist"
+          ></char-list>
+        </transition>
+      </div>
+
+      <div class="">
+        <button class="btn" @click="openDeck">Deck</button>
+        <div v-show="isOpenDeck">
+          <deck-list></deck-list>
+        </div>
+      </div>
+      <!-- <button @click="setWidth">SET WIDTH</button> -->
     </div>
-    <!-- <button @click="setWidth">SET WIDTH</button> -->
-  </div>
+  
 </template>
 
 <script>
+import BaseButtonglitch from "@/components/BaseButtonglitch.vue";
 import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import CharList from "@/components/CharList.vue";
 import DeckList from "@/components/DeckList.vue";
@@ -58,6 +60,7 @@ export default {
     SettingsBlock,
     CharsBlock,
     BaseButtonneon,
+    BaseButtonglitch,
   },
   data() {
     return {
@@ -114,17 +117,20 @@ export default {
 </script>
 
 <style scoped>
- 
-
 .slide-fade-enter-active {
-  transition: all 0.2s ease;
+  transition: 0.5s;
 }
+
 .slide-fade-leave-active {
-  transition: all 0.5s;
+  transition: 0.5s;
 }
-.slide-fade-enter,
+
+.slide-fade-enter-from {
+  transform: translateY(-10px);
+  opacity: 1;
+}
 .slide-fade-leave-to {
-  transform: translateX(40px);
+  transform: translateY(-10px);
   opacity: 0;
 }
 /* .charlist {

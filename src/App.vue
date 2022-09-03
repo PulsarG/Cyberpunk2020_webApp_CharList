@@ -78,10 +78,9 @@
 <script>
 import ModaleRegistration from "@/components/ModaleRegistration.vue";
 import LeftMenu from "@/components/LeftMenu.vue";
-/* import ShopMenu from "./components/ShopMenu.vue"; */
 
 export default {
-  components: { LeftMenu, ModaleRegistration },
+  components: { LeftMenu, ModaleRegistration},
   data() {
     return {
       login: "",
@@ -167,6 +166,10 @@ export default {
 </script>
 
 <style scoped>
+  * {
+    /* background-color: #da8f2d; */
+    background-color: #d8881f;
+  }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

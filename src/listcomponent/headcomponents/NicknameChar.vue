@@ -63,5 +63,6 @@ export default {
   width: 80%;
   text-align: center;
   font-size: 20px;
+  /* background: #d8881f; */
 }
 </style>
