@@ -1,48 +1,55 @@
 <template>
-    <div class="fullcharlist" id="mainlist">
-      <div class="save">
-        <h3 v-show="!this.$store.state.api.isLoginIn">
-          Зарегистрирйтесь, чтобы сохранить персонажей и кастомные вещи
-        </h3>
+  <div class="fullcharlist" id="mainlist">
+    <div class="save">
+      <h3 v-show="!this.$store.state.api.isLoginIn">
+        Зарегистрируйтесь, чтобы сохранить персонажей и кастомные вещи
+      </h3>
 
-        <base-buttonneon
-          id="savebtn"
-          v-show="this.$store.state.api.isLoginIn"
-          @click="saveChar"
-        >
-          Сохранить / Обновить персонажа</base-buttonneon
-        >
-        <!-- <button
+      <!-- <base-buttonneon
+        class="bbsave"
+        id="savebtn"
+        v-show="this.$store.state.api.isLoginIn"
+        @click="saveChar"
+      >
+        Сохранить / Обновить персонажа</base-buttonneon
+      > -->
+      <!-- <button
         id="savebtn"
         v-show="this.$store.state.api.isLoginIn"
         @click="saveChar"
       >
         Сохранить / Обновить персонажа
       </button> -->
-      </div>
-
-      <div class="">
-        <button class="btn" @click="openCharlist">Charlist</button>
-        <transition name="slide-fade">
-          <char-list
-            class="hero glitch layers"
-            v-show="isOpenCharlist"
-          ></char-list>
-        </transition>
-      </div>
-
-      <div class="">
-        <button class="btn" @click="openDeck">Deck</button>
-        <div v-show="isOpenDeck">
-          <deck-list></deck-list>
-        </div>
-      </div>
-      <!-- <button @click="setWidth">SET WIDTH</button> -->
+      <base-buttonborder
+        class="bbsave"
+        id="savebtn"
+        v-show="this.$store.state.api.isLoginIn"
+        @click="saveChar"
+      ></base-buttonborder>
     </div>
-  
+
+    <div class="">
+      <button class="btn" @click="openCharlist"><p>Charlist</p></button>
+      <transition name="slide-fade">
+        <char-list
+          class="hero glitch layers"
+          v-show="isOpenCharlist"
+        ></char-list>
+      </transition>
+    </div>
+
+    <div class="deck">
+      <button class="btn" @click="openDeck"><p>Deck (soon)</p></button>
+      <div v-show="isOpenDeck">
+        <deck-list></deck-list>
+      </div>
+    </div>
+    <!-- <button @click="setWidth">SET WIDTH</button> -->
+  </div>
 </template>
 
 <script>
+import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import BaseButtonglitch from "@/components/BaseButtonglitch.vue";
 import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import CharList from "@/components/CharList.vue";
@@ -61,6 +68,7 @@ export default {
     CharsBlock,
     BaseButtonneon,
     BaseButtonglitch,
+    BaseButtonborder,
   },
   data() {
     return {
@@ -140,11 +148,8 @@ export default {
   will-change: auto;
 } */
 .save {
-  display: flex;
   margin: auto;
-  align-self: center;
-  justify-self: center;
-  margin-bottom: 3px;
+  margin-bottom: 3px;;
 }
 
 .fullcharlist {
@@ -160,8 +165,25 @@ export default {
 .btn {
   height: 30px;
   width: 100%;
-  margin-bottom: 3%;
+  margin-bottom: 20px;
   border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.deck {
+  margin-top: 10px;
+}
+
+p {
+  font-size: 20px;
+  font-family: "Qore";
 }
 
 .shopmenu {
@@ -179,5 +201,9 @@ export default {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+}
+
+.bbsave {
+  background: none;
 }
 </style>

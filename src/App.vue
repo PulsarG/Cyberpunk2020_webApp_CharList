@@ -17,18 +17,19 @@
           type="text"
           id="login"
           autocomplete="off"
-          placeholder="login"
+          placeholder="Login"
         />
         <!--  <label for="pass">Password</label> -->
         <input
+          class="inppass"
           v-model="pass"
           type="text"
           id="pass"
           autocomplete="off"
-          placeholder="password"
+          placeholder="Password"
         />
         <button
-          class="exitbtn"
+          class="loginbtn"
           @click="
             this.$store.dispatch('api/LoginIn', {
               login: this.login,
@@ -55,7 +56,7 @@
 
       <div class="links">
         <div class="ver">
-          <a href=""> ver 0.9.017.1:220903 </a>
+          <a href=""> ver 0.9.017.1 </a>
         </div>
         <div class="comunity">
           <h4>Ru-Community_</h4>
@@ -80,7 +81,7 @@ import ModaleRegistration from "@/components/ModaleRegistration.vue";
 import LeftMenu from "@/components/LeftMenu.vue";
 
 export default {
-  components: { LeftMenu, ModaleRegistration},
+  components: { LeftMenu, ModaleRegistration },
   data() {
     return {
       login: "",
@@ -166,10 +167,10 @@ export default {
 </script>
 
 <style scoped>
-  * {
-    /* background-color: #da8f2d; */
-    background-color: #E4DBBF;
-  }
+* {
+  /* background-color: #da8f2d; */
+  background-color: #e4dbbf;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -196,11 +197,28 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
+input {
+  border: none;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.inppass {
+  margin-left: 10px;
+}
+
+.loginbtn {
+  margin-left: 10px;
+  border: none;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
 .login {
   display: flex;
   flex-direction: row;
   height: 50%;
   max-width: 1000px;
+  margin-top: 10px;
 }
 
 .loginin {
@@ -224,8 +242,8 @@ nav a.router-link-exact-active {
 }
 .hiname {
   font-family: "Qore";
-  text-shadow: 0px 0px 30px blue;
-  color: rgb(146, 9, 201);
+  /* text-shadow: 0px 0px 30px red; */
+  color: rgb(255, 0, 0);
 }
 h4 {
   width: auto;
@@ -251,6 +269,7 @@ h4 {
 
 a {
   width: 10%;
+  border-radius: 50%;
 }
 
 .dislogo {

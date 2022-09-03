@@ -98,7 +98,7 @@ h1 {
 .title {
   position: absolute;
   right: -50px;
-  top: 0;
+  top: 40%;
   width: auto;
   font-family: "Qore";
 }
@@ -161,7 +161,7 @@ h1 {
 
 .sett {
   position: absolute;
-  width: 50%;
+  width: 100%;
   bottom: 10%;
 }
 

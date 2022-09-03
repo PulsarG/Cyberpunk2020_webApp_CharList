@@ -24,7 +24,8 @@ export default {};
 .neonbtn:hover {
   border-color: blue;
   box-shadow: 0px 0px 15px blue;
-  color: blue;
+  color: yellow;
+  background: blue;
 }
 
 </style>

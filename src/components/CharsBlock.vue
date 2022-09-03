@@ -8,10 +8,10 @@
     </modale-deletechar>
     <div class="settings" v-show="isOpenSettings">
       <div>
-        <h2 style="color: orange">Ваши Персонажи</h2>
+        <h2 style="color: orange">Ваши Персонажи:</h2>
       </div>
       <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
-        <div class="charslist">
+        <div class="charslist" >
           <base-buttonslice class="btnchars" @click="setChar(i)"
             >{{ i.Char.nick }} ( {{ i.Role }} )</base-buttonslice
           >
