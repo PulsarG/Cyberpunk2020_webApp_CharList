@@ -124,7 +124,7 @@ export default {
 }
 
 .btnslice:hover {
-  color: black;
+  color: yellow;
 }
 
 .btnslice:hover::before,

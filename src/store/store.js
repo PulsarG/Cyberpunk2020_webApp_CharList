@@ -4,6 +4,7 @@ import skills from "@/modules/skills.js";
 import cyberneticsshop from "@/modules/cyberneticsshop.js";
 import customs from "@/modules/customs";
 import weaponsshop from "@/modules/weaponsshop.js";
+import armorshop from "@/modules/armorshop";
 import api from "@/modules/api.js";
 
 const store = createStore({
@@ -13,6 +14,7 @@ const store = createStore({
     skills,
     customs,
     api,
+    armorshop,
   },
 
   state: () => ({

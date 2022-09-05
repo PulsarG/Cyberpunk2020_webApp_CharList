@@ -106,6 +106,7 @@ export default {
         await setDoc(doc(db, store.state.login, "CustomShop"), {
           Customcybernetics: store.state.customs.Customcybernetics,
           Customweapons: store.state.customs.Customweapons,
+          Customarmor: store.state.customs.Customarmor,
         });
         alert("Сохранено");
       } catch (e) {
@@ -128,6 +129,12 @@ export default {
         for (let i = 0; i < k; i++) {
           let Y = docSnap.data().Customweapons[i];
           store.commit("addCustomWeapons", Y);
+        }
+
+        let l = docSnap.data().Customarmor.length;
+        for (let i = 0; i < l; i++) {
+          let Y = docSnap.data().Customarmor[i];
+          store.commit("addCustomArmor", Y);
         }
       } catch (e) {
         console.log(e);

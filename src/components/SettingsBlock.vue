@@ -1,30 +1,40 @@
 <template>
-  <div class="settings">
+  <div class="mainsetting">
     <div>
-      <h4>Авторасчет СТАТов</h4>
+      <h4>
+        Стандартно доступно пять ячеек персонажей. <br />
+        Чтобы получить больше обратитесь в группу сообщества в
+        <a href="https://vk.com/cyberpunk2020">ВКонтакте</a> или канал в
+        <a href="https://discord.gg/PPpHEzf67H">Дискорде</a>
+      </h4>
     </div>
-    <div>
-      <label class="checkbox-green">
-        <input type="checkbox" disabled />
-        <span
-          class="checkbox-green-switch"
-          data-label-on="On"
-          data-label-off="Off"
-        ></span>
-      </label>
-    </div>
-    <div>
-      <h4>Авторасчет Брони</h4>
-    </div>
-    <div>
-      <label class="checkbox-green">
-        <input type="checkbox" disabled />
-        <span
-          class="checkbox-green-switch"
-          data-label-on="On"
-          data-label-off="Off"
-        ></span>
-      </label>
+    <div class="settings">
+      <div>
+        <h4>Авторасчет СТАТов</h4>
+      </div>
+      <div>
+        <label class="checkbox-green">
+          <input type="checkbox" disabled />
+          <span
+            class="checkbox-green-switch"
+            data-label-on="On"
+            data-label-off="Off"
+          ></span>
+        </label>
+      </div>
+      <div>
+        <h4>Авторасчет Брони</h4>
+      </div>
+      <div>
+        <label class="checkbox-green">
+          <input type="checkbox" disabled />
+          <span
+            class="checkbox-green-switch"
+            data-label-on="On"
+            data-label-off="Off"
+          ></span>
+        </label>
+      </div>
     </div>
   </div>
 </template>
@@ -44,13 +54,24 @@ export default {
 </script>
 
 <style scoped>
+a {
+  color: orange;
+  text-shadow: 0 0 1px blue;
+}
 h4 {
   color: orange;
 }
 .settings {
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+}
+.mainsetting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 .checkbox-green {

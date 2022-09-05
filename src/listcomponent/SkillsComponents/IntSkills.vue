@@ -53,7 +53,6 @@ export default {
     width: 95%;
     align-items: flex-start;
     margin-left: 3px;
-
 }
 
 .skill {

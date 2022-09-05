@@ -168,7 +168,7 @@ export default {
 
 <style scoped>
 * {
-  /* background-color: #da8f2d; */
+  /* background-color: #ad8fe4; */
   background-color: #e4dbbf;
 }
 #app {
@@ -292,7 +292,7 @@ a {
   border-left: 15px solid red;
   transition: 0.5s;
   background: rgba(20, 20, 20, 1);
-  transform: translateX(-97%);                               /*   !!! позиция изменена на время редактирования с -97% */
+  transform: translateX(-98%);                               /*   !!! позиция изменена на время редактирования с -97% */
   z-index: 99;
 }
 

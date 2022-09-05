@@ -97,9 +97,9 @@ h1 {
   25% {
     color: gold;
   }
-  50% {
+  /* 50% {
     color: blue;
-  }
+  } */
   75% {
     color: blueviolet;
   }
@@ -182,7 +182,7 @@ h1 {
 .sett {
   position: absolute;
   width: 100%;
-  bottom: 10%;
+  bottom: 3%;
 }
 
 .layers {

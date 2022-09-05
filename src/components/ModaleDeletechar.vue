@@ -1,15 +1,29 @@
 <template>
   <div class="modalreg" v-show="isShowDel" @click.stop="hideModal">
     <div @click.stop class="modalcontent">
-      <h4>УДАЛИТЬ</h4>
-      <h4 style="color: red">{{ nickCharForDelete }} ?</h4>
+      <div>
+        <h4>УДАЛИТЬ</h4>
+      </div>
+      <div class="nick">
+        <h4 style="color: red">{{ nickCharForDelete }}</h4>
+      </div>
       <div class="btns">
         <div>
-          <base-buttonneonred class="btn" @click="deleteChar">ДА</base-buttonneonred>
+          <base-buttonneonred
+            class="btn"
+            style="color: orange"
+            @click="deleteChar"
+            >ДА</base-buttonneonred
+          >
           <!-- <button @click="deleteChar">Да</button> -->
         </div>
         <div>
-          <base-buttonneonred class="btn" style="color: orange" @click.stop="hideModal">НЕТ</base-buttonneonred>
+          <base-buttonneonred
+            class="btn"
+            style="color: orange"
+            @click.stop="hideModal"
+            >НЕТ</base-buttonneonred
+          >
           <!-- <button @click.stop="hideModal">Нет</button> -->
         </div>
       </div>
@@ -38,6 +52,9 @@ export default {
 </script>
 
 <style scoped>
+.nick {
+  margin-top: -30px;
+}
 h4 {
   font-family: "Ktf";
   font-size: 30px;

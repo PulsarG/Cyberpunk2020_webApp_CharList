@@ -4,6 +4,8 @@ export default {
             Customcybernetics: [],
 
             Customweapons: [],
+
+            Customarmor: [],
         }
     },
 
@@ -34,6 +36,20 @@ export default {
                 }
             }
             return state.Customweapons
+        },
+
+        addCustomArmor(state, x) {
+            state.Customarmor.push(x);
+        },
+
+        deleteCustomArmor(state, v) {
+            for (let i = 0; i < state.Customarmor.length; i++) {
+                if (state.Customarmor[i] == v) {
+                    state.Customarmor.splice(i, 1);
+                    i--
+                }
+            }
+            return state.Customaarmor
         },
     },
 }

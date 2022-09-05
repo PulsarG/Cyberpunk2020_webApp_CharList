@@ -1,26 +1,30 @@
 <template>
-  <base-buttonslice class="btnsubmenu" @click="showTable">
-    <p>{{ NameShop }}</p>
-  </base-buttonslice>
+  <base-buttonslice class="btnsubmenu" @click="showTable">{{
+    NameShop
+  }}</base-buttonslice>
   <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
 
   <table class="table" v-show="isShow">
+    <h4>* имеют 1/ 2 брони против холодного оружия</h4>
+    <h4>! Для бронебойных патронов броня расценивается как 1/2</h4>
     <thead>
       <tr class="item">
-        <th class="nameitem" style="color: blue">NAME</th>
-        <th class="code" style="color: blue">CODE</th>
-        <th class="price" style="color: blue">PRICE</th>
-        <th class="hum" style="color: blue">HUMANITY</th>
+        <th class="type" style="color: blue">Type</th>
+        <th class="nameitem" style="color: blue">Чать тела</th>
+        <th class="wa" style="color: blue">SP</th>
+        <th class="range" style="color: blue">Обр</th>
+        <th class="price" style="color: blue">Price</th>
         <th class="btn" style="color: blue"></th>
       </tr>
     </thead>
     <tbody>
       <tr class="item" v-for="i in Items" :key="i.name">
-        <th class="nameitem">{{ i.name }}</th>
-        <td class="code">{{ i.code }}</td>
+        <td class="type">{{ i.type }}</td>
+        <th class="nameitem">{{ i.body }}</th>
+        <td class="wa">{{ i.sp }}</td>
+        <td class="range">{{ i.obr }}</td>
         <td class="price">{{ i.price }}</td>
-        <td class="hum">{{ i.humanity }}</td>
-        <button class="btn" @click="addCybernetics(i)">+ BUY</button>
+        <button class="btn" @click="addWeapons(i)">+ BUY</button>
       </tr>
     </tbody>
   </table>
@@ -48,24 +52,24 @@ export default {
       }
     },
 
-    addCybernetics(i) {
-      this.$store.commit("addCybernetics", i);
+    addWeapons(i) {
+      this.$store.commit("addWeapons", i);
     },
   },
 };
 </script>
 
 <style scoped>
+h4 {
+  color: orange;
+}
 .btnsubmenu {
   width: 500px;
   margin-top: 5px;
   height: 30px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-}
-p {
-  margin-left: 15px;
 }
 
 .cybershop {
@@ -84,13 +88,6 @@ p {
   background: white;
 }
 
-.hum {
-  width: 15%;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-}
-
 .price {
   width: 10%;
   border: 1px solid black;
@@ -98,19 +95,33 @@ p {
   justify-content: center;
 }
 
-.code {
+.nameitem {
+  width: 25%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.type {
+  width: 45%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.wa {
   width: 10%;
   border: 1px solid black;
   display: flex;
   justify-content: center;
 }
 
-.nameitem {
-  width: 50%;
+.range {
+  width: 10%;
   border: 1px solid black;
   display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
+  justify-content: center;
 }
 
 .btn {

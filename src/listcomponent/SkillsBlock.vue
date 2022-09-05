@@ -12,8 +12,12 @@
       </p>
     </div>
     <div class="skillsmanage">
-      <button @click="hiddenEmptySkills">Скрыть неиспользуемые</button>
-      <button>Показать рекомендованные для {{ $store.state.role }}</button>
+      <button class="btnmanage" @click="hiddenEmptySkills">
+        Скрыть неиспользуемые
+      </button>
+      <button class="btnmanage">
+        Показать рекомендованные для {{ $store.state.role }}
+      </button>
     </div>
   </div>
 
@@ -72,7 +76,15 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 999px) {
+p {
+  font-family: "Ktf";
+  font-size: 15px;
+}
+.btnmanage {
+  font-family: "Ktf";
+  font-size: 15px;
+}
+@media (max-width: 1200px) {
   .skillstext {
     flex-direction: row;
     align-items: center;
@@ -85,8 +97,13 @@ export default {
   .skillsmanage {
     margin-top: 5px;
   }
+  .alllistskills {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+  }
 }
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .skillstext {
     flex-direction: column;
     align-items: center;
@@ -110,6 +127,8 @@ export default {
   margin: auto;
   margin-top: 5px;
   /* max-width: 1000px; */
+  align-items: center;
+  justify-content: space-between;
 }
 
 .skillstitle {

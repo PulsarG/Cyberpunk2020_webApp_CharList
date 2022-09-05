@@ -14,11 +14,19 @@
       <cybernetics-shop></cybernetics-shop>
     </div>
 
-    <base-buttonslice class="btnsm" @click="setColor('2')" id="2"
+    <base-buttonslice
+      class="btnsm"
+      @click="
+        openArmorshop();
+        setColor('2');
+      "
+      id="2"
       >Броня</base-buttonslice
     >
 
-    <div class="submenu" v-show="isCybershopOpen"></div>
+    <div class="submenu" v-show="isArmorOpen">
+      <armor-shop></armor-shop>
+    </div>
 
     <base-buttonslice
       class="btnsm"
@@ -40,7 +48,7 @@
 
     <!-- <base-buttonborder class="btnsm btnsave" @click="SaveCustomItems">СОХРАНИТЬ кастомные вещи</base-buttonborder> -->
     <base-buttonneon class="btnsm btnsave" @click="SaveCustomItems"
-      >СОХРАНИТЬ кастомные вещи</base-buttonneon
+      >[ СОХРАНИТЬ кастомные вещи ]</base-buttonneon
     >
     <!-- <button class="btnsm" @click="SaveCustomItems">
         СОХРАНИТЬ кастомные вещи
@@ -52,6 +60,7 @@
 import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import BaseButtonslice from "@/components/BaseButtonslice.vue";
+import ArmorShop from "@/shopcomponents/ArmorShop.vue";
 import CyberneticsShop from "@/shopcomponents/CyberneticsShop.vue";
 import WeaponsShop from "@/shopcomponents/WeaponsShop.vue";
 export default {
@@ -61,6 +70,7 @@ export default {
     BaseButtonslice,
     BaseButtonneon,
     BaseButtonborder,
+    ArmorShop,
   },
   data() {
     return {
@@ -68,6 +78,7 @@ export default {
 
       isCybershopOpen: false,
       isWeaponsshopOpen: false,
+      isArmorOpen: false,
     };
   },
   methods: {
@@ -96,6 +107,13 @@ export default {
         this.isWeaponsshopOpen = true;
       } else {
         this.isWeaponsshopOpen = false;
+      }
+    },
+    openArmorshop() {
+      if (!this.isArmorOpen) {
+        this.isArmorOpen = true;
+      } else {
+        this.isArmorOpen = false;
       }
     },
   },
@@ -149,15 +167,18 @@ export default {
   width: 50%;
   /* display: flex;
   align-self: center; */
-  background: none;
-  color: red;
+  /*  background: none; */
+  color: orange;
   /* box-shadow: 0 0 20px blue; */
   position: absolute;
   bottom: 0;
-  width: 80%;
+  left: -10px;
+  width: 100%;
   /* Высота footer */
-  height: 30px;
-  background: black;
+  height: 50px;
+  background: linear-gradient(to right, red, 5%, black, 95%, red);
   z-index: 1;
+  border: none;
+  border-top: 1px solid yellow;
 }
 </style>
