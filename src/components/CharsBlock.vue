@@ -2,16 +2,17 @@
   <div class="mainmenu">
     <!-- <button class="btn" @click="openSettings">Ваши персонажи:</button> -->
     <modale-deletechar
+      class="moddel"
       v-model:isShowDel="isShowDel"
       :nickCharForDelete="nickCharForDelete"
     >
     </modale-deletechar>
     <div class="settings" v-show="isOpenSettings">
-      <div>
-        <h2 style="color: orange">Ваши Персонажи:</h2>
+      <div class="urchars" v-show="isEmptyList">
+        <h2 style="color: orange">Список ваших Персонажей</h2>
       </div>
       <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
-        <div class="charslist" >
+        <div class="charslist" id="123">
           <base-buttonslice class="btnchars" @click="setChar(i)"
             >{{ i.Char.nick }} ( {{ i.Role }} )</base-buttonslice
           >
@@ -21,7 +22,7 @@
           </button> -->
 
           <base-buttonneonred class="deletebtn" @click="deleteChar(i)"
-            >Удалить</base-buttonneonred
+            >X</base-buttonneonred
           >
 
           <!-- <button class="deletebtn" @click="deleteChar(i)">Delete char</button> -->
@@ -42,6 +43,7 @@ export default {
       isOpenSettings: true,
       isShowDel: false,
       nickCharForDelete: "",
+      isEmptyList: true,
     };
   },
 
@@ -69,14 +71,31 @@ export default {
   },
 
   computed: {
-    /* login() {
-      return this.$store.state.login;
-    }, */
+    Chars() {
+      return this.$store.state.api.Chars;
+    },
+    CharsLength() {
+      return this.$store.state.api.Chars.length;
+    },
+  },
+  watch: {
+    CharsLength(v) {
+      if (v != 0) {
+        this.isEmptyList = false;
+      } else {
+        this.isEmptyList = true;
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
+.mainmenu {
+  display: flex;
+  flex-direction: column;
+}
+
 .btn {
   height: 30px;
 }
@@ -90,19 +109,22 @@ export default {
   /* border: none; */
   font-family: "Qore";
   text-transform: uppercase;
+  z-index: initial;
 }
 
 .deletebtn {
-  margin-left: 5px;
+  margin-left: 30px;
   height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 40px;
+  border: none;
 }
-
+.moddel {
+  z-index: 1;
+}
 .settings {
-  width: 70%;
 }
 
 .charslist {
@@ -110,5 +132,9 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.urchars {
+  text-align: center;
 }
 </style>

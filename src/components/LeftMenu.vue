@@ -15,23 +15,34 @@
           <span>CYBERPUNK</span>
         </h1>
       </div>
-      <base-buttonglitch class="btn" @click="this.showChars = true"
-        >2020</base-buttonglitch
-      >
-      <!-- <h1>CYBERPUNK</h1> -->
-      <!--  <base-buttonneon class="btn" @click="this.showChars = true"
-        >2020</base-buttonneon
-      > -->
-      <base-buttonglitch class="btn bred">.RED</base-buttonglitch>
-      <!-- <button class="btn" disabled>RED (soon)</button>
-      <base-buttonneon class="btn" @click="this.showChars = false"
-        >SHOP</base-buttonneon -->
-      <base-buttonglitch class="btn bshop" @click="this.showChars = false"
-        >SHOP</base-buttonglitch
-      >
-      <!-- <button class="btn" @click="this.showChars = true">2020</button> -->
-      <!-- <button class="btn" disabled>RED (soon)</button> -->
-      <!-- <button class="btn" @click="this.showChars = false">SHOP</button> -->
+      <div class="btnsmenu">
+        <div>
+          <base-buttonglitch class="btn" @click="this.showChars = true"
+            >2020</base-buttonglitch
+          >
+        </div>
+        <!-- <h1>CYBERPUNK</h1> -->
+        <!--  <base-buttonneon class="btn" @click="this.showChars = true"
+          >2020</base-buttonneon
+        > -->
+        <div>
+          <base-buttonglitch class="btn bred">.RED</base-buttonglitch>
+        </div>
+        <!-- <button class="btn" disabled>RED (soon)</button>
+        <base-buttonneon class="btn" @click="this.showChars = false"
+          >SHOP</base-buttonneon -->
+        <div>
+          <base-buttonglitch class="btn bshop" @click="this.showChars = false"
+            >SHOP</base-buttonglitch
+          >
+        </div>
+        <div>
+          <base-buttonglitch class="btn bred">F.A.Q.</base-buttonglitch>
+        </div>
+        <!-- <button class="btn" @click="this.showChars = true">2020</button> -->
+        <!-- <button class="btn" disabled>RED (soon)</button> -->
+        <!-- <button class="btn" @click="this.showChars = false">SHOP</button> -->
+      </div>
     </div>
 
     <!-- <div v-show="this.showChars"> -->
@@ -43,11 +54,11 @@
     <!-- </div> -->
   </div>
   <settings-block class="sett" v-show="this.showChars"></settings-block>
-  <div class="foott">
+  <!-- <div class="foott">
     <div class="footer">
       <a href="" style="color: white">by Github.com/PulsarG / 2022</a>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -76,6 +87,7 @@ export default {
 h1 {
   font-family: "Cyberpunk";
   animation: color 10s infinite;
+  font-size: 50px;
 }
 
 @keyframes color {
@@ -133,9 +145,15 @@ h1 {
 .mainmenu {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+.btnsmenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
 }
 
 .footer {
@@ -148,8 +166,10 @@ h1 {
 }
 
 .foott {
-  position: absolute;
-  bottom: 5%;
+  display: flex;
+  justify-self: flex-end;
+  align-items: flex-end;
+  /* position: absolute; */
   width: 100%;
 }
 

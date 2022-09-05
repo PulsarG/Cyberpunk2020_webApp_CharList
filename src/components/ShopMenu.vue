@@ -37,6 +37,8 @@
     <base-buttonslice class="btnsm" @click="setColor('4')" id="4"
       >Разное</base-buttonslice
     >
+
+    <!-- <base-buttonborder class="btnsm btnsave" @click="SaveCustomItems">СОХРАНИТЬ кастомные вещи</base-buttonborder> -->
     <base-buttonneon class="btnsm btnsave" @click="SaveCustomItems"
       >СОХРАНИТЬ кастомные вещи</base-buttonneon
     >
@@ -47,12 +49,19 @@
 </template>
 
 <script>
+import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import BaseButtonslice from "@/components/BaseButtonslice.vue";
 import CyberneticsShop from "@/shopcomponents/CyberneticsShop.vue";
 import WeaponsShop from "@/shopcomponents/WeaponsShop.vue";
 export default {
-  components: { CyberneticsShop, WeaponsShop, BaseButtonslice, BaseButtonneon },
+  components: {
+    CyberneticsShop,
+    WeaponsShop,
+    BaseButtonslice,
+    BaseButtonneon,
+    BaseButtonborder,
+  },
   data() {
     return {
       isOpenShop: true,
@@ -118,11 +127,14 @@ export default {
 .btnsm {
   width: 50%;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Ktf";
+  letter-spacing: 5px;
+  /*  font-size: 20px; */
 }
 
 .submenu {
@@ -134,6 +146,18 @@ export default {
 .btnsave {
   /* position: absolute; */
   bottom: 10%;
-  width: 40%;
+  width: 50%;
+  /* display: flex;
+  align-self: center; */
+  background: none;
+  color: red;
+  /* box-shadow: 0 0 20px blue; */
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  /* Высота footer */
+  height: 30px;
+  background: black;
+  z-index: 1;
 }
 </style>

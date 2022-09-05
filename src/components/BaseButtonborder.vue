@@ -25,6 +25,7 @@ button {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  font-family: "Ktf";
 }
 button:before {
   content: "";

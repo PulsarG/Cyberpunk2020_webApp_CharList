@@ -1,9 +1,12 @@
 <template>
   <div class="modalreg" v-show="isShowDel" @click.stop="hideModal">
     <div @click.stop class="modalcontent">
-      <h4>УДАЛИТЬ {{ nickCharForDelete }} ?</h4>
-      <button @click="deleteChar">Да</button>
-      <button>Нет</button>
+      <h4>УДАЛИТЬ</h4>
+      <h4 style="color: red">{{ nickCharForDelete }} ?</h4>
+      <div>
+        <button @click="deleteChar">Да</button>
+        <button>Нет</button>
+      </div>
     </div>
   </div>
 </template>
@@ -27,6 +30,9 @@ export default {
 </script>
 
 <style scoped>
+h4 {
+  font-family: "Ktf";
+}
 .modalreg {
   top: 0;
   left: 0;
@@ -45,5 +51,6 @@ export default {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 </style>

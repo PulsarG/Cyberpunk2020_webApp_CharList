@@ -292,7 +292,7 @@ a {
   border-left: 15px solid red;
   transition: 0.5s;
   background: rgba(20, 20, 20, 1);
-  transform: translateX(-99%);
+  transform: translateX(-97%);                               /*   !!! позиция изменена на время редактирования с -97% */
   z-index: 99;
 }
 

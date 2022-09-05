@@ -17,12 +17,14 @@ export default {};
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25px;
+  /* height: 25px; */
   color: red;
   background: none;
   /* background-color: aliceblue; */
   transition: all 0.5s;
-  transform: skewX(-50deg);
+  /* transform: skewX(-50deg); */
+  border-radius: 50%;
+  /* width: 25px; */
 }
 .neonbtn:hover {
   border-color: red;
@@ -30,6 +32,6 @@ export default {};
   color: red;
 }
 p {
-  transform: skewX(50deg);
+  /* transform: skewX(50deg); */
 }
 </style>

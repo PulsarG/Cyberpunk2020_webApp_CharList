@@ -3,26 +3,27 @@
     NameShop
   }}</base-buttonslice>
   <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
-
-  <table class="table" v-show="isShow">
-    <thead>
-      <tr class="item">
-        <th class="nameitem" style="color: blue">NAME</th>
-        <th class="range" style="color: blue">Amount</th>
-        <th class="price" style="color: blue">Price</th>
-        <th class="btn" style="color: blue"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="item" v-for="i in Items" :key="i.name">
-        
-        <th class="nameitem">{{ i.name }}</th>
-        <td class="range">{{ i.amount }}</td>
-        <td class="price">{{ i.price }}</td>
-        <button class="btn" @click="addWeapons(i)">+ BUY</button>
-      </tr>
-    </tbody>
-  </table>
+    <table class="table" v-show="isShow">
+      <h4>* Бронебойные х3 цена</h4>
+      <h4>** Гильзовые патроны для старых пушек х2 цена</h4>
+      <h4>*** Препараты, наркотик х5 цена</h4>
+      <thead>
+        <tr class="item">
+          <th class="nameitem" style="color: blue">NAME</th>
+          <th class="range" style="color: blue">Amount</th>
+          <th class="price" style="color: blue">Price</th>
+          <th class="btn" style="color: blue"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="item" v-for="i in Items" :key="i.name">
+          <th class="nameitem">{{ i.name }}</th>
+          <td class="range">{{ i.amount }}</td>
+          <td class="price">{{ i.price }}</td>
+          <button class="btn" @click="addWeapons(i)">+ BUY</button>
+        </tr>
+      </tbody>
+    </table>
 </template>
 
 <script>
@@ -55,8 +56,11 @@ export default {
 </script>
 
 <style scoped>
+h4 {
+  color: orange;
+}
 .btnsubmenu {
-    width: 500px;
+  width: 500px;
   margin-top: 5px;
   height: 30px;
   display: flex;
@@ -94,7 +98,6 @@ export default {
   justify-content: flex-start;
   padding-left: 10px;
 }
-
 
 .range {
   width: 15%;

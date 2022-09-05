@@ -14,6 +14,7 @@ export default {};
 
 <style scoped>
 .neonbtn {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,10 +23,10 @@ export default {};
   transition: all 0.5s;
 }
 .neonbtn:hover {
-  border-color: blue;
-  box-shadow: 0px 0px 15px blue;
+  /* border-color: blue;
+  box-shadow: 0px 0px 15px blue; */
   color: yellow;
-  background: blue;
+  /* background: blue; */
 }
 
 </style>

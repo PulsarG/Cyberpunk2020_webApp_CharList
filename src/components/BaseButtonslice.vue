@@ -20,7 +20,87 @@ export default {
   position: relative;
   transition: 0.5s;
   overflow: hidden;
-  color: red;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
+  background: none;
+  z-index: 1;
+  transform: skewX(-50deg);
+}
+.btnslice {
+  border: none;
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  color: orange;
   background: none;
   z-index: 1;
   transform: skewX(-50deg);
@@ -31,7 +111,7 @@ export default {
   content: "";
   width: 100%;
   height: 100%;
-  background: orange;
+  background: red;
   top: 0;
   left: -100%;
   opacity: 0.5;
@@ -44,7 +124,7 @@ export default {
 }
 
 .btnslice:hover {
-  color: blue;
+  color: black;
 }
 
 .btnslice:hover::before,
