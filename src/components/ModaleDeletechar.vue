@@ -3,16 +3,24 @@
     <div @click.stop class="modalcontent">
       <h4>УДАЛИТЬ</h4>
       <h4 style="color: red">{{ nickCharForDelete }} ?</h4>
-      <div>
-        <button @click="deleteChar">Да</button>
-        <button>Нет</button>
+      <div class="btns">
+        <div>
+          <base-buttonneonred class="btn" @click="deleteChar">ДА</base-buttonneonred>
+          <!-- <button @click="deleteChar">Да</button> -->
+        </div>
+        <div>
+          <base-buttonneonred class="btn" style="color: orange" @click.stop="hideModal">НЕТ</base-buttonneonred>
+          <!-- <button @click.stop="hideModal">Нет</button> -->
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import BaseButtonneonred from "@/components/BaseButtonneonred.vue";
 export default {
+  components: { BaseButtonneonred },
   props: {
     isShowDel: Boolean,
     nickCharForDelete: String,
@@ -32,6 +40,8 @@ export default {
 <style scoped>
 h4 {
   font-family: "Ktf";
+  font-size: 30px;
+  color: orange;
 }
 .modalreg {
   top: 0;
@@ -44,13 +54,31 @@ h4 {
 }
 .modalcontent {
   margin: auto;
-  background: white;
-  min-height: 50px;
-  min-width: 300px;
+  background: black;
+  /* min-height: 50px; */
+  /* min-width: 300px; */
+  height: 300px;
+  width: 300px;
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border: 10px solid red;
+  box-shadow: 0 0 50px red;
+}
+
+.btns {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn {
+  font-family: "Ktf";
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
 }
 </style>

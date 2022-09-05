@@ -120,6 +120,7 @@ export default {
   align-items: center;
   width: 40px;
   border: none;
+  border-radius: 50%;
 }
 .moddel {
   z-index: 1;

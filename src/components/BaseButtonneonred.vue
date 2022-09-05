@@ -23,7 +23,7 @@ export default {};
   /* background-color: aliceblue; */
   transition: all 0.5s;
   /* transform: skewX(-50deg); */
-  border-radius: 50%;
+  
   /* width: 25px; */
 }
 .neonbtn:hover {

@@ -74,10 +74,10 @@ export default {
     setColor(e) {
       let el = document.getElementById(e);
       let color = el.style.backgroundColor;
-      if (color == "orange") {
+      if (color == "red") {
         el.style.background = "none";
       } else {
-        el.style.backgroundColor = "orange";
+        el.style.backgroundColor = "red";
       }
     },
     SaveCustomItems() {
