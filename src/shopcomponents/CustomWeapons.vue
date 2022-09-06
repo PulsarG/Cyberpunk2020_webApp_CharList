@@ -38,8 +38,8 @@
         <td class="rel">{{ i.rel }}</td>
         <td class="range">{{ i.range }}</td>
         <td class="price">{{ i.price }}</td>
-        <button class="btn" @click="deleteCustomWeapons(i)">Delete</button>
-        <button class="btn" @click="addWeapons(i)">+ BUY</button>
+        <button class="btn" @click="deleteCustomWeapons(i)">Del</button>
+        <button class="btn" @click="addWeapons(i)">BUY</button>
       </tr>
 
       <h4>Добавить своё оружие</h4>
@@ -136,6 +136,9 @@ export default {
 </script>
 
 <style scoped>
+h4 {
+  color: orange;
+}
 .btnsubmenu {
   width: 500px;
   margin-top: 5px;
@@ -144,8 +147,12 @@ export default {
   justify-content: flex-start;
   align-items: center;
 }
+p {
+  margin-left: 15px;
+}
 
 .table {
+  margin-left: -105px;
 }
 
 .item {
@@ -161,11 +168,11 @@ export default {
 }
 
 .btn {
-  width: 10%;
+  width: 5%;
 }
 
 .btnaddimp {
-  width: 20%;
+  width: 10%;
 }
 
 .btnadd {
@@ -185,7 +192,7 @@ input {
 }
 
 .nameitem {
-  width: 30%;
+  width: 25%;
   border: 1px solid black;
   display: flex;
   justify-content: flex-start;
@@ -256,7 +263,7 @@ input {
 }
 
 .price {
-  width: 10%;
+  width: 5%;
   border: 1px solid black;
 }
 </style>

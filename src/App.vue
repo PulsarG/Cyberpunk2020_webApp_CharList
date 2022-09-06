@@ -168,8 +168,9 @@ export default {
 
 <style scoped>
 * {
+  /* background: linear-gradient(rgb(139, 1, 1), 5%, black); */
   /* background-color: #ad8fe4; */
-  background-color: #e4dbbf;
+  /* background-color: #e4dbbf; */
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

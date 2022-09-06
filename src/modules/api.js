@@ -87,6 +87,7 @@ export default {
 
             Cybernetics: store.state.Cybernetics,
             Weapons: store.state.Weapons,
+            Gear: store.state.Gear,
 
             BioText: store.state.BioText,
             LookText: store.state.LookText,
@@ -95,7 +96,7 @@ export default {
           alert("Сохранено");
           dispatch("getChars");
         } catch (e) {
-          alert(e);
+          alert("Ой, что-то поло не так");
           console.log(e);
         }
       }

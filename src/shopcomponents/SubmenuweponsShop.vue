@@ -1,7 +1,7 @@
 <template>
-  <base-buttonslice class="btnsubmenu" @click="showTable">{{
-    NameShop
-  }}</base-buttonslice>
+  <base-buttonslice class="btnsubmenu" @click="showTable">
+    <p>{{ NameShop }}</p>
+  </base-buttonslice>
   <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
 
   <table class="table" v-show="isShow">
@@ -71,12 +71,15 @@ export default {
 
 <style scoped>
 .btnsubmenu {
-    width: 500px;
+  width: 500px;
   margin-top: 5px;
   height: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+p {
+  margin-left: 15px;
 }
 
 .cybershop {

@@ -3,24 +3,20 @@
     <p>{{ NameShop }}</p>
   </base-buttonslice>
   <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
+
   <table class="table" v-show="isShow">
-    <h4>* Бронебойные х3 цена</h4>
-    <h4>** Гильзовые патроны для старых пушек х2 цена</h4>
-    <h4>*** Препараты, наркотик х5 цена</h4>
     <thead>
       <tr class="item">
-        <th class="nameitem" style="color: blue">NAME</th>
-        <th class="range" style="color: blue">Amount</th>
+        <th class="type" style="color: blue">Type</th>
         <th class="price" style="color: blue">Price</th>
         <th class="btn" style="color: blue"></th>
       </tr>
     </thead>
     <tbody>
       <tr class="item" v-for="i in Items" :key="i.name">
-        <th class="nameitem">{{ i.name }}</th>
-        <td class="range">{{ i.amount }}</td>
+        <td class="type">{{ i.type }}</td>
         <td class="price">{{ i.price }}</td>
-        <button class="btn" @click="addWeapons(i)">+ BUY</button>
+        <button class="btn" @click="addGear(i)">+ BUY</button>
       </tr>
     </tbody>
   </table>
@@ -48,8 +44,8 @@ export default {
       }
     },
 
-    addWeapons(i) {
-      this.$store.commit("addWeapons", i);
+    addGear(i) {
+      this.$store.commit("addGear", i);
     },
   },
 };
@@ -88,28 +84,22 @@ p {
 }
 
 .price {
-  width: 15%;
+  width: 40%;
   border: 1px solid black;
   display: flex;
   justify-content: center;
 }
 
-.nameitem {
+
+.type {
   width: 50%;
   border: 1px solid black;
   display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
-}
-
-.range {
-  width: 15%;
-  border: 1px solid black;
-  display: flex;
   justify-content: center;
 }
 
+
 .btn {
-  width: 20%;
+  width: 10%;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <base-buttonslice class="btnsubmenu" @click="showTable">{{
-    NameShop
-  }}</base-buttonslice>
+  <base-buttonslice class="btnsubmenu" @click="showTable">
+    <p>{{ NameShop }}</p>
+  </base-buttonslice>
   <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
 
   <table class="table" v-show="isShow">
@@ -24,7 +24,7 @@
         <td class="wa">{{ i.sp }}</td>
         <td class="range">{{ i.obr }}</td>
         <td class="price">{{ i.price }}</td>
-        <button class="btn" @click="addWeapons(i)">+ BUY</button>
+        <button class="btn" @click="addArmor(i)">+ BUY</button>
       </tr>
     </tbody>
   </table>
@@ -52,8 +52,8 @@ export default {
       }
     },
 
-    addWeapons(i) {
-      this.$store.commit("addWeapons", i);
+    addArmor(i) {
+      this.$store.commit("addGear", i);
     },
   },
 };
@@ -68,8 +68,11 @@ h4 {
   margin-top: 5px;
   height: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+p {
+  margin-left: 15px;
 }
 
 .cybershop {

@@ -21,13 +21,13 @@
         v-for="i in $store.state.customs.Customarmor"
         :key="i.name"
       >
-      <td class="type">{{ i.type }}</td>
+        <td class="type">{{ i.type }}</td>
         <th class="nameitem">{{ i.body }}</th>
         <td class="wa">{{ i.sp }}</td>
         <td class="range">{{ i.obr }}</td>
         <td class="price">{{ i.price }}</td>
-        <button class="btn" @click="addWArmor(i)">+ BUY</button>
-        <button class="btn" @click="deleteCustomArmor(i)">Delete</button>
+        <button class="btn" @click="deleteCustomArmor(i)">Del</button>
+        <button class="btn" @click="addArmor(i)">BUY</button>
       </tr>
 
       <h4>Добавить свою Броню</h4>
@@ -38,9 +38,7 @@
         <td class="wa"><input type="text" name="" id="wa" /></td>
         <td class="range"><input type="text" id="range" /></td>
         <td class="price"><input type="text" name="" id="priceitem" /></td>
-        <button class="btnaddimp" @click="addCustomArmor">
-          Create Armor
-        </button>
+        <button class="btnaddimp" @click="addCustomArmor">Create Armor</button>
       </tr>
     </tbody>
   </table>
@@ -89,7 +87,7 @@ export default {
     },
 
     addArmor(i) {
-      this.$store.commit("addCustomArmor", i);
+      this.$store.commit("addGear", i);
     },
 
     deleteCustomArmor(i) {
@@ -111,7 +109,9 @@ h4 {
   justify-content: flex-start;
   align-items: center;
 }
-
+p {
+  margin-left: 15px;
+}
 .table {
 }
 
@@ -128,11 +128,11 @@ h4 {
 }
 
 .btn {
-  width: 10%;
+  width: 8%;
 }
 
 .btnaddimp {
-  width: 20%;
+  width: 15%;
 }
 
 .btnadd {
@@ -153,7 +153,7 @@ input {
 }
 
 .nameitem {
-  width: 25%;
+  width: 20%;
   border: 1px solid black;
   display: flex;
   justify-content: flex-start;
@@ -173,7 +173,6 @@ input {
   display: flex;
   justify-content: center;
 }
-
 
 .range {
   width: 5%;

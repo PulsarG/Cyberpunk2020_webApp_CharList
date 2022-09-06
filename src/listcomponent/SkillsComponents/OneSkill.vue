@@ -101,5 +101,6 @@ export default {
   font-family: "Qore";
   font-size: 12px;
   color:#383127;
+  /* color:#00ccff; */
 }
 </style>

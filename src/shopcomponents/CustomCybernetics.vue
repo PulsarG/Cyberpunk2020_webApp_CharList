@@ -26,7 +26,7 @@
         <td class="price">{{ i.price }}</td>
         <td class="hum">{{ i.humanity }}</td>
         <button class="btn" @click="deleteCustomCybernetics(i)">Delete</button>
-        <button class="btn" @click="addCybernetics(i)">+ BUY</button>
+        <button class="btn" @click="addCybernetics(i)">BUY</button>
       </tr>
 
       <h4 style="color: orange">Добавить свои импланты</h4>

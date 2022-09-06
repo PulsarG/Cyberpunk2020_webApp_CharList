@@ -42,9 +42,42 @@
       <weapons-shop></weapons-shop>
     </div>
 
-    <base-buttonslice class="btnsm" @click="setColor('4')" id="4"
-      >Разное</base-buttonslice
+    <base-buttonslice
+      class="btnsm"
+      @click="
+        openThingsshop();
+        setColor('4');
+      "
+      id="4"
+      >Снаряжение</base-buttonslice
     >
+    <div class="submenu" v-show="isThingsOpen">
+      <things-shop></things-shop>
+    </div>
+    <base-buttonslice
+      class="btnsm"
+      @click="
+        openCheapshop();
+        setColor('5');
+      "
+      id="5"
+      >Чипы</base-buttonslice
+    >
+    <div class="submenu" v-show="isCheapOpen">
+      <weapons-shop></weapons-shop>
+    </div>
+    <base-buttonslice
+      class="btnsm"
+      @click="
+        openSpecshop();
+        setColor('6');
+      "
+      id="6"
+      >Особая экипировка</base-buttonslice
+    >
+    <div class="submenu" v-show="isSpecOpen">
+      <weapons-shop></weapons-shop>
+    </div>
 
     <!-- <base-buttonborder class="btnsm btnsave" @click="SaveCustomItems">СОХРАНИТЬ кастомные вещи</base-buttonborder> -->
     <base-buttonneon class="btnsm btnsave" @click="SaveCustomItems"
@@ -57,6 +90,7 @@
 </template>
 
 <script>
+import ThingsShop from "@/shopcomponents/ThingsShop.vue";
 import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import BaseButtonslice from "@/components/BaseButtonslice.vue";
@@ -71,6 +105,7 @@ export default {
     BaseButtonneon,
     BaseButtonborder,
     ArmorShop,
+    ThingsShop,
   },
   data() {
     return {
@@ -79,6 +114,9 @@ export default {
       isCybershopOpen: false,
       isWeaponsshopOpen: false,
       isArmorOpen: false,
+      isThingsOpen: false,
+      isCheapOpen: false,
+      isSpecOpen: false,
     };
   },
   methods: {
@@ -116,6 +154,27 @@ export default {
         this.isArmorOpen = false;
       }
     },
+    openThingsshop() {
+      if (!this.isThingsOpen) {
+        this.isThingsOpen = true;
+      } else {
+        this.isThingsOpen = false;
+      }
+    },
+    openCheapshop() {
+      if (!this.isCheapOpen) {
+        this.isCheapOpen = true;
+      } else {
+        this.isCheapOpen = false;
+      }
+    },
+    openSpecshop() {
+      if (!this.isSpecOpen) {
+        this.isSpecOpen = true;
+      } else {
+        this.isSpecOpen = false;
+      }
+    },
   },
 };
 </script>
@@ -140,16 +199,19 @@ export default {
   flex-direction: column;
   margin-left: 3%;
   overflow: auto;
+  margin-top: 50px;
 }
 
 .btnsm {
-  width: 50%;
+  width: 90%;
   height: 30px;
   margin-top: 20px;
   margin-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-self: center;
+  align-self: center;
   font-family: "Ktf";
   letter-spacing: 5px;
   /*  font-size: 20px; */
@@ -157,7 +219,7 @@ export default {
 
 .submenu {
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   flex-direction: column;
 }
 
