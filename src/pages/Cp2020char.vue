@@ -29,7 +29,12 @@
     </div>
 
     <div class="">
-      <button class="btn" @click="openCharlist"><p>Charlist</p></button>
+      <div class="btn">
+        <button class="btnlist" @click="openCharlist"><p>Charlist</p></button>
+        <button class="btnclear" @click="clearList">
+          <p class="cleartext">Очистить лист</p>
+        </button>
+      </div>
       <transition name="slide-fade">
         <char-list
           class="hero glitch layers"
@@ -39,7 +44,7 @@
     </div>
 
     <div class="deck">
-      <button class="btn" @click="openDeck"><p>Deck (soon)</p></button>
+      <button class="btnlist" @click="openDeck"><p>Deck (soon)</p></button>
       <div v-show="isOpenDeck">
         <deck-list></deck-list>
       </div>
@@ -78,6 +83,11 @@ export default {
       setWidthcount: 1,
     };
   },
+  computed: {
+    AmountChars() {
+      return this.$store.state.api.Chars.length;
+    },
+  },
   methods: {
     openCharlist() {
       if (!this.isOpenCharlist) {
@@ -108,17 +118,33 @@ export default {
     },
 
     saveChar() {
-      try {
-        this.$store.dispatch("api/saveChar");
-      } catch (e) {
-        console.log(e);
+      let save = false;
+      for (let i = 0; i < this.$store.state.api.Chars.length; i++) {
+        if (
+          this.$store.state.api.Chars[i].Char.nick ==
+          this.$store.state.Char.nick
+        )
+          save = true;
       }
+      if (this.$store.state.api.isPondsmith || this.AmountChars < 5 || save) {
+        this.$store.dispatch("api/saveChar");
+      } else if (this.AmountChars >= 5 && !this.$store.state.api.isPondsmith) {
+        alert("Нет свободных ячеек для персонажей");
+      }
+      this.disableButtonSave();
+    },
+
+    disableButtonSave() {
       let btn = document.getElementById("savebtn");
       btn.setAttribute("disabled", true);
 
       setTimeout(() => {
         btn.removeAttribute("disabled");
       }, 5000);
+    },
+
+    clearList() {
+      location.reload();
     },
   },
 };
@@ -149,7 +175,7 @@ export default {
 } */
 .save {
   margin: auto;
-  margin-bottom: 3px;;
+  margin-bottom: 3px;
 }
 
 .fullcharlist {
@@ -161,10 +187,14 @@ export default {
   margin: auto;
   /* background-color: rgb(3, 3, 61); */
 }
-
 .btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btnlist {
   height: 30px;
-  width: 100%;
+  width: 80%;
   margin-bottom: 20px;
   border: none;
   display: flex;
@@ -175,6 +205,24 @@ export default {
   border-left: 1px solid black;
   cursor: pointer;
   margin-top: 10px;
+}
+.btnclear {
+  height: 30px;
+  width: 15%;
+  margin-bottom: 20px;
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: none;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.cleartext {
+  font-family: 'Ktf';
+  font-size: 18px;
 }
 
 .deck {

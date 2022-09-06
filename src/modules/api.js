@@ -10,6 +10,7 @@ import {
   onSnapshot,
   query,
   where,
+  updateDoc,
 } from "firebase/firestore";
 import store from "@/store/store";
 
@@ -18,6 +19,8 @@ export default {
     return {
       isLoginIn: false,
       Chars: [],
+      isPondsmith: false,
+      userId: "",
     };
   },
 
@@ -25,9 +28,48 @@ export default {
     setIsLoginIn(state, b) {
       state.isLoginIn = b;
     },
+    setUserId(state, id) {
+      state.userId = id;
+    },
+    setPondsmith(state) {
+      state.isPondsmith = true;
+    },
   },
 
   actions: {
+    async updateCode({ state }) {
+      try {
+        const codeRef = doc(db, "User", state.userId);
+
+        await updateDoc(codeRef, {
+          isPondsmith: true,
+        });
+      } catch (e) {
+        console.log(e);
+        alert("Упс, неполадки");
+      }
+    },
+
+    async checkCode({ state, dispatch, commit }, c) {
+      try {
+        const q = query(collection(db, "Code"), where("Code", "==", c));
+
+        const querySnapshot = await getDocs(q);
+        let items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+
+        if (items[0].isCode) {
+          commit("setPondsmith");
+          dispatch("updateCode");
+        }
+      } catch (e) {
+        alert("Не верные данные");
+        console.log(e);
+      }
+    },
+
     async LoginIn({ state }, l) {
       try {
         const q = query(
@@ -39,11 +81,13 @@ export default {
         const querySnapshot = await getDocs(q);
         let items = [];
         querySnapshot.forEach((doc) => {
+          state.userId = doc.id;
           items.push(doc.data());
         });
 
         if (items[0].isLogin) {
           state.isLoginIn = true;
+          if (items[0].isPondsmith) state.isPondsmith = true;
         }
       } catch (e) {
         alert("Не верные данные");
@@ -56,7 +100,7 @@ export default {
         state.Chars.length = 0;
         const querySnapshot = await getDocs(collection(db, store.state.login));
         querySnapshot.forEach((doc) => {
-          if (doc.id == "CustomShop") {
+          if (doc.id == "CustomShop" || doc.id == "Code") {
             return;
           }
           state.Chars.push(doc.data());
@@ -186,6 +230,7 @@ export default {
           pass: user.pass,
           email: user.email,
           isLogin: true,
+          isPondsmith: false,
         });
         alert("Регистрация прошла успешно");
       } catch (e) {

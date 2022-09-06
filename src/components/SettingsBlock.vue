@@ -1,12 +1,15 @@
 <template>
   <div class="mainsetting">
     <div>
-      <h4>
+      <h4 v-show="!this.$store.state.api.isPondsmith">
         Стандартно доступно пять ячеек персонажей. <br />
         Чтобы получить больше обратитесь в группу сообщества в
         <a href="https://vk.com/cyberpunk2020">ВКонтакте</a> или канал в
         <a href="https://discord.gg/PPpHEzf67H">Дискорде</a>
       </h4>
+      <div v-show="!this.$store.state.api.isPondsmith">
+        <faq-block></faq-block>
+      </div>
     </div>
     <div class="settings">
       <div class="check">
@@ -59,10 +62,12 @@
 </template>
 
 <script>
+import FaqBlock from "@/components/FaqBlock.vue";
 export default {
+  components: { FaqBlock },
   data() {
     return {
-      isCheck: true,
+      isCheck: false,
     };
   },
   methods: {

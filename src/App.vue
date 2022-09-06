@@ -57,7 +57,7 @@
 
       <div class="links">
         <div class="ver">
-          <a href=""> ver 0.9.019.2 </a>
+          <a href=""> ver 0.9.019.3 </a>
         </div>
         <div class="comunity">
           <h4>Ru-Community_</h4>
@@ -125,6 +125,8 @@ export default {
 
       localStorage.removeItem("login");
       localStorage.removeItem("isLogin");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("pond");
     },
 
     setLogin() {
@@ -144,12 +146,19 @@ export default {
     isLoginIn() {
       return this.$store.state.api.isLoginIn;
     },
+    codePondValid() {
+      return this.$store.state.api.isPondsmith;
+    },
   },
 
   mounted() {
     if (localStorage.login) {
       this.login = localStorage.login;
       this.$store.commit("api/setIsLoginIn", localStorage.isLogin);
+      this.$store.commit("api/setUserId", localStorage.userId);
+    }
+    if (localStorage.pond) {
+      this.$store.commit("api/setPondsmith");
     }
   },
 
@@ -158,9 +167,15 @@ export default {
       if (v) {
         localStorage.login = this.login;
         localStorage.isLogin = true;
+        localStorage.userId = this.$store.state.api.userId;
         this.setLogin();
         this.getChars();
         this.getCustoms();
+      }
+    },
+    codePondValid(v) {
+      if (v) {
+        localStorage.pond = v;
       }
     },
   },
