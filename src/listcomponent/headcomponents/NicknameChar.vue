@@ -53,10 +53,9 @@ export default {
 .nicklabel {
   background-color: black;
   width: 20%;
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
-  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nick {

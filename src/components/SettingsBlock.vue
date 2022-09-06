@@ -9,31 +9,50 @@
       </h4>
     </div>
     <div class="settings">
-      <div>
-        <h4>Авторасчет СТАТов</h4>
+      <div class="check">
+        <div>
+          <h4>Авторасчет Статов</h4>
+        </div>
+        <div>
+          <label class="checkbox-green">
+            <input type="checkbox" disabled />
+            <span
+              class="checkbox-green-switch"
+              data-label-on="On"
+              data-label-off="Off"
+            ></span>
+          </label>
+        </div>
       </div>
-      <div>
-        <label class="checkbox-green">
-          <input type="checkbox" disabled />
-          <span
-            class="checkbox-green-switch"
-            data-label-on="On"
-            data-label-off="Off"
-          ></span>
-        </label>
+      <div class="check">
+        <div>
+          <h4>Авторасчет Брони</h4>
+        </div>
+        <div>
+          <label class="checkbox-green">
+            <input type="checkbox" disabled />
+            <span
+              class="checkbox-green-switch"
+              data-label-on="On"
+              data-label-off="Off"
+            ></span>
+          </label>
+        </div>
       </div>
-      <div>
-        <h4>Авторасчет Брони</h4>
-      </div>
-      <div>
-        <label class="checkbox-green">
-          <input type="checkbox" disabled />
-          <span
-            class="checkbox-green-switch"
-            data-label-on="On"
-            data-label-off="Off"
-          ></span>
-        </label>
+      <div class="check">
+        <div>
+          <h4>Тема 2077</h4>
+        </div>
+        <div>
+          <label class="checkbox-green">
+            <input type="checkbox" v-model="isCheck" />
+            <span
+              class="checkbox-green-switch"
+              data-label-on="On"
+              data-label-off="Off"
+            ></span>
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -41,6 +60,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isCheck: true,
+    };
+  },
   methods: {
     openSettings() {
       if (!this.isOpenSettings) {
@@ -54,6 +78,11 @@ export default {
 </script>
 
 <style scoped>
+.check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 a {
   color: orange;
   text-shadow: 0 0 1px blue;
@@ -61,6 +90,7 @@ a {
 h4 {
   color: orange;
 }
+
 .settings {
   width: 90%;
   display: flex;

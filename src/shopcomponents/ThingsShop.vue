@@ -16,14 +16,14 @@
     <submenugear-shop :Items="ViewShop" :NameShop="View"></submenugear-shop>
     <submenugear-shop
       :Items="EntertaimentShop"
-      :NameShop="Entertainment"
+      :NameShop="Entertaiment"
     ></submenugear-shop>
     <submenugear-shop
       :Items="SecurityShop"
       :NameShop="Security"
     ></submenugear-shop>
     <submenugear-shop :Items="MedShop" :NameShop="Med"></submenugear-shop>
-    <submenugear-shop :Items="Home" :NameShop="Home"></submenugear-shop>
+    <submenugear-shop :Items="HomeShop" :NameShop="Home"></submenugear-shop>
     <submenugear-shop
       :Items="VehicleShop"
       :NameShop="Vehicle"
@@ -56,7 +56,7 @@ export default {
       DataSys: "Системы данных",
       Connect: "Связь",
       View: "Наблюдение",
-      Entertainment: "Развлечения",
+      Entertaiment: "Развлечения",
       Security: "Безопасность",
       Med: "Медицина",
       Home: "Мебель, жилье",

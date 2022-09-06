@@ -59,6 +59,9 @@ export default {
 .nicklabel {
   background-color: black;
   width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .roleblock {
@@ -67,8 +70,9 @@ export default {
   display: flex;
 }
 
-select, option {
-    background-color: #E4DBBF;
+select,
+option {
+  background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
 }

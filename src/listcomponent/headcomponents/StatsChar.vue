@@ -192,6 +192,8 @@ export default {
   width: 15%;
   margin-top: 3px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .stats {

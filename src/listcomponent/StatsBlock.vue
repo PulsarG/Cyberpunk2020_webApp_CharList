@@ -187,6 +187,9 @@ img {
 .cplabel {
   background-color: black;
   width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .charpointsinput {
