@@ -39,16 +39,16 @@
     ></submenugear-shop>
 
     <!--  <body-shop></body-shop> -->
-    <custom-armor></custom-armor>
+    <custom-gear></custom-gear>
   </div>
 </template>
 
 <script>
 import SubmenugearShop from "@/shopcomponents/SubmenugearShop.vue";
-import CustomArmor from "@/shopcomponents/CustomArmor.vue";
+import CustomGear from "@/shopcomponents/CustomGear.vue";
 
 export default {
-  components: { SubmenugearShop, CustomArmor },
+  components: { SubmenugearShop, CustomGear },
   data() {
     return {
       Tools: "Инструменты",

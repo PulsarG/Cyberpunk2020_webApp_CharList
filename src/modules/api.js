@@ -108,6 +108,7 @@ export default {
           Customcybernetics: store.state.customs.Customcybernetics,
           Customweapons: store.state.customs.Customweapons,
           Customarmor: store.state.customs.Customarmor,
+          Customgear: store.state.customs.Customgear,
         });
         alert("Сохранено");
       } catch (e) {
@@ -120,22 +121,28 @@ export default {
         const docRef = doc(db, store.state.login, "CustomShop");
         const docSnap = await getDoc(docRef);
 
-        let j = docSnap.data().Customcybernetics.length;
-        for (let i = 0; i < j; i++) {
+        let c = docSnap.data().Customcybernetics.length;
+        for (let i = 0; i < c; i++) {
           let X = docSnap.data().Customcybernetics[i];
           store.commit("addCustomCybernetics", X);
         }
 
-        let k = docSnap.data().Customweapons.length;
-        for (let i = 0; i < k; i++) {
+        let w = docSnap.data().Customweapons.length;
+        for (let i = 0; i < w; i++) {
           let Y = docSnap.data().Customweapons[i];
           store.commit("addCustomWeapons", Y);
         }
 
-        let l = docSnap.data().Customarmor.length;
-        for (let i = 0; i < l; i++) {
+        let a = docSnap.data().Customarmor.length;
+        for (let i = 0; i < a; i++) {
           let Y = docSnap.data().Customarmor[i];
           store.commit("addCustomArmor", Y);
+        }
+
+        let g = docSnap.data().Customgear.length;
+        for (let i = 0; i < g; i++) {
+          let Y = docSnap.data().Customgear[i];
+          store.commit("addCustomGear", Y);
         }
       } catch (e) {
         console.log(e);

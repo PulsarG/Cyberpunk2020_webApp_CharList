@@ -1,15 +1,12 @@
 <template>
   <!-- <button class="btnsubmenu" @click="showTable">Custom Weapons</button> -->
   <base-buttonslice class="btnsubmenu" @click="showTable">
-    <p>Custom Armor</p>
+    <p>Custom Gear</p>
   </base-buttonslice>
   <table class="table" v-show="isShow">
     <thead>
       <tr class="item">
         <th class="type" style="color: blue">Type</th>
-        <th class="nameitem" style="color: blue">Чать тела</th>
-        <th class="wa" style="color: blue">SP</th>
-        <th class="range" style="color: blue">Обр</th>
         <th class="price" style="color: blue">Price</th>
         <th class="btn" style="color: blue"></th>
         <th class="btn" style="color: blue"></th>
@@ -18,27 +15,21 @@
     <tbody style="display: flex; flex-direction: column">
       <tr
         class="item"
-        v-for="i in $store.state.customs.Customarmor"
+        v-for="i in $store.state.customs.Customgear"
         :key="i.name"
       >
         <td class="type">{{ i.type }}</td>
-        <th class="nameitem">{{ i.body }}</th>
-        <td class="wa">{{ i.sp }}</td>
-        <td class="range">{{ i.obr }}</td>
         <td class="price">{{ i.price }}</td>
         <button class="btn" @click="deleteCustomArmor(i)">Del</button>
         <button class="btn" @click="addArmor(i)">BUY</button>
       </tr>
 
-      <h4>Добавить свою Броню</h4>
+      <h4>Добавить свое Снаряжение</h4>
 
       <tr class="item" style="margin-top: 1px">
-        <td class="type"><input type="text" id="typea" /></td>
-        <td class="nameitem"><input type="text" id="nameitema" /></td>
-        <td class="wa"><input type="text" name="" id="waa" /></td>
-        <td class="range"><input type="text" id="rangea" /></td>
-        <td class="price"><input type="text" name="" id="priceitema" /></td>
-        <button class="btnaddimp" @click="addCustomArmor">Create Armor</button>
+        <td class="type"><input type="text" id="typeg" /></td>
+        <td class="price"><input type="text" name="" id="priceitemg" /></td>
+        <button class="btnaddimp" @click="addCustomGear">Create Armor</button>
       </tr>
     </tbody>
   </table>
@@ -62,28 +53,19 @@ export default {
       }
     },
 
-    addCustomArmor() {
-      let type = document.getElementById("typea").value;
-      let body = document.getElementById("nameitema").value;
-      let sp = document.getElementById("waa").value;
-      let obr = document.getElementById("rangea").value;
-      let price = document.getElementById("priceitema").value;
-
+    addCustomGear() {
+      let type = document.getElementById("typeg").value;
+      let price = document.getElementById("priceitemg").value;
+      
       let X = {
         type,
-        body,
-        sp,
-        obr,
         price,
       };
 
-      this.$store.commit("addCustomArmor", X);
+      this.$store.commit("addCustomGear", X);
 
-      document.getElementById("typea").value = "";
-      document.getElementById("nameitema").value = "";
-      document.getElementById("waa").value = "";
-      document.getElementById("rangea").value = "";
-      document.getElementById("priceitema").value = "";
+      document.getElementById("typeg").value = "";
+      document.getElementById("priceitemg").value = "";
     },
 
     addArmor(i) {
@@ -91,7 +73,7 @@ export default {
     },
 
     deleteCustomArmor(i) {
-      this.$store.commit("deleteCustomArmor", i);
+      this.$store.commit("deleteCustomGear", i);
     },
   },
 };
@@ -122,11 +104,6 @@ p {
   background: white;
 }
 
-.nameitem {
-  width: 50%;
-  border: 1px solid black;
-}
-
 .btn {
   width: 8%;
 }
@@ -152,37 +129,15 @@ input {
   height: 100%;
 }
 
-.nameitem {
-  width: 20%;
-  border: 1px solid black;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
-}
-
 .type {
-  width: 45%;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-}
-
-.wa {
-  width: 5%;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-}
-
-.range {
-  width: 5%;
+  width: 50%;
   border: 1px solid black;
   display: flex;
   justify-content: center;
 }
 
 .price {
-  width: 5%;
+  width: 40%;
   border: 1px solid black;
 }
 </style>

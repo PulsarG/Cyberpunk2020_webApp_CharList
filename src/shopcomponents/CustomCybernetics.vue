@@ -32,10 +32,10 @@
       <h4 style="color: orange">Добавить свои импланты</h4>
 
       <tr class="item" style="margin-top: 1px">
-        <th class="nameitem"><input type="text" id="name" /></th>
-        <td class="code"><input type="text" id="code" /></td>
-        <td class="price"><input type="number" name="" id="price" /></td>
-        <td class="hum"><input type="text" id="humanity" /></td>
+        <th class="nameitem"><input type="text" id="namec" /></th>
+        <td class="code"><input type="text" id="codec" /></td>
+        <td class="price"><input type="number" name="" id="pricec" /></td>
+        <td class="hum"><input type="text" id="humanityc" /></td>
         <button class="btnaddimp" @click="addCustomCybernetics">
           Create implant
         </button>
@@ -65,10 +65,10 @@ export default {
     },
 
     addCustomCybernetics() {
-      let name = document.getElementById("name").value;
-      let code = document.getElementById("code").value;
-      let price = document.getElementById("price").value;
-      let humanity = document.getElementById("humanity").value;
+      let name = document.getElementById("namec").value;
+      let code = document.getElementById("codec").value;
+      let price = document.getElementById("pricec").value;
+      let humanity = document.getElementById("humanityc").value;
 
       let X = {
         name,
@@ -79,10 +79,10 @@ export default {
 
       this.$store.commit("addCustomCybernetics", X);
 
-      document.getElementById("name").value = "";
-      document.getElementById("code").value = "";
-      document.getElementById("price").value = "";
-      document.getElementById("humanity").value = "";
+      document.getElementById("namec").value = "";
+      document.getElementById("codec").value = "";
+      document.getElementById("pricec").value = "";
+      document.getElementById("humanityc").value = "";
     },
 
     addCybernetics(i) {

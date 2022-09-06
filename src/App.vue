@@ -13,6 +13,7 @@
       <div class="login" v-show="!this.$store.state.api.isLoginIn">
         <!-- <label for="login">Login</label> -->
         <input
+          class="inplogin"
           v-model="login"
           type="text"
           id="login"
@@ -56,7 +57,7 @@
 
       <div class="links">
         <div class="ver">
-          <a href=""> ver 0.9.017.1 </a>
+          <a href=""> ver 0.9.019.2 </a>
         </div>
         <div class="comunity">
           <h4>Ru-Community_</h4>
@@ -205,6 +206,10 @@ input {
 }
 .inppass {
   margin-left: 10px;
+  background: none;
+}
+.inplogin {
+  background: none;
 }
 
 .loginbtn {
@@ -212,6 +217,7 @@ input {
   border: none;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
+  background: none;
 }
 
 .login {
@@ -231,6 +237,7 @@ input {
 .btnreg {
   height: 27%;
   margin-left: 3%;
+  background: none;
 }
 
 .links {
@@ -293,7 +300,9 @@ a {
   border-left: 15px solid red;
   transition: 0.5s;
   background: rgba(20, 20, 20, 1);
-  transform: translateX(-98%);                               /*   !!! позиция изменена на время редактирования с -97% */
+  transform: translateX(
+    -98%
+  ); /*   !!! позиция изменена на время редактирования с -97% */
   z-index: 99;
 }
 

@@ -45,17 +45,17 @@
       <h4>Добавить своё оружие</h4>
 
       <tr class="item" style="margin-top: 1px">
-        <td class="type"><input type="text" id="type" /></td>
-        <td class="nameitem"><input type="text" id="nameitem" /></td>
-        <td class="wa"><input type="text" name="" id="wa" /></td>
-        <td class="con"><input type="text" id="con" /></td>
-        <td class="avail"><input type="text" id="avail" /></td>
-        <td class="damage"><input type="text" id="damage" /></td>
-        <td class="shots"><input type="text" name="" id="shots" /></td>
-        <td class="rof"><input type="text" id="rof" /></td>
-        <td class="rel"><input type="text" id="rel" /></td>
-        <td class="range"><input type="text" id="range" /></td>
-        <td class="price"><input type="text" name="" id="priceitem" /></td>
+        <td class="type"><input type="text" id="typew" /></td>
+        <td class="nameitem"><input type="text" id="nameitemw" /></td>
+        <td class="wa"><input type="text" name="" id="waw" /></td>
+        <td class="con"><input type="text" id="conw" /></td>
+        <td class="avail"><input type="text" id="availw" /></td>
+        <td class="damage"><input type="text" id="damagew" /></td>
+        <td class="shots"><input type="text" name="" id="shotsw" /></td>
+        <td class="rof"><input type="text" id="rofw" /></td>
+        <td class="rel"><input type="text" id="relw" /></td>
+        <td class="range"><input type="text" id="rangew" /></td>
+        <td class="price"><input type="text" name="" id="priceitemw" /></td>
         <button class="btnaddimp" @click="addCustomWeapons">
           Create Weapon
         </button>
@@ -83,17 +83,17 @@ export default {
     },
 
     addCustomWeapons() {
-      let type = document.getElementById("type").value;
-      let name = document.getElementById("nameitem").value;
-      let wa = document.getElementById("wa").value;
-      let con = document.getElementById("con").value;
-      let avail = document.getElementById("avail").value;
-      let damage = document.getElementById("damage").value;
-      let shots = document.getElementById("shots").value;
-      let rof = document.getElementById("rof").value;
-      let rel = document.getElementById("rel").value;
-      let range = document.getElementById("range").value;
-      let price = document.getElementById("priceitem").value;
+      let type = document.getElementById("typew").value;
+      let name = document.getElementById("nameitemw").value;
+      let wa = document.getElementById("waw").value;
+      let con = document.getElementById("conw").value;
+      let avail = document.getElementById("availw").value;
+      let damage = document.getElementById("damagew").value;
+      let shots = document.getElementById("shotsw").value;
+      let rof = document.getElementById("rofw").value;
+      let rel = document.getElementById("relw").value;
+      let range = document.getElementById("rangew").value;
+      let price = document.getElementById("priceitemw").value;
 
       let X = {
         type,
@@ -108,20 +108,19 @@ export default {
         range,
         price,
       };
-
       this.$store.commit("addCustomWeapons", X);
 
-      document.getElementById("type").value = "";
-      document.getElementById("nameitem").value = "";
-      document.getElementById("wa").value = "";
-      document.getElementById("con").value = "";
-      document.getElementById("avail").value = "";
-      document.getElementById("damage").value = "";
-      document.getElementById("shots").value = "";
-      document.getElementById("rof").value = "";
-      document.getElementById("rel").value = "";
-      document.getElementById("range").value = "";
-      document.getElementById("priceitem").value = "";
+      document.getElementById("typew").value = "";
+      document.getElementById("nameitemw").value = "";
+      document.getElementById("waw").value = "";
+      document.getElementById("conw").value = "";
+      document.getElementById("availw").value = "";
+      document.getElementById("damagew").value = "";
+      document.getElementById("shotsw").value = "";
+      document.getElementById("rofw").value = "";
+      document.getElementById("relw").value = "";
+      document.getElementById("rangew").value = "";
+      document.getElementById("priceitemw").value = "";
     },
 
     addWeapons(i) {

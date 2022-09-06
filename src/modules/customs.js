@@ -6,6 +6,8 @@ export default {
             Customweapons: [],
 
             Customarmor: [],
+
+            Customgear: [],
         }
     },
 
@@ -49,7 +51,21 @@ export default {
                     i--
                 }
             }
-            return state.Customaarmor
+            return state.Customarmor
+        },
+
+        addCustomGear(state, x) {
+            state.Customgear.push(x);
+        },
+
+        deleteCustomGear(state, v) {
+            for (let i = 0; i < state.Customgear.length; i++) {
+                if (state.Customgear[i] == v) {
+                    state.Customgear.splice(i, 1);
+                    i--
+                }
+            }
+            return state.Customgear
         },
     },
 }
