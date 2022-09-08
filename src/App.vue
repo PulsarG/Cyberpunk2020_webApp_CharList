@@ -60,7 +60,7 @@
 
       <div class="links">
         <div class="ver">
-          <button class="btnversion" @click="$router.push('/news')">ver 0.9.021.4</button>
+          <button class="btnversion" @click="$router.push('/news')">ver 0.9.020.4</button>
           <!-- <a href=""> ver 0.9.021.4 </a> -->
         </div>
         <div class="comunity">

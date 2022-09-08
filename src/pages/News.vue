@@ -10,13 +10,25 @@
     </div>
     <div class="onenews">
       <h2>Релиз Бета-версии</h2>
-      <p class="date">08/09/2022 ver 0.9.021.4</p>
+      <p class="date">08/09/2022 ver 0.9.020.4</p>
       <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          corporis, necessitatibus quo commodi asperiores similique nostrum
-          exercitationem ullam excepturi eius reiciendis culpa eligendi sunt
-          iste, consequuntur minima! Quae, consectetur rerum!
+        <p class="textnews">
+          - Версия поддерживает Сохранение персонажей и Кастомных вещей на
+          Аккаунт <br />
+          - Лист персонажа полностью функционирует <br />
+          - Дека ожидается в ближайшее время <br />
+          - Лист персонажа для Cyberpunk RED будет реализовываться в последнюю
+          очередь <br />
+          - Раздел FAQ (Справка) ожидается поосле реализации Деки <br />
+          - Вы можете оценить концепт Темы2077 запросив Промокод в сообществе
+          (ВК, Дискорд) <br />
+          - Промокод для снятия ограничения в 5 персонажей выдается по запросу в
+          сообществе (ВК, Дискорд) <br />
+          - Так же в сообществе Вы можете смело предлагать идеи, вносить критику
+          и всячески способствовать развитию проекта идейно и морально <br />
+          - Функции Авторасчета Брони и Статов находятся в очереди после
+          реализации раздела Справки <br />
+          - Спасибо, что нашли время ознакомится с данным приложением
         </p>
       </div>
     </div>
@@ -74,5 +86,8 @@ export default {};
   margin-top: -15px;
 }
 .onenews {
+}
+.textnews {
+  font-size: 18px;
 }
 </style>

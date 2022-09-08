@@ -22,16 +22,22 @@
       </p>
     </div>
     <div class="skillsmanage">
-      <button v-bind:class="{
-        btnmanage: !this.isTheme77,
-        btnmanagesecond: this.isTheme77,
-      }" @click="hiddenEmptySkills">
+      <button
+        v-bind:class="{
+          btnmanage: !this.isTheme77,
+          btnmanagesecond: this.isTheme77,
+        }"
+        @click="hiddenEmptySkills"
+      >
         Скрыть неиспользуемые
       </button>
-      <button v-bind:class="{
-        btnmanage: !this.isTheme77,
-        btnmanagesecond: this.isTheme77,
-      }">
+      <button
+        v-bind:class="{
+          btnmanage: !this.isTheme77,
+          btnmanagesecond: this.isTheme77,
+        }"
+        disabled
+      >
         Показать рекомендованные для {{ $store.state.role }}
       </button>
     </div>
@@ -104,11 +110,13 @@ p {
 .btnmanage {
   font-family: "Ktf";
   font-size: 15px;
+  cursor: pointer;
 }
 .btnmanagesecond {
   font-family: "Ktf";
   font-size: 15px;
   color: #00ccff;
+  cursor: pointer;
 }
 @media (max-width: 1200px) {
   .skillstext {
