@@ -60,7 +60,7 @@
 
       <div class="links">
         <div class="ver">
-          <a href=""> ver 0.9.019.3 </a>
+          <a href=""> ver 0.9.021.4 </a>
         </div>
         <div class="comunity">
           <h4>Ru-Community_</h4>
@@ -196,7 +196,7 @@ export default {
   background: #e4dbbf;
 }
 .apppsecondcolor {
-  background: linear-gradient(rgb(139, 1, 1), 5%, black);
+  background: linear-gradient(rgb(128, 14, 14), 20%, rgb(6, 2, 66));
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

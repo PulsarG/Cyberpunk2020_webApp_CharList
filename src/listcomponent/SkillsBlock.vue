@@ -1,21 +1,37 @@
 <template>
   <div class="skillstext">
-    <div class="skillstitle">
+    <div
+      v-bind:class="{
+        skillstitle: !this.isTheme77,
+        skillstitlesecond: this.isTheme77,
+      }"
+    >
       <h3>
-        <strong style="color: white">SKILLS</strong>
+        <strong>SKILLS</strong>
       </h3>
     </div>
-    <div class="skillslearn">
+    <div
+      v-bind:class="{
+        skillslearn: !this.isTheme77,
+        skillslearnsecond: this.isTheme77,
+      }"
+    >
       <p>
         Добавьте очки навыков к нужной Характеристике, затем используйте. <br />
         Пометьте чипированные навыки галочкой напротив поля с очками навыка.
       </p>
     </div>
     <div class="skillsmanage">
-      <button class="btnmanage" @click="hiddenEmptySkills">
+      <button v-bind:class="{
+        btnmanage: !this.isTheme77,
+        btnmanagesecond: this.isTheme77,
+      }" @click="hiddenEmptySkills">
         Скрыть неиспользуемые
       </button>
-      <button class="btnmanage">
+      <button v-bind:class="{
+        btnmanage: !this.isTheme77,
+        btnmanagesecond: this.isTheme77,
+      }">
         Показать рекомендованные для {{ $store.state.role }}
       </button>
     </div>
@@ -64,6 +80,11 @@ export default {
     TechSkills,
     OtherSkills,
   },
+  computed: {
+    isTheme77() {
+      return this.$store.state.isTheme77;
+    },
+  },
   methods: {
     hiddenEmptySkills() {
       this.$store.commit("hiddenSkillsEmpty");
@@ -83,6 +104,11 @@ p {
 .btnmanage {
   font-family: "Ktf";
   font-size: 15px;
+}
+.btnmanagesecond {
+  font-family: "Ktf";
+  font-size: 15px;
+  color: #00ccff;
 }
 @media (max-width: 1200px) {
   .skillstext {
@@ -138,12 +164,30 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+}
+.skillstitlesecond {
+  background-color: none;
+  width: 90px;
+  /* margin: auto; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: red;
+  font-family: "Qore";
+  font-size: 20px;
 }
 
 .skillslearn {
   width: 600px;
   height: auto;
   margin-left: 3px;
+}
+.skillslearnsecond {
+  width: 600px;
+  height: auto;
+  margin-left: 40px;
+  color: #00ccff;
 }
 
 .skillsmanage {

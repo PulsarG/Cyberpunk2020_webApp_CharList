@@ -1,18 +1,39 @@
 <template>
   <div class="morestats">
-    <div class="rep">
+    <div v-bind:class="{ rep: !this.isTheme77, repsecond: this.isTheme77 }">
       <h4>REP</h4>
-      <input type="text" v-model="Morestats.rep" class="morestatsinp" />
+      <input
+        type="text"
+        v-model="Morestats.rep"
+        v-bind:class="{
+          morestatsinp: !this.isTheme77,
+          morestatsinpsecond: this.isTheme77,
+        }"
+      />
     </div>
 
-    <div class="rep">
+    <div v-bind:class="{ rep: !this.isTheme77, repsecond: this.isTheme77 }">
       <h4>CURRENT IP</h4>
-      <input type="text" v-model="Morestats.ip" class="morestatsinp" />
+      <input
+        type="text"
+        v-model="Morestats.rep"
+        v-bind:class="{
+          morestatsinp: !this.isTheme77,
+          morestatsinpsecond: this.isTheme77,
+        }"
+      />
     </div>
 
-    <div class="rep">
+    <div v-bind:class="{ rep: !this.isTheme77, repsecond: this.isTheme77 }">
       <h4>HUMANITY</h4>
-      <input type="text" v-model="Morestats.humanity" class="morestatsinp" />
+      <input
+        type="text"
+        v-model="Morestats.rep"
+        v-bind:class="{
+          morestatsinp: !this.isTheme77,
+          morestatsinpsecond: this.isTheme77,
+        }"
+      />
     </div>
   </div>
 </template>
@@ -38,6 +59,9 @@ export default {
   computed: {
     isLoadChar() {
       return this.$store.state.isLoadChar;
+    },
+    isTheme77() {
+      return this.$store.state.isTheme77;
     },
   },
 
@@ -72,6 +96,17 @@ export default {
   font-size: 12px;
   color: #383127;
 }
+.repsecond {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Qore";
+  font-size: 12px;
+  color: red;
+  font-family: "Qore";
+  font-size: 15px;
+}
 
 .morestatsinp {
   display: flex;
@@ -82,5 +117,15 @@ export default {
   background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+}
+.morestatsinpsecond {
+  display: flex;
+  width: 25%;
+  height: 60%;
+  margin-left: 3px;
+  text-align: center;
+  background-color: inherit;
+  border: 1px solid #383127;
+  color: #00ccff;
 }
 </style>

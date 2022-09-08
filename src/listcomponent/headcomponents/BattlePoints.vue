@@ -1,13 +1,21 @@
 <template>
   <div class="battlepoints">
     <div class="savepoints">
-      <div class="savebtm">
+      <div
+        v-bind:class="{
+          savebtn: !this.isTheme77,
+          savebtnsecond: this.isTheme77,
+        }"
+      >
         <h4>SAVE</h4>
         <input
           type="number"
           name=""
           id=""
-          class="savebtminp"
+          v-bind:class="{
+          savebtninp: !this.isTheme77,
+          savebtninpsecond: this.isTheme77,
+        }"
           v-model="savePoint"
         />
       </div>
@@ -19,7 +27,10 @@
 
     <div class="takedmg">
       <div class="takedmgrow">
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <div style="width: 100%">
             <strong>_.LIGHT_</strong>
           </div>
@@ -53,11 +64,17 @@
               v-model="DmgChecks.check4"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun 0</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun 0</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>SERIOUS</strong>
           <div class="dmgpoints">
             <input
@@ -89,11 +106,17 @@
               v-model="DmgChecks.check8"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -1</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -1</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>CRITICAL</strong>
           <div class="dmgpoints">
             <input
@@ -125,11 +148,17 @@
               v-model="DmgChecks.check12"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -2</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -2</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>MORTAL0</strong>
           <div class="dmgpoints">
             <input
@@ -161,11 +190,17 @@
               v-model="DmgChecks.check16"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -3</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -3</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>MORTAL1</strong>
           <div class="dmgpoints">
             <input
@@ -197,13 +232,19 @@
               v-model="DmgChecks.check20"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -4</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -4</strong>
           </div>
         </div>
       </div>
       <div class="takedmgrow">
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>MORTAL2</strong>
           <div class="dmgpoints">
             <input
@@ -235,11 +276,17 @@
               v-model="DmgChecks.check24"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -5</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -5</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>MORTAL3</strong>
           <div class="dmgpoints">
             <input
@@ -271,11 +318,17 @@
               v-model="DmgChecks.check28"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -6</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -6</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>MORTAL4</strong>
           <div class="dmgpoints">
             <input
@@ -307,11 +360,17 @@
               v-model="DmgChecks.check32"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -7</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -7</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>MORTAL5</strong>
           <div class="dmgpoints">
             <input
@@ -343,11 +402,17 @@
               v-model="DmgChecks.check36"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -8</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -8</strong>
           </div>
         </div>
-        <div class="fourpoints">
+        <div v-bind:class="{
+          fourpoints: !this.isTheme77,
+          fourpointssecond: this.isTheme77,
+        }">
           <strong>MORTAL6</strong>
           <div class="dmgpoints">
             <input
@@ -379,8 +444,11 @@
               v-model="DmgChecks.check40"
             />
           </div>
-          <div class="dmglvl">
-            <strong style="color: white">Stun -9</strong>
+          <div v-bind:class="{
+          dmglvl: !this.isTheme77,
+          dmglvlsecond: this.isTheme77,
+        }">
+            <strong >Stun -9</strong>
           </div>
         </div>
       </div>
@@ -443,6 +511,9 @@ export default {
     isLoadChar() {
       return this.$store.state.isLoadChar;
     },
+    isTheme77() {
+      return this.$store.state.isTheme77;
+    },
   },
 
   watch: {
@@ -488,7 +559,7 @@ export default {
   flex-direction: row;
 }
 
-.savebtm {
+.savebtn {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -496,19 +567,40 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.savebtnsecond {
+  border: 2px solid #383127;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-family: "Qore";
+  font-size: 15px;
+}
 
 .savetitle {
   display: flex;
 }
 
-.savebtminp {
+.savebtninp {
   height: 75px;
   width: 90%;
   text-align: center;
   font-size: 20px;
-  background-color: #E4DBBF;
+  background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+  text-align: center;
+}
+.savebtninpsecond {
+  height: 75px;
+  width: 90%;
+  text-align: center;
+  font-size: 20px;
+  background-color: inherit;
+  border: 1px solid #383127;
+  color: #00ccff;
   text-align: center;
 }
 
@@ -517,6 +609,13 @@ export default {
   flex-direction: column;
   margin: 2px;
   width: 20%;
+}
+.fourpointssecond {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  width: 20%;
+  color: #00ccff;
 }
 
 .dmgpoints {
@@ -530,6 +629,13 @@ export default {
   background-color: black;
   width: 100%;
   text-align: center;
+  color: white;
+}
+.dmglvlsecond {
+  background-color: none;
+  width: 100%;
+  text-align: center;
+  color: red;
 }
 
 .takedmg {

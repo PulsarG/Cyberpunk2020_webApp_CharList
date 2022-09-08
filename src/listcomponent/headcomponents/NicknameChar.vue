@@ -1,9 +1,20 @@
 <template>
   <div class="nickblock">
-    <label class="nicklabel" for="nick">
-      <strong style="color: white">NAME</strong></label
+    <label
+      v-bind:class="{
+        nicklabel: !this.isTheme77,
+        nicklabelsecond: this.isTheme77,
+      }"
+      for="nick"
     >
-    <input type="text" id="nick" class="nick" v-model="this.nick" />
+      <strong>NAME</strong></label
+    >
+    <input
+      type="text"
+      id="nick"
+      v-bind:class="{ nick: !this.isTheme77, nicksecond: this.isTheme77 }"
+      v-model="this.nick"
+    />
   </div>
 </template>
 
@@ -22,6 +33,9 @@ export default {
   computed: {
     isLoadChar() {
       return this.$store.state.isLoadChar;
+    },
+    isTheme77() {
+      return this.$store.state.isTheme77;
     },
   },
   watch: {
@@ -55,6 +69,17 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+.nicklabelsecond {
+  background-color: none;
+  width: 20%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: red;
+  font-family: "Qore";
+  font-size: 25px;
 }
 
 .nick {
@@ -65,5 +90,14 @@ export default {
   background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+}
+.nicksecond {
+  width: 80%;
+  text-align: center;
+  font-size: 20px;
+  /* background: #d8881f; */
+  background-color: transparent;
+  border: 1px solid #383127;
+  color: #00ccff;
 }
 </style>

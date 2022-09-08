@@ -1,47 +1,47 @@
 <template>
   <div class="armorblock">
     <div class="armortitle">
-      <div class="armortitleone">
-        <strong style="color: white">Location</strong>
+      <div v-bind:class="{ armortitleone: !this.isTheme77, armortitleonesecond: this.isTheme77 }">
+        <strong>Location</strong>
       </div>
-      <div class="armortitleone">
-        <strong style="color: white">Armor SP</strong>
+      <div v-bind:class="{ armortitleone: !this.isTheme77, armortitleonesecond: this.isTheme77 }">
+        <strong>Armor SP</strong>
       </div>
     </div>
 
     <div class="armorstat">
       <div class="armorlocation">
-        <div class="armor">
+        <div v-bind:class="{ armor: !this.isTheme77, armorsecond: this.isTheme77 }">
           <strong
             >Head <br />
             1</strong
           >
         </div>
-        <div class="armor">
+        <div v-bind:class="{ armor: !this.isTheme77, armorsecond: this.isTheme77 }">
           <strong
             >Torso <br />
             2-4</strong
           >
         </div>
-        <div class="armor">
+        <div v-bind:class="{ armor: !this.isTheme77, armorsecond: this.isTheme77 }">
           <strong
             >R. Arm <br />
             5</strong
           >
         </div>
-        <div class="armor">
+        <div v-bind:class="{ armor: !this.isTheme77, armorsecond: this.isTheme77 }">
           <strong
             >L. Arm <br />
             6</strong
           >
         </div>
-        <div class="armor">
+        <div v-bind:class="{ armor: !this.isTheme77, armorsecond: this.isTheme77 }">
           <strong
             >R. Leg <br />
             7-8</strong
           >
         </div>
-        <div class="armor">
+        <div v-bind:class="{ armor: !this.isTheme77, armorsecond: this.isTheme77 }">
           <strong
             >L. Leg <br />
             9-0</strong
@@ -54,7 +54,7 @@
             type="number"
             name=""
             id=""
-            class="armorinp"
+            v-bind:class="{ armorinp: !this.isTheme77, armorinpsecond: this.isTheme77 }"
             v-model="Armor.headArmor"
           />
         </div>
@@ -63,7 +63,7 @@
             type="number"
             name=""
             id=""
-            class="armorinp"
+            v-bind:class="{ armorinp: !this.isTheme77, armorinpsecond: this.isTheme77 }"
             v-model="Armor.torsoArmor"
           />
         </div>
@@ -72,7 +72,7 @@
             type="number"
             name=""
             id=""
-            class="armorinp"
+            v-bind:class="{ armorinp: !this.isTheme77, armorinpsecond: this.isTheme77 }"
             v-model="Armor.RArmArmor"
           />
         </div>
@@ -81,7 +81,7 @@
             type="number"
             name=""
             id=""
-            class="armorinp"
+            v-bind:class="{ armorinp: !this.isTheme77, armorinpsecond: this.isTheme77 }"
             v-model="Armor.LArmArmor"
           />
         </div>
@@ -90,7 +90,7 @@
             type="number"
             name=""
             id=""
-            class="armorinp"
+            v-bind:class="{ armorinp: !this.isTheme77, armorinpsecond: this.isTheme77 }"
             v-model="Armor.RLegArmor"
           />
         </div>
@@ -99,7 +99,7 @@
             type="number"
             name=""
             id=""
-            class="armorinp"
+            v-bind:class="{ armorinp: !this.isTheme77, armorinpsecond: this.isTheme77 }"
             v-model="Armor.LLegArmor"
           />
         </div>
@@ -125,6 +125,9 @@ export default {
   computed: {
     isLoadChar() {
       return this.$store.state.isLoadChar;
+    },
+    isTheme77() {
+      return this.$store.state.isTheme77;
     },
   },
   watch: {
@@ -167,6 +170,18 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: black;
+  color: white;
+}
+.armortitleonesecond {
+  height: 40px;
+  margin: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: none;
+  color: red;
+  font-family: "Qore";
+  font-size: 15px;
 }
 
 .armorstat {
@@ -187,7 +202,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+}
+.armorsecond {
+  border: 1px solid #383127;
+  width: 20%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
 }
 
 .armorinp {
@@ -196,8 +219,18 @@ export default {
   height: 90%;
   text-align: center;
   font-size: 20px;
-  background-color: #E4DBBF;
+  background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+}.armorinpsecond {
+  display: flex;
+  width: 90%;
+  height: 90%;
+  text-align: center;
+  font-size: 20px;
+  background-color: inherit;
+  border: 1px solid #383127;
+  color: #00ccff;
 }
+
 </style>

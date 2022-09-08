@@ -4,13 +4,21 @@
       <nickname-char></nickname-char>
       <role-char></role-char>
       <div class="charpoints">
-        <label for="charpoints" class="cplabel"
-          ><strong style="color: white">CHARACTER POINTS</strong></label
+        <label
+          for="charpoints"
+          v-bind:class="{
+            cplabel: !this.isTheme77,
+            cplabelsecond: this.isTheme77,
+          }"
+          ><strong>CHARACTER POINTS</strong></label
         >
         <input
           type="number"
           id="charpoints"
-          class="charpointsinput"
+          v-bind:class="{
+            charpointsinput: !this.isTheme77,
+            charpointsinputsecond: this.isTheme77,
+          }"
           v-model="this.charpoints"
         />
       </div>
@@ -20,7 +28,12 @@
     </div>
 
     <div class="photo">
-      <div class="fotoimg">
+      <div
+        v-bind:class="{
+          fotoimg: !this.isTheme77,
+          fotoimgsecond: this.isTheme77,
+        }"
+      >
         <img
           :src="imgRole"
           v-show="isRole"
@@ -72,6 +85,9 @@ export default {
     },
     isLoadChar() {
       return this.$store.state.isLoadChar;
+    },
+    isTheme77() {
+      return this.$store.state.isTheme77;
     },
   },
   watch: {
@@ -127,6 +143,18 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #e4dbbf;
+  border: 1px solid #383127;
+  color: #383127;
+}
+.fotoimgsecond {
+  border: 5px solid black;
+  border-radius: 5%;
+  height: 70%;
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
   border: 1px solid #383127;
   color: #383127;
 }
@@ -191,6 +219,17 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+.cplabelsecond {
+  background-color: none;
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: red;
+  font-family: "Qore";
+  font-size: 20px;
 }
 
 .charpointsinput {
@@ -199,6 +238,14 @@ img {
   background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+  text-align: center;
+}
+.charpointsinputsecond {
+  width: 10%;
+  height: 25px;
+  background-color: inherit;
+  border: 1px solid #383127;
+  color: #00ccff;
   text-align: center;
 }
 </style>

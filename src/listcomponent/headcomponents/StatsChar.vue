@@ -1,8 +1,13 @@
 <template>
   <div class="stats">
     <div class="titlestats">
-      <label for="" class="statslabel"
-        ><strong style="color: white">STATS</strong></label
+      <label
+        for=""
+        v-bind:class="{
+          statslabel: !this.isTheme77,
+          statslabelsecond: this.isTheme77,
+        }"
+        ><strong>STATS</strong></label
       >
       <div></div>
     </div>
@@ -10,126 +15,258 @@
     <div class="statscount">
       <div class="statsrow">
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>INT</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>INT</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.int"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>REF</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>REF</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.ref"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>TECH</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>TECH</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.tech"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>COOL</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>COOL</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.cool"
           />
         </div>
       </div>
       <div class="statsrow">
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>ATTR</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>ATTR</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.attr"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>LUCK</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>LUCK</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.luck"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>MA</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>MA</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.ma"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>BODY</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>BODY</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.body"
           />
         </div>
       </div>
       <div class="statsrow">
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>EMP</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>EMP</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.emp"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>Run</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>Run</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.run"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>Leap</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>Leap</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.leap"
           />
         </div>
         <div class="stat">
-          <label for="stat" class="statlabel"> <strong>Lift</strong> </label>
+          <label
+            for="stat"
+            v-bind:class="{
+              statlabel: !this.isTheme77,
+              statlabelsecond: this.isTheme77,
+            }"
+          >
+            <strong>Lift</strong>
+          </label>
           <input
             type="number"
             name="stat"
             id="stat"
-            class="statinp"
+            v-bind:class="{
+              statinp: !this.isTheme77,
+              statinpsecond: this.isTheme77,
+            }"
             v-model="this.Stats.lift"
           />
         </div>
@@ -169,6 +306,9 @@ export default {
     isLoadChar() {
       return this.$store.state.isLoadChar;
     },
+    isTheme77() {
+      return this.$store.state.isTheme77;
+    },
   },
 
   watch: {
@@ -194,6 +334,18 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+.statslabelsecond {
+  background-color: none;
+  width: 15%;
+  margin-top: 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: red;
+  font-family: "Qore";
+  font-size: 25px;
 }
 
 .stats {
@@ -224,14 +376,28 @@ export default {
   height: 25px;
   text-align: center;
   font-size: 15px;
-  background-color: #E4DBBF;
+  background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+}
+.statinpsecond {
+  width: 30%;
+  height: 25px;
+  text-align: center;
+  font-size: 15px;
+  background-color: inherit;
+  border: 1px solid #383127;
+  color: #00ccff;
 }
 
 .statlabel {
   margin-right: 10px;
-  font-family: 'Qore';
+  font-family: "Qore";
   color: #383127;
+}
+.statlabelsecond {
+  margin-right: 10px;
+  font-family: "Qore";
+  color: #00ccff;
 }
 </style>

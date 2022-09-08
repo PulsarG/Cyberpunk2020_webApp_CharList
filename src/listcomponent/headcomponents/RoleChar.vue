@@ -1,11 +1,31 @@
 <template>
   <div class="roleblock">
-    <label class="nicklabel" for="role"
-      ><strong style="color: white">ROLE</strong></label
+    <label
+      v-bind:class="{
+        nicklabel: !this.isTheme77,
+        nicklabelsecond: this.isTheme77,
+      }"
+      for="role"
+      ><strong>ROLE</strong></label
     >
-    <select v-model="this.role" name="role" id="role" class="nick">
-      <option v-for="(role, index) in roles" :key="index">
-        <strong style="color: white">{{ role }}</strong>
+    <select
+      v-model="this.role"
+      name="role"
+      id="role"
+      v-bind:class="{
+        select: !this.isTheme77,
+        selectsecond: this.isTheme77,
+      }"
+    >
+      <option
+        v-for="(role, index) in roles"
+        :key="index"
+        v-bind:class="{
+          option: !this.isTheme77,
+          optionsecond: this.isTheme77,
+        }"
+      >
+        <strong>{{ role }}</strong>
       </option>
     </select>
   </div>
@@ -42,6 +62,9 @@ export default {
     isLoadChar() {
       return this.$store.state.isLoadChar;
     },
+    isTheme77() {
+      return this.$store.state.isTheme77;
+    },
   },
   watch: {
     isLoadChar(v) {
@@ -62,6 +85,17 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+.nicklabelsecond {
+  background-color: none;
+  width: 20%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: red;
+  font-family: "Qore";
+  font-size: 25px;
 }
 
 .roleblock {
@@ -70,10 +104,17 @@ export default {
   display: flex;
 }
 
-select,
-option {
+.select,
+.option {
   background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+}
+
+.selectsecond,
+.optionsecond {
+  background-color: inherit;
+  border: 1px solid #383127;
+  color: #00ccff;
 }
 </style>

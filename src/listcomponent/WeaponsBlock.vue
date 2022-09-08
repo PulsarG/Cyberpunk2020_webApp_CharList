@@ -9,17 +9,17 @@
     <table class="table" v-show="isOpenImplants">
       <thead>
         <tr class="item">
-          <th class="type" style="color: blue">Type</th>
-          <th class="nameitem" style="color: blue">NAME</th>
-          <th class="wa" style="color: blue">WA</th>
-          <th class="con" style="color: blue">Con</th>
-          <th class="avail" style="color: blue">Avail</th>
-          <th class="damage" style="color: blue">Damage</th>
-          <th class="shots" style="color: blue">Shots</th>
-          <th class="rof" style="color: blue">Rof</th>
-          <th class="rel" style="color: blue">Rel</th>
-          <th class="range" style="color: blue">Range</th>
-          <th class="btn" style="color: blue"></th>
+          <th class="type" style="color: #383127">Type</th>
+          <th class="nameitem" style="color: #383127">NAME</th>
+          <th class="wa" style="color: #383127">WA</th>
+          <th class="con" style="color: #383127">Con</th>
+          <th class="avail" style="color: #383127">Avail</th>
+          <th class="damage" style="color: #383127">Damage</th>
+          <th class="shots" style="color: #383127">Shots</th>
+          <th class="rof" style="color: #383127">Rof</th>
+          <th class="rel" style="color: #383127">Rel</th>
+          <th class="range" style="color: #383127">Range</th>
+          <th class="btn" style="color: #383127"></th>
         </tr>
       </thead>
       <tbody>

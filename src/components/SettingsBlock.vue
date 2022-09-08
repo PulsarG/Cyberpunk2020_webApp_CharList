@@ -51,7 +51,7 @@
         </div>
         <div>
           <label class="checkbox-green">
-            <input type="checkbox" v-model="isCheckTheme" />
+            <input type="checkbox" v-model="isCheckTheme" disabled />
             <span
               class="checkbox-green-switch"
               data-label-on="On"
