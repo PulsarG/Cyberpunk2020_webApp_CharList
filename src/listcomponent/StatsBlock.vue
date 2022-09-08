@@ -54,6 +54,7 @@ export default {
     return {
       isRole: false,
       charpoints: "",
+      inputName: "",
 
       link: "http://drive.google.com/uc?export=view&id=",
       imgRole: "https://klike.net/uploads/posts/2019-11/1572778667_3.jpg",

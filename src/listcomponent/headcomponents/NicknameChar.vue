@@ -27,7 +27,6 @@ export default {
   watch: {
     nick(v) {
       this.$store.commit("setNick", v);
-
       if (v != "") {
         let el = document.getElementById("nick");
         el.style.border = "none";

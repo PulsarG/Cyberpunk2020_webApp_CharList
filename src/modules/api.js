@@ -19,6 +19,7 @@ export default {
     return {
       isLoginIn: false,
       Chars: [],
+      CONTROL_Chars: [],
       isPondsmith: false,
       userId: "",
     };
@@ -104,9 +105,10 @@ export default {
             return;
           }
           state.Chars.push(doc.data());
+          state.CONTROL_Chars.push(doc.data());
         });
       } catch (e) {
-        alert(e);
+        alert("ЧТо-то пошло не так с загрузкой персонажей");
         console.log(e);
       }
     },

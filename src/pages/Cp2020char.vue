@@ -117,19 +117,27 @@ export default {
       }
     },
 
-    saveChar() {
-      let save = false;
+    checkCanSave() {
       for (let i = 0; i < this.$store.state.api.Chars.length; i++) {
         if (
-          this.$store.state.api.Chars[i].Char.nick ==
+          this.$store.state.api.CONTROL_Chars[i].Char.nick ==
           this.$store.state.Char.nick
         )
-          save = true;
+          return true;
       }
-      if (this.$store.state.api.isPondsmith || this.AmountChars < 5 || save) {
+      return false;
+    },
+
+    saveChar() {
+      if (
+        this.$store.state.api.isPondsmith ||
+        this.AmountChars < 5 ||
+        this.checkCanSave()
+      ) {
         this.$store.dispatch("api/saveChar");
       } else if (this.AmountChars >= 5 && !this.$store.state.api.isPondsmith) {
         alert("Нет свободных ячеек для персонажей");
+        this.$store.dispatch("api/getChars");
       }
       this.disableButtonSave();
     },
@@ -221,7 +229,7 @@ export default {
   margin-top: 10px;
 }
 .cleartext {
-  font-family: 'Ktf';
+  font-family: "Ktf";
   font-size: 18px;
 }
 
