@@ -10,7 +10,7 @@
         или
         <a href="https://discord.gg/PPpHEzf67H">канал в Дискорде</a>
       </h4>
-      <div v-show="!this.$store.state.api.isPondsmith">
+      <div>
         <faq-block></faq-block>
       </div>
     </div>
@@ -51,7 +51,7 @@
         </div>
         <div>
           <label class="checkbox-green">
-            <input type="checkbox" v-model="isCheckTheme" disabled />
+            <input type="checkbox" v-model="isCheckTheme" disabled id="theme77" />
             <span
               class="checkbox-green-switch"
               data-label-on="On"
@@ -82,9 +82,17 @@ export default {
       }
     },
   },
+  computed: {
+    isUnlockTheme() {
+      return this.$store.state.unlockTheme;
+    },
+  },
   watch: {
     isCheckTheme(v) {
       this.$store.commit("setTheme", v);
+    },
+    isUnlockTheme(v) {
+      if (v) document.getElementById("theme77").removeAttribute("disabled");
     },
   },
 };

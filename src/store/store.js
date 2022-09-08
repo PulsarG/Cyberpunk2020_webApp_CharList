@@ -25,6 +25,7 @@ const store = createStore({
 
   state: () => ({
     isTheme77: false,
+    unlockTheme: false,
     login: "",
 
     Char: {
@@ -128,7 +129,9 @@ const store = createStore({
     setTheme(state, v) {
       state.isTheme77 = v;
     },
-
+    setUnlockTheme(state){
+      state.unlockTheme = true;
+    },
     setNick(state, v) {
       state.Char.nick = v;
     },

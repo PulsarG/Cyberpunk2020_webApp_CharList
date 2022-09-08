@@ -3,7 +3,7 @@
     v-bind:class="{ apppmaincolor: !this.isTheme77, apppsecondcolor: this.isTheme77 }"
     id="mainap"
   >
-    <div class="menu">
+    <div class="menu" id="menu">
       <left-menu></left-menu>
       <!-- <shop-menu></shop-menu> -->
     </div>
@@ -60,7 +60,8 @@
 
       <div class="links">
         <div class="ver">
-          <a href=""> ver 0.9.021.4 </a>
+          <button class="btnversion" @click="$router.push('/news')">ver 0.9.021.4</button>
+          <!-- <a href=""> ver 0.9.021.4 </a> -->
         </div>
         <div class="comunity">
           <h4>Ru-Community_</h4>
@@ -154,6 +155,9 @@ export default {
     },
     isTheme77() {
       return this.$store.state.isTheme77;
+    },
+    isLockMenu() {
+      return this.$store.state.isLockMenu;
     },
   },
 
@@ -303,6 +307,13 @@ h4 {
 a {
   width: 10%;
   border-radius: 50%;
+}
+
+.btnversion {
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid black;
 }
 
 .dislogo {

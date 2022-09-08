@@ -88,6 +88,14 @@ export default {
 </script>
 
 <style scoped>
+.lock {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+}
 .shopmenu {
   height: 90%;
 }

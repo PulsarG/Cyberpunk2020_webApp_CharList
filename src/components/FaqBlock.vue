@@ -14,6 +14,21 @@
 export default {
   methods: {
     sendCode() {
+      let code = document.getElementById("primcode").value;
+      if (code == "theme77") {
+        this.$store.commit("setUnlockTheme");
+        return;
+      } else {
+        this.checkUnlockMoreCharsCode();
+      }
+      code = "";
+    },
+    unlockTheme() {
+      if (document.getElementById("primcode").value == "theme77") {
+        this.$store.commit("setUnlockTheme");
+      }
+    },
+    checkUnlockMoreCharsCode() {
       this.$store.dispatch(
         "api/checkCode",
         document.getElementById("primcode").value
