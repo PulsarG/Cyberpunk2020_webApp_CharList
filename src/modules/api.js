@@ -105,7 +105,7 @@ export default {
             return;
           }
           state.Chars.push(doc.data());
-          state.CONTROL_Chars.push(doc.data());
+          state.CONTROL_Chars.push(doc.data().Char.nick);
         });
       } catch (e) {
         alert("ЧТо-то пошло не так с загрузкой персонажей");

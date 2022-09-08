@@ -120,8 +120,7 @@ export default {
     checkCanSave() {
       for (let i = 0; i < this.$store.state.api.Chars.length; i++) {
         if (
-          this.$store.state.api.CONTROL_Chars[i].Char.nick ==
-          this.$store.state.Char.nick
+          this.$store.state.api.CONTROL_Chars[i] == this.$store.state.Char.nick
         )
           return true;
       }
