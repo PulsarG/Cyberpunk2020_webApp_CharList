@@ -9,10 +9,10 @@
     <table class="table" v-show="isOpenImplants">
       <thead>
         <tr class="item">
-          <th class="nameitem" style="color: blue">Type</th>
-          <th class="hum" style="color: blue">HL</th>
-          <th class="price" style="color: blue">COST</th>
-          <th class="btn" style="color: blue"></th>
+          <th class="nameitem" style="color: #383127">Type</th>
+          <th class="hum" style="color: #383127">HL</th>
+          <th class="price" style="color: #383127">COST</th>
+          <th class="btn" style="color: #383127"></th>
         </tr>
       </thead>
       <tbody>

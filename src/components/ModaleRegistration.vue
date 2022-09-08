@@ -80,9 +80,19 @@ export default {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  border: 3px solid black;
 }
 
 .inp {
   margin: 5px;
+  border: none;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.btnreg {
+  margin-top: 20px;
+  background: none;
+  cursor: pointer;
+  border: 1px solid black;
 }
 </style>
