@@ -7,6 +7,7 @@ import weaponsshop from "@/modules/weaponsshop.js";
 import armorshop from "@/modules/armorshop";
 import gearshop from "@/modules/gearshop";
 import cheapshop from "@/modules/cheapshop";
+import specshop from "@/modules/specshop";
 import api from "@/modules/api.js";
 
 const store = createStore({
@@ -19,6 +20,7 @@ const store = createStore({
     armorshop,
     gearshop,
     cheapshop,
+    specshop,
   },
 
   state: () => ({

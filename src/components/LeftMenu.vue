@@ -49,9 +49,9 @@
     <chars-block class="cb" v-show="this.showChars"></chars-block>
 
     <div style="margin-top: 15px" v-show="!this.showChars">
-      <shop-menu></shop-menu>
+      <shop-menu class="shopmenu"></shop-menu>
     </div>
-    
+
     <!-- </div> -->
   </div>
   <settings-block class="sett" v-show="this.showChars"></settings-block>
@@ -88,6 +88,9 @@ export default {
 </script>
 
 <style scoped>
+.shopmenu {
+  height: 90%;
+}
 h1 {
   font-family: "Cyberpunk";
   animation: color 10s infinite;

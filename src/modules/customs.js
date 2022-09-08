@@ -10,6 +10,8 @@ export default {
       Customgear: [],
 
       Customcheap: [],
+
+      Customspec: [],
     };
   },
 
@@ -82,6 +84,20 @@ export default {
         }
       }
       return state.Customcheap;
+    },
+
+    addCustomSpec(state, x) {
+      state.Customspec.push(x);
+    },
+
+    deleteCustomSpec(state, v) {
+      for (let i = 0; i < state.Customspec.length; i++) {
+        if (state.Customspec[i] == v) {
+          state.Customspec.splice(i, 1);
+          i--;
+        }
+      }
+      return state.Customspec;
     },
   },
 };

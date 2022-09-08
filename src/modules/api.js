@@ -156,6 +156,7 @@ export default {
           Customarmor: store.state.customs.Customarmor,
           Customgear: store.state.customs.Customgear,
           Customcheap: store.state.customs.Customcheap,
+          Customspec: store.state.customs.Customspec,
         });
         alert("Сохранено");
       } catch (e) {
@@ -196,6 +197,12 @@ export default {
         for (let i = 0; i < cp; i++) {
           let Y = docSnap.data().Customcheap[i];
           store.commit("addCustomCheap", Y);
+        }
+
+        let sp = docSnap.data().Customspec.length;
+        for (let i = 0; i < sp; i++) {
+          let Y = docSnap.data().Customspec[i];
+          store.commit("addCustomSpec", Y);
         }
       } catch (e) {
         console.log(e);

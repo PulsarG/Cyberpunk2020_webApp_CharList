@@ -76,7 +76,7 @@
       >Особая экипировка</base-buttonslice
     >
     <div class="submenu" v-show="isSpecOpen">
-      <weapons-shop></weapons-shop>
+      <specgear-shop></specgear-shop>
     </div>
 
     <!-- <base-buttonborder class="btnsm btnsave" @click="SaveCustomItems">СОХРАНИТЬ кастомные вещи</base-buttonborder> -->
@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import SpecgearShop from "@/shopcomponents/SpecgearShop.vue";
 import CheapShop from "@/shopcomponents/CheapShop.vue";
 import ThingsShop from "@/shopcomponents/ThingsShop.vue";
 import BaseButtonborder from "@/components/BaseButtonborder.vue";
@@ -108,6 +109,7 @@ export default {
     ArmorShop,
     ThingsShop,
     CheapShop,
+    SpecgearShop,
   },
   data() {
     return {

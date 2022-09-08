@@ -1,5 +1,10 @@
 <template>
   <div class="list">
+    <h4 style="color: yellow">
+      Для установки Чипов необходимо иметь <br />
+      "Базовый процессор" и <br />
+      "Комплект разъемов для Чипов" / "Интерфейсные разъемы"
+    </h4>
     <submenucheap-shop :Items="LookShop" :NameShop="Look"></submenucheap-shop>
     <submenucheap-shop :Items="BodyShop" :NameShop="Body"></submenucheap-shop>
     <submenucheap-shop :Items="IntShop" :NameShop="Int"></submenucheap-shop>
