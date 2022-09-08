@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <input type="text" id="primcode" placeholder="Ввести код" />
-    <button @click="sendCode">Отправить</button>
+  <div class="codefield">
+    <input
+      class="inputcode"
+      type="text"
+      id="primcode"
+      placeholder="Ввести код"
+    />
+    <button class="btncodesend" @click="sendCode">Отправить</button>
   </div>
 </template>
 
@@ -19,8 +24,30 @@ export default {
 </script>
 
 <style scope>
-input {
+.codefield {
+  display: flex;
+  align-items: center;
+}
+.inputcode {
   font-size: 15px;
+  font-family: "Qore";
   text-align: center;
+  border: none;
+  background: none;
+  border-left: 1px solid orange;
+  border-bottom: 1px solid orange;
+  color: orange;
+}
+
+.btncodesend {
+  font-family: "Ktf";
+  height: 25px;
+  margin-left: 7px;
+  border: none;
+  background: none;
+  border-right: 1px solid orange;
+  border-bottom: 1px solid orange;
+  color: orange;
+  cursor: pointer;
 }
 </style>

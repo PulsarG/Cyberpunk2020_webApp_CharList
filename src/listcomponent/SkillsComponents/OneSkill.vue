@@ -1,6 +1,8 @@
 <template>
   <div class="skill" v-show="isUse">
-    <div class="skillname">
+    <div
+      v-bind:class="{ skillname: !this.isTheme77, secondcolor: this.isTheme77 }"
+    >
       <p>{{ i.name }}</p>
     </div>
     <div class="skillus">
@@ -10,7 +12,10 @@
           type="number"
           name=""
           id=""
-          class="skillpointsinp"
+          v-bind:class="{
+            skillpointsinp: !this.isTheme77,
+            skillpointsinpsecond: this.isTheme77,
+          }"
         />
       </div>
       <div class="skillchip">
@@ -41,6 +46,9 @@ export default {
   computed: {
     hiddenAll() {
       return this.$store.state.hiddenEmptySkills;
+    },
+    isTheme77() {
+      return this.$store.state.isTheme77;
     },
   },
 
@@ -86,9 +94,15 @@ export default {
 
 .skillpointsinp {
   width: 70%;
-  background-color: #E4DBBF;
+  background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+}
+.skillpointsinpsecond {
+  width: 70%;
+  background-color: inherit;
+  border: 1px solid #383127;
+  color: #00ccff;
 }
 
 .skillname {
@@ -100,7 +114,18 @@ export default {
   /*   border: 2px solid red; */
   font-family: "Qore";
   font-size: 12px;
-  color:#383127;
+  color: #383127;
   /* color:#00ccff; */
+}
+.secondcolor {
+  width: 75%;
+  height: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /*   border: 2px solid red; */
+  font-family: "Qore";
+  font-size: 12px;
+  color: #00ccff;
 }
 </style>

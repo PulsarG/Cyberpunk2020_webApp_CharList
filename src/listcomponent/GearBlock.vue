@@ -64,6 +64,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 25px;
+  cursor: pointer;
 }
 
 .table {

@@ -1,5 +1,8 @@
 <template>
-  <div class="appp">
+  <div
+    v-bind:class="{ apppmaincolor: !this.isTheme77, apppsecondcolor: this.isTheme77 }"
+    id="mainap"
+  >
     <div class="menu">
       <left-menu></left-menu>
       <!-- <shop-menu></shop-menu> -->
@@ -149,6 +152,9 @@ export default {
     codePondValid() {
       return this.$store.state.api.isPondsmith;
     },
+    isTheme77() {
+      return this.$store.state.isTheme77;
+    },
   },
 
   mounted() {
@@ -183,10 +189,14 @@ export default {
 </script>
 
 <style scoped>
-* {
+.apppmaincolor {
   /* background: linear-gradient(rgb(139, 1, 1), 5%, black); */
   /* background-color: #ad8fe4; */
   /* background-color: #e4dbbf; */
+  background: #e4dbbf;
+}
+.apppsecondcolor {
+  background: linear-gradient(rgb(139, 1, 1), 5%, black);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

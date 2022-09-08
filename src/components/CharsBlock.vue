@@ -7,12 +7,15 @@
       :nickCharForDelete="nickCharForDelete"
     >
     </modale-deletechar>
-    <div class="settings" v-show="isOpenSettings">
+    <div class="charslist" v-show="isOpenSettings">
       <div class="urchars" v-show="isEmptyList">
         <h2 style="color: orange">Список ваших Персонажей</h2>
       </div>
-      <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
-        <div class="charslist" id="123">
+      <div
+        v-for="i in this.$store.state.api.Chars"
+        :key="i.nick"
+      >
+        <div class="onechar">
           <base-buttonslice class="btnchars" @click="setChar(i)"
             >{{ i.Char.nick }} ( {{ i.Role }} )</base-buttonslice
           >
@@ -105,7 +108,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 550px;
   /* border: none; */
   font-family: "Qore";
   text-transform: uppercase;
@@ -130,12 +133,38 @@ export default {
 
 .charslist {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  overflow: auto;
+  height: 50vh;
+ /*  z-index: 2; */
+}
+.charslist::-webkit-scrollbar {
+  width: 0;
+}
+
+.onechar {
+  display: flex;
+  flex-direction: row;
 }
 
 .urchars {
   text-align: center;
+}
+.charslist::-webkit-scrollbar {
+  width: 10px;
+}
+
+.charslist::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: rgb(255, 0, 0);
+  border-radius: 10px;
+}
+
+.charslist::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: orange;
 }
 </style>

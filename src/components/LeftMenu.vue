@@ -55,9 +55,6 @@
     <!-- </div> -->
   </div>
   <settings-block class="sett" v-show="this.showChars"></settings-block>
-  <div>
-    <faq-block></faq-block>
-  </div>
   <!-- <div class="foott">
     <div class="footer">
       <a href="" style="color: white">by Github.com/PulsarG / 2022</a>
@@ -71,7 +68,7 @@ import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import SettingsBlock from "@/components/SettingsBlock.vue";
 import ShopMenu from "@/components/ShopMenu.vue";
 import CharsBlock from "@/components/CharsBlock.vue";
-import FaqBlock from "@/components/FaqBlock.vue";
+
 export default {
   components: {
     SettingsBlock,
@@ -79,7 +76,6 @@ export default {
     ShopMenu,
     BaseButtonneon,
     BaseButtonglitch,
-    FaqBlock,
   },
   data() {
     return {
@@ -156,6 +152,7 @@ h1 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: -80px;
 }
 .btnsmenu {
   display: flex;

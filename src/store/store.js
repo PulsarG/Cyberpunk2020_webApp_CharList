@@ -6,6 +6,7 @@ import customs from "@/modules/customs";
 import weaponsshop from "@/modules/weaponsshop.js";
 import armorshop from "@/modules/armorshop";
 import gearshop from "@/modules/gearshop";
+import cheapshop from "@/modules/cheapshop";
 import api from "@/modules/api.js";
 
 const store = createStore({
@@ -17,9 +18,11 @@ const store = createStore({
     api,
     armorshop,
     gearshop,
+    cheapshop,
   },
 
   state: () => ({
+    isTheme77: false,
     login: "",
 
     Char: {
@@ -120,6 +123,10 @@ const store = createStore({
   getters: {},
 
   mutations: {
+    setTheme(state, v) {
+      state.isTheme77 = v;
+    },
+
     setNick(state, v) {
       state.Char.nick = v;
     },

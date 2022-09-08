@@ -2,10 +2,13 @@
   <div class="mainsetting">
     <div>
       <h4 v-show="!this.$store.state.api.isPondsmith">
-        Стандартно доступно пять ячеек персонажей. <br />
-        Чтобы получить больше обратитесь в группу сообщества в
-        <a href="https://vk.com/cyberpunk2020">ВКонтакте</a> или канал в
-        <a href="https://discord.gg/PPpHEzf67H">Дискорде</a>
+        Изначально доступно пять ячеек персонажей. <br />
+        Чтобы получить больше обратитесь
+        <a href="https://vk.com/cyberpunk2020"
+          >в группу сообщества в ВКонтакте</a
+        >
+        или
+        <a href="https://discord.gg/PPpHEzf67H">канал в Дискорде</a>
       </h4>
       <div v-show="!this.$store.state.api.isPondsmith">
         <faq-block></faq-block>
@@ -48,7 +51,7 @@
         </div>
         <div>
           <label class="checkbox-green">
-            <input type="checkbox" v-model="isCheck" />
+            <input type="checkbox" v-model="isCheckTheme" />
             <span
               class="checkbox-green-switch"
               data-label-on="On"
@@ -67,7 +70,7 @@ export default {
   components: { FaqBlock },
   data() {
     return {
-      isCheck: false,
+      isCheckTheme: false,
     };
   },
   methods: {
@@ -77,6 +80,11 @@ export default {
       } else {
         this.isOpenSettings = false;
       }
+    },
+  },
+  watch: {
+    isCheckTheme(v) {
+      this.$store.commit("setTheme", v);
     },
   },
 };

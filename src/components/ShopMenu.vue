@@ -64,7 +64,7 @@
       >Чипы</base-buttonslice
     >
     <div class="submenu" v-show="isCheapOpen">
-      <weapons-shop></weapons-shop>
+      <cheap-shop></cheap-shop>
     </div>
     <base-buttonslice
       class="btnsm"
@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import CheapShop from "@/shopcomponents/CheapShop.vue";
 import ThingsShop from "@/shopcomponents/ThingsShop.vue";
 import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import BaseButtonneon from "@/components/BaseButtonneon.vue";
@@ -106,6 +107,7 @@ export default {
     BaseButtonborder,
     ArmorShop,
     ThingsShop,
+    CheapShop,
   },
   data() {
     return {
@@ -199,7 +201,7 @@ export default {
   flex-direction: column;
   margin-left: 3%;
   overflow: auto;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .btnsm {
