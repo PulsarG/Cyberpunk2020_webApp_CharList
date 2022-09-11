@@ -202,9 +202,15 @@ export default {
   cursor: pointer;
   margin-top: 10px;
 }
+
 .cleartext {
   font-family: "Ktf";
   font-size: 18px;
+}
+@media (max-width: 950px){
+  .cleartext {
+    font-size: 12px;
+  }
 }
 
 .deck {

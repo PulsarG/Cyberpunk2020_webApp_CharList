@@ -6,9 +6,10 @@
     }"
     id="mainap"
   >
-    <div class="menu" id="menu">
+    <div class="menu" id="menu" v-show="this.$store.state.isShowMenu">
       <left-menu></left-menu>
     </div>
+
     <nav>
       <div class="login" v-show="!this.$store.state.api.isLoginIn">
         <input
@@ -55,7 +56,13 @@
 
       <div class="links">
         <div class="ver">
-          <button class="btnversion" @click="$router.push('/news')">
+          <button
+            class="btnversion"
+            @click="
+              $router.push('/news');
+              this.$store.commit('setShowMenu', false);
+            "
+          >
             ver 0.9.020.7
           </button>
         </div>
@@ -191,8 +198,26 @@ nav {
   margin: auto;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   transition: 0.5s;
+  padding: 0 15px;
+}
+@media (max-width: 1000px) {
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginin {
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 555px) {
+  nav {
+    width: none;
+  }
 }
 
 nav a {
@@ -247,12 +272,13 @@ input {
 }
 
 .links {
-  width: 330px;
+  width: 350px;
   height: auto;
   display: flex;
-  flex-direction: column;
+  /*  flex-direction: column; */
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: space-between;
 }
 .hiname {
   font-family: "Qore";
@@ -270,13 +296,13 @@ h4 {
 .comunity {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  max-width: 300px;
   justify-content: flex-end;
   align-items: center;
 }
 
 .vklogo {
-  width: 100%;
+  width: 30px;
   border-radius: 50%;
 }
 
@@ -293,8 +319,8 @@ a {
 }
 
 .dislogo {
-  width: 110%;
-  margin-left: 3px;
+  width: 30px;
+  margin-left: 10px;
   border-radius: 50%;
 }
 
@@ -331,6 +357,7 @@ a {
 .router {
   transition: 0.5s;
   z-index: 0;
+  padding: 0 15px;
 }
 
 .exitbtn:hover {

@@ -4,13 +4,21 @@
       <div class="title">
         <h2 class="newstitle">НОВОСТИ</h2>
       </div>
-      <button class="tohome" @click="$router.push('/')">
+      <button
+        class="tohome"
+        @click="
+          $router.push('/');
+          this.$store.commit('setShowMenu', true);
+        "
+      >
         <h2>На главную</h2>
       </button>
     </div>
     <div class="onenews">
-      <h2>Релиз Бета-версии</h2>
-      <p class="date">08/09/2022 ver 0.9.020.4</p>
+      <button class="btnnews">
+        <h2>Релиз Бета-версии</h2>
+        <p class="date">08/09/2022 ver 0.9.020.4</p>
+      </button>
       <div>
         <p class="textnews">
           - Версия поддерживает Сохранение персонажей и Кастомных вещей на
@@ -40,6 +48,20 @@ export default {};
 </script>
 
 <style scoped>
+.onenews {
+  margin-top: 20px;
+}
+.btnnews{
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-left: 1px solid black;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
 .newsborder {
   margin-top: 25px;
   height: 25px;
@@ -71,14 +93,36 @@ export default {};
   border-bottom: 1px solid black;
   border-right: 1px solid black;
 }
+@media (max-width: 655px) {
+  h2 {
+    font-size: 15px;
+  }
+}
+
 .newsmain {
   display: flex;
   flex-direction: column;
   max-width: 1000px;
-  align-self: center;
-  margin: auto;
+  margin: 0 auto;
   height: 100vh;
+  padding: 0 15px;
 }
+@media (max-width: 1000px;) {
+  .newsmain {
+    max-width: 970px;
+  }
+}
+@media (max-width: 992px;) {
+  .newsmain {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px;) {
+  .newsmain {
+    max-width: none;
+  }
+}
+
 .newstitle {
   margin-left: 15px;
 }
