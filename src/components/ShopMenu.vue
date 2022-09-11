@@ -78,14 +78,9 @@
     <div class="submenu" v-show="isSpecOpen">
       <specgear-shop></specgear-shop>
     </div>
-
-    <!-- <base-buttonborder class="btnsm btnsave" @click="SaveCustomItems">СОХРАНИТЬ кастомные вещи</base-buttonborder> -->
     <base-buttonneon class="btnsm btnsave" @click="SaveCustomItems"
       >[ СОХРАНИТЬ кастомные вещи ]</base-buttonneon
     >
-    <!-- <button class="btnsm" @click="SaveCustomItems">
-        СОХРАНИТЬ кастомные вещи
-      </button> -->
   </div>
 </template>
 
@@ -218,29 +213,21 @@ export default {
   align-self: center;
   font-family: "Ktf";
   letter-spacing: 5px;
-  /*  font-size: 20px; */
 }
 
 .submenu {
   display: flex;
-  /* justify-content: flex-start; */
   flex-direction: column;
 }
 
 .btnsave {
-  /* position: absolute; */
   bottom: 10%;
   width: 50%;
-  /* display: flex;
-  align-self: center; */
-  /*  background: none; */
   color: orange;
-  /* box-shadow: 0 0 20px blue; */
   position: absolute;
   bottom: 0;
   left: -10px;
   width: 100%;
-  /* Высота footer */
   height: 50px;
   background: linear-gradient(to right, red, 5%, black, 95%, red);
   z-index: 1;

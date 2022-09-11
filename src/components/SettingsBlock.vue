@@ -211,13 +211,11 @@ h4 {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Disabled */
 .checkbox-green input[type="checkbox"]:disabled + .checkbox-green-switch {
   opacity: 0.6;
   filter: grayscale(50%);
 }
 
-/* Focus */
 .checkbox-green.focused .checkbox-green-switch:after {
   box-shadow: inset 0px 0px 4px #ff5623;
 }

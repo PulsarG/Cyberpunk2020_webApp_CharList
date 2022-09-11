@@ -86,7 +86,6 @@ export default {
   width: 80%;
   text-align: center;
   font-size: 20px;
-  /* background: #d8881f; */
   background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
@@ -95,7 +94,6 @@ export default {
   width: 80%;
   text-align: center;
   font-size: 20px;
-  /* background: #d8881f; */
   background-color: transparent;
   border: 1px solid #383127;
   color: #00ccff;

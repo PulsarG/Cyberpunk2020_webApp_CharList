@@ -1,5 +1,4 @@
 <template>
-  <!-- <button class="btnsubmenu" @click="showTable">Custom Weapons</button> -->
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>Custom Weapons</p>
   </base-buttonslice>

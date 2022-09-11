@@ -2,7 +2,6 @@
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>{{ NameShop }}</p>
   </base-buttonslice>
-  <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
   <table class="table" v-show="isShow">
     <h4>* Бронебойные х3 цена</h4>
     <h4>** Гильзовые патроны для старых пушек х2 цена</h4>
@@ -75,9 +74,6 @@ p {
   width: 100%;
   display: flex;
   flex-direction: row;
-}
-
-.table {
 }
 
 .item {

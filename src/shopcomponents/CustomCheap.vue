@@ -1,5 +1,4 @@
 <template>
-  <!-- <button class="btnsubmenu" @click="showTable">Custom Weapons</button> -->
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>Customs, Языковые, Боевые искусства и Эксперт в...</p>
   </base-buttonslice>
@@ -95,8 +94,6 @@ h4 {
 }
 p {
   margin-left: 15px;
-}
-.table {
 }
 
 .item {

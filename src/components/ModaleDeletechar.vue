@@ -15,7 +15,6 @@
             @click="deleteChar"
             >ДА</base-buttonneonred
           >
-          <!-- <button @click="deleteChar">Да</button> -->
         </div>
         <div>
           <base-buttonneonred
@@ -24,7 +23,6 @@
             @click.stop="hideModal"
             >НЕТ</base-buttonneonred
           >
-          <!-- <button @click.stop="hideModal">Нет</button> -->
         </div>
       </div>
     </div>
@@ -72,8 +70,6 @@ h4 {
 .modalcontent {
   margin: auto;
   background: black;
-  /* min-height: 50px; */
-  /* min-width: 300px; */
   height: 300px;
   width: 300px;
   padding: 20px;

@@ -37,8 +37,6 @@
       :Items="AppartmentShop"
       :NameShop="Appartment"
     ></submenugear-shop>
-
-    <!--  <body-shop></body-shop> -->
     <custom-gear></custom-gear>
   </div>
 </template>

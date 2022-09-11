@@ -4,22 +4,6 @@
       <h3 v-show="!this.$store.state.api.isLoginIn">
         Зарегистрируйтесь, чтобы сохранить персонажей и кастомные вещи
       </h3>
-
-      <!-- <base-buttonneon
-        class="bbsave"
-        id="savebtn"
-        v-show="this.$store.state.api.isLoginIn"
-        @click="saveChar"
-      >
-        Сохранить / Обновить персонажа</base-buttonneon
-      > -->
-      <!-- <button
-        id="savebtn"
-        v-show="this.$store.state.api.isLoginIn"
-        @click="saveChar"
-      >
-        Сохранить / Обновить персонажа
-      </button> -->
       <base-buttonborder
         class="bbsave"
         id="savebtn"
@@ -49,7 +33,6 @@
         <deck-list></deck-list>
       </div>
     </div>
-    <!-- <button @click="setWidth">SET WIDTH</button> -->
   </div>
 </template>
 
@@ -92,7 +75,6 @@ export default {
     openCharlist() {
       if (!this.isOpenCharlist) {
         this.isOpenCharlist = true;
-        /* document.getElementById("char").slideToggle(300); */
       } else {
         this.isOpenCharlist = false;
       }
@@ -174,12 +156,7 @@ export default {
   transform: translateY(-10px);
   opacity: 0;
 }
-/* .charlist {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.5s ease-out;
-  will-change: auto;
-} */
+
 .save {
   margin: auto;
   margin-bottom: 3px;
@@ -189,10 +166,8 @@ export default {
   display: flex;
   flex-direction: column;
   max-width: 1000px;
-  /*  justify-self: center; */
   align-self: center;
   margin: auto;
-  /* background-color: rgb(3, 3, 61); */
 }
 .btn {
   display: flex;

@@ -1,5 +1,4 @@
 <template>
-  <!-- <button class="btnsubmenu" @click="showTable">Custom Weapons</button> -->
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>Custom Specgear</p>
   </base-buttonslice>
@@ -32,7 +31,9 @@
         <td class="type"><input type="text" id="typeas" /></td>
         <td class="nameitem"><input type="text" id="nameitemas" /></td>
         <td class="price"><input type="text" name="" id="priceitemas" /></td>
-        <button class="btnaddimp" @click="addCustomSpec">Create Specgear</button>
+        <button class="btnaddimp" @click="addCustomSpec">
+          Create Specgear
+        </button>
       </tr>
     </tbody>
   </table>
@@ -99,8 +100,6 @@ h4 {
 }
 p {
   margin-left: 15px;
-}
-.table {
 }
 
 .item {

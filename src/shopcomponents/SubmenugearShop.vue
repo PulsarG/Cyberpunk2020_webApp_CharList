@@ -2,7 +2,6 @@
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>{{ NameShop }}</p>
   </base-buttonslice>
-  <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
 
   <table class="table" v-show="isShow">
     <thead>
@@ -73,9 +72,6 @@ p {
   flex-direction: row;
 }
 
-.table {
-}
-
 .item {
   width: 100%;
   display: flex;
@@ -90,14 +86,12 @@ p {
   justify-content: center;
 }
 
-
 .type {
   width: 50%;
   border: 1px solid black;
   display: flex;
   justify-content: center;
 }
-
 
 .btn {
   width: 10%;

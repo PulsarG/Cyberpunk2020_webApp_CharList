@@ -10,8 +10,6 @@
     <submenucheap-shop :Items="IntShop" :NameShop="Int"></submenucheap-shop>
     <submenucheap-shop :Items="RefShop" :NameShop="Ref"></submenucheap-shop>
     <submenucheap-shop :Items="TechShop" :NameShop="Tech"></submenucheap-shop>
-
-    <!--  <body-shop></body-shop> -->
     <custom-cheap></custom-cheap>
   </div>
 </template>

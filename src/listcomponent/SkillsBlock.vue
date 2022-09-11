@@ -157,10 +157,8 @@ p {
 
 .skillstext {
   display: flex;
-  /* flex-direction: row; */
   margin: auto;
   margin-top: 5px;
-  /* max-width: 1000px; */
   align-items: center;
   justify-content: space-between;
 }
@@ -168,7 +166,6 @@ p {
 .skillstitle {
   background-color: black;
   width: 90px;
-  /* margin: auto; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,7 +174,6 @@ p {
 .skillstitlesecond {
   background-color: none;
   width: 90px;
-  /* margin: auto; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -205,8 +201,6 @@ p {
 .alllistskills {
   display: flex;
   margin-top: 5px;
-  /* flex-direction: row; */
-  /* width: 100%; */
 }
 
 .skillsmenu {

@@ -85,8 +85,6 @@ export default {};
 .date {
   margin-top: -15px;
 }
-.onenews {
-}
 .textnews {
   font-size: 18px;
 }

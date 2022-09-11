@@ -61,7 +61,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: none; */
     background: none;
 }
 
@@ -98,6 +97,5 @@ export default {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /*   border: 2px solid red; */
 }
 </style>

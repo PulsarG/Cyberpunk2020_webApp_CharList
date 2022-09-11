@@ -17,21 +17,13 @@ export default {};
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 25px; */
   color: red;
   background: none;
-  /* background-color: aliceblue; */
   transition: all 0.5s;
-  /* transform: skewX(-50deg); */
-  
-  /* width: 25px; */
 }
 .neonbtn:hover {
   border-color: red;
   box-shadow: 0px 0px 30px red;
   color: red;
-}
-p {
-  /* transform: skewX(50deg); */
 }
 </style>

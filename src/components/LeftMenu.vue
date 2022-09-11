@@ -21,16 +21,11 @@
             >2020</base-buttonglitch
           >
         </div>
-        <!-- <h1>CYBERPUNK</h1> -->
-        <!--  <base-buttonneon class="btn" @click="this.showChars = true"
-          >2020</base-buttonneon
-        > -->
+
         <div>
           <base-buttonglitch class="btn bred">.RED</base-buttonglitch>
         </div>
-        <!-- <button class="btn" disabled>RED (soon)</button>
-        <base-buttonneon class="btn" @click="this.showChars = false"
-          >SHOP</base-buttonneon -->
+
         <div>
           <base-buttonglitch class="btn bshop" @click="this.showChars = false"
             >SHOP</base-buttonglitch
@@ -39,27 +34,16 @@
         <div>
           <base-buttonglitch class="btn bred">F.A.Q.</base-buttonglitch>
         </div>
-        <!-- <button class="btn" @click="this.showChars = true">2020</button> -->
-        <!-- <button class="btn" disabled>RED (soon)</button> -->
-        <!-- <button class="btn" @click="this.showChars = false">SHOP</button> -->
       </div>
     </div>
 
-    <!-- <div v-show="this.showChars"> -->
     <chars-block class="cb" v-show="this.showChars"></chars-block>
 
     <div style="margin-top: 15px" v-show="!this.showChars">
       <shop-menu class="shopmenu"></shop-menu>
     </div>
-
-    <!-- </div> -->
   </div>
   <settings-block class="sett" v-show="this.showChars"></settings-block>
-  <!-- <div class="foott">
-    <div class="footer">
-      <a href="" style="color: white">by Github.com/PulsarG / 2022</a>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -112,9 +96,7 @@ h1 {
   25% {
     color: gold;
   }
-  /* 50% {
-    color: blue;
-  } */
+
   75% {
     color: blueviolet;
   }
@@ -143,8 +125,7 @@ h1 {
   font-size: 30px;
   color: yellow;
   text-shadow: 0 0 20px yellow;
-  /*  color: blue;
-  text-shadow: 0 0 20px blue; */
+
   font-family: "Qore";
   margin-top: 15px;
   cursor: pointer;
@@ -173,8 +154,6 @@ h1 {
 }
 
 .footer {
-  /* position: absolute;
-    bottom: 5%; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -185,7 +164,7 @@ h1 {
   display: flex;
   justify-self: flex-end;
   align-items: flex-end;
-  /* position: absolute; */
+
   width: 100%;
 }
 

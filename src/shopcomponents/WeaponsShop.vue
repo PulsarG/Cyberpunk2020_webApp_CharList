@@ -16,11 +16,7 @@
       :Items="ExoticShop"
       :NameShop="Exotic"
     ></submenuwepons-shop>
-    <weponsoption-shop
-      :Items="AmmoShop"
-      :NameShop="Ammo"
-    ></weponsoption-shop>
-    <!--  <body-shop></body-shop> -->
+    <weponsoption-shop :Items="AmmoShop" :NameShop="Ammo"></weponsoption-shop>
     <custom-weapons></custom-weapons>
   </div>
 </template>

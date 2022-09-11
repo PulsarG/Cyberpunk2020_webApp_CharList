@@ -2,13 +2,12 @@
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>{{ NameShop }}</p>
   </base-buttonslice>
-  <!-- <button class="btnsubmenu" @click="showTable">{{ NameShop }}</button> -->
 
   <table class="table" v-show="isShow">
     <thead>
       <tr class="item">
-        <th class="type" >Навык</th>
-        <th class="price" >Цена за уровень</th>
+        <th class="type">Навык</th>
+        <th class="price">Цена за уровень</th>
         <th class="btn" style="color: blue"></th>
       </tr>
     </thead>
@@ -71,9 +70,6 @@ p {
   width: 100%;
   display: flex;
   flex-direction: row;
-}
-
-.table {
 }
 
 .item {

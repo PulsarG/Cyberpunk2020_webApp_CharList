@@ -63,8 +63,6 @@ export default {
     flex-direction: row;
 }
 
-.table {}
-
 .item {
     width: 100%;
     display: flex;

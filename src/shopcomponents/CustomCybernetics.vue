@@ -2,7 +2,6 @@
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>Custom Cybernetics</p>
   </base-buttonslice>
-  <!-- <button class="btnsubmenu" @click="showTable">Custom Cybernetics</button> -->
 
   <table class="table" v-show="isShow">
     <thead>
@@ -113,9 +112,6 @@ p {
   width: 100%;
   display: flex;
   flex-direction: row;
-}
-
-.table {
 }
 
 .item {

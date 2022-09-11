@@ -4,8 +4,7 @@
       :Items="SpecShop"
       :NameShop="NameArmor"
     ></submenuspec-shop>
-
-    <!--  <body-shop></body-shop> -->
+   
     <custom-spec></custom-spec>
   </div>
 </template>

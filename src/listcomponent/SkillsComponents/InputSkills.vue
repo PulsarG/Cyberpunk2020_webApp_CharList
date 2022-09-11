@@ -4,7 +4,6 @@
       <div>
         <input
           v-model="i.name"
-          
           type=""
           name=""
           id=""
@@ -12,7 +11,6 @@
           style="border: none; border-bottom: 1px dotted black"
         />
       </div>
-      <!--  <p>{{ i.name }}</p> -->
     </div>
     <div class="skillus">
       <div class="skillpoints">
@@ -54,18 +52,6 @@ export default {
   },
 
   watch: {
-    /* focused(v) {
-      if (!v) {
-        this.i.name = this.skillName;
-      }
-    }, */
-    /* i: {
-      handler(v) {
-        this.counte = v.count;
-      },
-      deep: true,
-    }, */
-
     hiddenAll(v) {
       if (this.counte > 0) {
         this.isNotEmpty = true;
@@ -111,7 +97,6 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /*   border: 2px solid red; */
 }
 .skillnameinp {
   background-color: #e4dbbf;

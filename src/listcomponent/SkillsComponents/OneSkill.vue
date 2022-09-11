@@ -111,11 +111,9 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /*   border: 2px solid red; */
   font-family: "Qore";
   font-size: 12px;
   color: #383127;
-  /* color:#00ccff; */
 }
 .secondcolor {
   width: 75%;
@@ -123,7 +121,6 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /*   border: 2px solid red; */
   font-family: "Qore";
   font-size: 12px;
   color: #00ccff;

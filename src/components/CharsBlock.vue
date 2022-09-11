@@ -1,6 +1,5 @@
 <template>
   <div class="mainmenu">
-    <!-- <button class="btn" @click="openSettings">Ваши персонажи:</button> -->
     <modale-deletechar
       class="moddel"
       v-model:isShowDel="isShowDel"
@@ -11,24 +10,14 @@
       <div class="urchars" v-show="isEmptyList">
         <h2 style="color: orange">Список ваших Персонажей</h2>
       </div>
-      <div
-        v-for="i in this.$store.state.api.Chars"
-        :key="i.nick"
-      >
+      <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
         <div class="onechar">
           <base-buttonslice class="btnchars" @click="setChar(i)"
             >{{ i.Char.nick }} ( {{ i.Role }} )</base-buttonslice
           >
-
-          <!-- <button class="btnchars" @click="setChar(i)">
-            <p style="color: red; font-size: 15px">{{ i.Char.nick }}.....{{ i.Role }}</p>
-          </button> -->
-
           <base-buttonneonred class="deletebtn" @click="deleteChar(i)"
             >X</base-buttonneonred
           >
-
-          <!-- <button class="deletebtn" @click="deleteChar(i)">Delete char</button> -->
         </div>
       </div>
     </div>
@@ -67,10 +56,6 @@ export default {
       this.nickCharForDelete = i.Char.nick;
       this.isShowDel = true;
     },
-
-    /* reloadChars(b) {
-      this.$store.commit("reloadChars", b);
-    }, */
   },
 
   computed: {
@@ -109,7 +94,6 @@ export default {
   justify-content: center;
   align-items: center;
   width: 550px;
-  /* border: none; */
   font-family: "Qore";
   text-transform: uppercase;
   z-index: initial;
@@ -123,12 +107,9 @@ export default {
   align-items: center;
   width: 40px;
   border: none;
-  /* border-radius: 50%; */
 }
 .moddel {
   z-index: 1;
-}
-.settings {
 }
 
 .charslist {
@@ -139,7 +120,6 @@ export default {
   width: 100%;
   overflow: auto;
   height: 50vh;
- /*  z-index: 2; */
 }
 .charslist::-webkit-scrollbar {
   width: 0;

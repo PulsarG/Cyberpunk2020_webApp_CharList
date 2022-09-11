@@ -194,7 +194,6 @@ img {
 .head {
   max-width: 1000px;
   display: flex;
-  /* flex-direction: row; */
   height: auto;
   margin: auto;
 }

@@ -7,15 +7,6 @@
     <weapons-block></weapons-block>
     <char-bio></char-bio>
     <char-look></char-look>
-    <!-- <div class="check">
-      <div v-for="i in 20">
-        <input
-          type="checkbox"
-          :checked="i <= checkedCount"
-          @change="checkedCount = checkedCount < i ? i : i - 1"
-        />
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -47,8 +38,4 @@ export default {
 </script>
 
 <style scoped>
-/* .check {
-  display: flex;
-  flex-direction: row;
-} */
 </style>

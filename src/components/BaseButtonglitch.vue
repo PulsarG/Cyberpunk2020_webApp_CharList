@@ -14,14 +14,10 @@ export default {};
 <style scoped>
 .img,
 .glitch {
-  /* display: block; */
   background-repeat: no-repeat;
   background-size: cover;
-  /*  width: 100px;
-  height: 50px; */
 }
 .img {
-    /* border: 1px solid yellow; */
     z-index: -1;
 }
 .glitch {

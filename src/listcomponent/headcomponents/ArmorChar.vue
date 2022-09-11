@@ -160,7 +160,6 @@ export default {
   display: flex;
   flex-direction: column;
   width: 20%;
-  /*  border: 2px solid blue; */
 }
 
 .armortitleone {

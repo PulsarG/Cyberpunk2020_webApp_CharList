@@ -1,5 +1,4 @@
 <template>
-  <!-- <button class="btnsubmenu" @click="showTable">Custom Weapons</button> -->
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>Custom Gear</p>
   </base-buttonslice>
@@ -56,7 +55,7 @@ export default {
     addCustomGear() {
       let type = document.getElementById("typeg").value;
       let price = document.getElementById("priceitemg").value;
-      
+
       let X = {
         type,
         price,
@@ -93,8 +92,6 @@ h4 {
 }
 p {
   margin-left: 15px;
-}
-.table {
 }
 
 .item {

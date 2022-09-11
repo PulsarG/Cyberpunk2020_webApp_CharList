@@ -1,5 +1,4 @@
 <template>
-  <!-- <button class="btnsubmenu" @click="showTable">Custom Weapons</button> -->
   <base-buttonslice class="btnsubmenu" @click="showTable">
     <p>Custom Armor</p>
   </base-buttonslice>
@@ -112,9 +111,6 @@ h4 {
 p {
   margin-left: 15px;
 }
-.table {
-}
-
 .item {
   width: 100%;
   display: flex;
