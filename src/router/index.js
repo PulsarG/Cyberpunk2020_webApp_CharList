@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Cp2020char from "@/pages/Cp2020char";
 import News from "@/pages/News";
+import RedList from "@/pages/RedList";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/news",
     name: "news",
     component: News,
+  },
+  {
+    path: "/red",
+    name: "red",
+    component: RedList,
   },
 ];
 

@@ -17,13 +17,20 @@
       </div>
       <div class="btnsmenu">
         <div>
-          <base-buttonglitch class="btn" @click="this.showChars = true"
+          <base-buttonglitch
+            class="btn"
+            @click="
+              $router.push('/');
+              this.showChars = true;
+            "
             >2020</base-buttonglitch
           >
         </div>
 
         <div>
-          <base-buttonglitch class="btn bred">.RED</base-buttonglitch>
+          <base-buttonglitch class="btn bred" @click="$router.push('/red')"
+            >.RED</base-buttonglitch
+          >
         </div>
 
         <div>

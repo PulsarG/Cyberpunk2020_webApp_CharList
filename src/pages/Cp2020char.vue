@@ -12,19 +12,16 @@
       ></base-buttonborder>
     </div>
 
-    <div class="">
+    <div class="charlist">
       <div class="btn">
         <button class="btnlist" @click="openCharlist"><p>Charlist</p></button>
         <button class="btnclear" @click="clearList">
           <p class="cleartext">Очистить лист</p>
         </button>
       </div>
-      <transition name="slide-fade">
-        <char-list
-          class="hero glitch layers"
-          v-show="isOpenCharlist"
-        ></char-list>
-      </transition>
+      
+      <char-list class="hero" id="charlist"></char-list>
+     
     </div>
 
     <div class="deck">
@@ -73,12 +70,14 @@ export default {
   },
   methods: {
     openCharlist() {
-      if (!this.isOpenCharlist) {
+      /* if (!this.isOpenCharlist) {
         this.isOpenCharlist = true;
       } else {
         this.isOpenCharlist = false;
       }
-      return this.isOpenCharlist;
+      return this.isOpenCharlist; */
+
+      document.getElementById("charlist").classList.toggle("_close");
     },
 
     openDeck() {
@@ -140,21 +139,14 @@ export default {
 </script>
 
 <style scoped>
-.slide-fade-enter-active {
-  transition: 0.5s;
-}
 
-.slide-fade-leave-active {
-  transition: 0.5s;
+.hero {
+  max-height: 5000px;
+  transition: 1s;
 }
-
-.slide-fade-enter-from {
-  transform: translateY(-10px);
-  opacity: 1;
-}
-.slide-fade-leave-to {
-  transform: translateY(-10px);
-  opacity: 0;
+._close {
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .save {
@@ -207,7 +199,7 @@ export default {
   font-family: "Ktf";
   font-size: 18px;
 }
-@media (max-width: 950px){
+@media (max-width: 950px) {
   .cleartext {
     font-size: 12px;
   }
