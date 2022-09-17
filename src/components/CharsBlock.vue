@@ -12,9 +12,10 @@
       </div>
       <div v-for="i in this.$store.state.api.Chars" :key="i.nick">
         <div class="onechar">
+          <p class="redlabel" v-show="i.isRed">RED</p>
           <base-buttonslice class="btnchars" @click="setChar(i)"
-            >{{ i.Char.nick }} ( {{ i.Role }} )</base-buttonslice
-          >
+            >{{ i.Char.nick }} ( {{ i.Char.role }} )
+          </base-buttonslice>
           <base-buttonneonred class="deletebtn" @click="deleteChar(i)"
             >X</base-buttonneonred
           >
@@ -49,7 +50,11 @@ export default {
     },
 
     setChar(i) {
-      this.$store.commit("setChar", i);
+      if (i.isRed) {
+        this.$store.commit("red/setRedChar", i);
+      } else {
+        this.$store.commit("setChar", i);
+      }
     },
 
     deleteChar(i) {
@@ -128,6 +133,11 @@ export default {
 .onechar {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+.redlabel {
+  color: red;
+  margin-left: 0;
 }
 
 .urchars {

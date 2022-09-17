@@ -2,55 +2,13 @@
   <div class="block">
     <button class="btnblock" @click="showList"><h2>STATS</h2></button>
     <div class="blockbody" id="1id">
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
-      </div>
-      <div class="stat">
-        <button class="btnstat">+</button>
-        <button class="btnstat btncountstat">{{ this.int }}</button>
-        <button class="btnstat">-</button>
+      <div v-for="i in this.Stats" :key="i.name">
+        <div class="stat">
+          <p class="statname">{{ i.name }}</p>
+          <button class="btnstat" @click="upStat(i)">+</button>
+          <button class="btnstat btncountstat">{{ i.count }}</button>
+          <button class="btnstat" @click="downStat(i)">-</button>
+        </div>
       </div>
     </div>
   </div>
@@ -60,12 +18,53 @@
 export default {
   data() {
     return {
-      int: 5,
+      Stats: [
+        { name: "BODY", count: 0 },
+        { name: "COOL", count: 0 },
+        { name: "EMP", count: 0 },
+        { name: "INT", count: 0 },
+        { name: "REF", count: 0 },
+        { name: "MOVE", count: 0 },
+        { name: "WILL", count: 0 },
+        { name: "LUCK", count: 0 },
+        { name: "TECH", count: 0 },
+        { name: "DEX", count: 0 },
+      ],
     };
+  },
+  computed: {
+    isLoadChar() {
+      return this.$store.state.red.isLoadChar;
+    },
+    isTheme77() {
+      return this.$store.state.isTheme77;
+    },
   },
   methods: {
     showList() {
       document.getElementById("1id").classList.toggle("show");
+    },
+    upStat(i) {
+      ++i.count;
+    },
+    downStat(i) {
+      --i.count;
+    },
+    setStatsFromStore() {
+      this.Stats = this.$store.state.red.Stats;
+    },
+  },
+
+  watch: {
+    Stats: {
+      handler(i) {
+        this.$store.commit("red/setStats", i);
+      },
+      deep: true,
+    },
+
+    isLoadChar(v) {
+      if (v) this.setStatsFromStore();
     },
   },
 };
@@ -75,6 +74,10 @@ export default {
 .stat {
   display: flex;
   flex-direction: column;
+}
+.statname {
+  text-align: center;
+  font-family: 'Qore';
 }
 .btnstat {
   width: 90px;

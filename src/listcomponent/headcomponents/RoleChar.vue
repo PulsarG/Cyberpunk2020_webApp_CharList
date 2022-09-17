@@ -54,7 +54,7 @@ export default {
 
   methods: {
     setRoleFromStore() {
-      this.role = this.$store.state.role;
+      this.role = this.$store.state.Char.role;
     },
   },
 

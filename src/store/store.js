@@ -9,6 +9,7 @@ import gearshop from "@/modules/gearshop";
 import cheapshop from "@/modules/cheapshop";
 import specshop from "@/modules/specshop";
 import api from "@/modules/api.js";
+import red from "@/modules/red.js";
 
 const store = createStore({
   modules: {
@@ -21,6 +22,7 @@ const store = createStore({
     gearshop,
     cheapshop,
     specshop,
+    red,
   },
 
   state: () => ({
@@ -32,6 +34,7 @@ const store = createStore({
     Char: {
       nick: "",
       charpoints: "",
+      role: "",
     },
 
     Stats: {
@@ -118,7 +121,7 @@ const store = createStore({
     BioText: "",
     LookText: "",
 
-    role: "",
+    
 
     isLoadChar: false,
     isReloadChars: false,
@@ -170,7 +173,7 @@ const store = createStore({
     },
 
     setRole(state, role) {
-      state.role = role;
+      state.Char.role = role;
     },
 
     addCybernetics(state, v) {
@@ -241,7 +244,7 @@ const store = createStore({
       state.savePoint = i.savePoint;
       state.DmgChecks = i.DmgChecks;
 
-      state.role = i.Role;
+      
 
       state.skills = i.Skills;
 

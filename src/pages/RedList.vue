@@ -1,17 +1,71 @@
 <template>
   <div class="mainredlist">
+    <div class="save">
+      <h3 v-show="!this.$store.state.api.isLoginIn">
+        Зарегистрируйтесь, чтобы сохранить персонажей и кастомные вещи
+      </h3>
+      <base-buttonborder
+        class="bbsave"
+        id="savebtn"
+        v-show="this.$store.state.api.isLoginIn"
+        @click="saveRedChar"
+      ></base-buttonborder>
+    </div>
+
+    <redname-role></redname-role>
     <red-stats></red-stats>
   </div>
 </template>
 
 <script>
+import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import RedStats from "@/redlist/RedStats.vue";
+import RednameRole from "@/redlist/RednameRole.vue";
 export default {
   components: {
     RedStats,
+    BaseButtonborder,
+    RednameRole,
   },
   data() {
     return {};
+  },
+  computed: {
+    AmountChars() {
+      return this.$store.state.api.Chars.length;
+    },
+  },
+  methods: {
+    saveRedChar() {
+      if (
+        this.$store.state.api.isPondsmith ||
+        this.AmountChars < 5 ||
+        this.checkCanSave()
+      ) {
+        this.$store.dispatch("api/saveRedChar");
+      } else if (this.AmountChars >= 5 && !this.$store.state.api.isPondsmith) {
+        alert("Нет свободных ячеек для персонажей");
+        this.$store.dispatch("api/getChars");
+      }
+      this.disableButtonSave();
+    },
+    checkCanSave() {
+      for (let i = 0; i < this.$store.state.api.Chars.length; i++) {
+        if (
+          this.$store.state.api.CONTROL_Chars[i] == this.$store.state.Char.nick
+        )
+          return true;
+      }
+      return false;
+    },
+    disableButtonSave() {
+      let btn = document.getElementById("savebtn");
+      btn.setAttribute("disabled", true);
+
+      setTimeout(() => {
+        btn.removeAttribute("disabled");
+      }, 5000);
+    },
   },
 };
 </script>
@@ -23,6 +77,13 @@ export default {
   max-width: 1000px;
   align-self: center;
   margin: auto;
-  height: 100vh;
+  /*  height: 100vh; */
+}
+.bbsave {
+  background: none;
+}
+.save {
+  margin: auto;
+  margin-bottom: 3px;
 }
 </style>

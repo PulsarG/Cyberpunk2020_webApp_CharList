@@ -22,6 +22,7 @@ export default {
       CONTROL_Chars: [],
       isPondsmith: false,
       userId: "",
+      redForNick: "(RED)",
     };
   },
 
@@ -119,8 +120,8 @@ export default {
       } else {
         try {
           await setDoc(doc(db, store.state.login, store.state.Char.nick), {
+            isRed: false,
             Char: store.state.Char,
-            Role: store.state.role,
 
             Stats: store.state.Stats,
             Morestats: store.state.Morestats,
@@ -143,6 +144,26 @@ export default {
           dispatch("getChars");
         } catch (e) {
           alert("Ой, что-то поло не так");
+          console.log(e);
+        }
+      }
+    },
+
+    async saveRedChar({ dispatch }) {
+      if (store.state.red.Char.nick === "") {
+        alert("Введите имя персонажа");
+      } else {
+        try {
+          await setDoc(doc(db, store.state.login, store.state.red.Char.nick), {
+            isRed: true,
+            Char: store.state.red.Char,
+            Stats: store.state.red.Stats,
+          });
+
+          alert("Сохранено");
+          dispatch("getChars");
+        } catch (e) {
+          alert("Ой, что-то пошло не так");
           console.log(e);
         }
       }

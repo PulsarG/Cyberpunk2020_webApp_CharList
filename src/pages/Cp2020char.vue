@@ -70,13 +70,6 @@ export default {
   },
   methods: {
     openCharlist() {
-      /* if (!this.isOpenCharlist) {
-        this.isOpenCharlist = true;
-      } else {
-        this.isOpenCharlist = false;
-      }
-      return this.isOpenCharlist; */
-
       document.getElementById("charlist").classList.toggle("_close");
     },
 
