@@ -159,6 +159,7 @@ export default {
             Char: store.state.red.Char,
             Stats: store.state.red.Stats,
             Savestats: store.state.red.Savestats,
+            Bio: store.state.red.Bio,
           });
 
           alert("Сохранено");

@@ -327,6 +327,10 @@ export default {
 </script>
 
 <style scoped>
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .statslabel {
   background-color: black;
   width: 15%;

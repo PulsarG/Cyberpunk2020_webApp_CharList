@@ -150,6 +150,10 @@ export default {
 </script>
 
 <style scoped>
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .armorblock {
   display: flex;
   flex-direction: row;
