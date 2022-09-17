@@ -1,12 +1,12 @@
 <template>
   <div class="block">
-    <button class="btnblock" @click="showList"><h2>LIFE PATH</h2></button>
-    <div class="blockbody" id="4id">
+    <button class="btnblock" @click="showList"><h2>STYLE</h2></button>
+    <div class="blockbody" id="5id">
       <textarea
         class="textarea"
-        maxlength="5000"
-        placeholder="Биография вашего персонажа (макс. 5000 символов)"
-        v-model="BioText"
+        maxlength="2000"
+        placeholder="Внешность и стиль вашего персонажа (макс. 2000 символов)"
+        v-model="style"
       ></textarea>
     </div>
   </div>
@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      BioText: "",
+      style: "",
     };
   },
   computed: {
@@ -29,20 +29,20 @@ export default {
   },
   methods: {
     showList() {
-      document.getElementById("4id").classList.toggle("show");
+      document.getElementById("5id").classList.toggle("show");
     },
-    setBioFromStore() {
-      this.Savestats = this.$store.state.red.bio;
+    setStyleFromStore() {
+      this.Savestats = this.$store.state.red.style;
     },
   },
 
   watch: {
-    BioText(v) {
-      this.$store.commit("red/setBio", v);
+    style(v) {
+      this.$store.commit("red/setStyle", v);
     },
 
     isLoadChar(v) {
-      if (v) this.setBioFromStore();
+      if (v) this.setStyleFromStore();
     },
   },
 };

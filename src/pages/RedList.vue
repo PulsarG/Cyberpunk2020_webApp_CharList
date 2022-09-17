@@ -22,6 +22,7 @@
     <red-stats></red-stats>
     <red-morestats></red-morestats>
     <red-bio></red-bio>
+    <red-style></red-style>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import RedStats from "@/redlist/RedStats.vue";
 import RedMorestats from "@/redlist/RedMorestats.vue";
 import RedBio from "@/redlist/RedBio.vue";
+import RedStyle from "@/redlist/RedStyle.vue";
 import RednameRole from "@/redlist/RednameRole.vue";
 export default {
   components: {
@@ -38,6 +40,7 @@ export default {
     RednameRole,
     RedMorestats,
     RedBio,
+    RedStyle,
   },
   data() {
     return {};

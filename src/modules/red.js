@@ -7,6 +7,7 @@ export default {
       Stats: [],
       Savestats: {},
       Bio: "",
+      Style: "",
     };
   },
 
@@ -23,6 +24,9 @@ export default {
     setBio(state, i) {
       state.Bio = i;
     },
+    setStyle(state, i) {
+      state.Style = i;
+    },
 
     setRedChar(state, i) {
       state.Char = i.Char;
@@ -31,6 +35,7 @@ export default {
       state.Savestats = i.Savestats;
 
       state.Bio = i.Bio;
+      state.Style = i.Style;
       state.isLoadChar = true;
 
       setTimeout(() => {
