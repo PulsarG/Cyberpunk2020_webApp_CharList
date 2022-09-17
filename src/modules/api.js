@@ -158,6 +158,7 @@ export default {
             isRed: true,
             Char: store.state.red.Char,
             Stats: store.state.red.Stats,
+            Savestats: store.state.red.Savestats,
           });
 
           alert("Сохранено");

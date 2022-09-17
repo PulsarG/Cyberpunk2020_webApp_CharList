@@ -2,8 +2,22 @@
   <div class="block">
     <button class="btnblock" @click="showList"><h2>NAME and ROLE</h2></button>
     <div class="blockbody" id="2id">
-      <input class="inpname" type="text" placeholder="NAME" v-model="this.Char.nick" />
-      <input class="inpname" type="text" placeholder="ROLE" v-model="this.Char.role"/>
+      <div>
+        <input
+          class="inpname"
+          type="text"
+          placeholder="NAME"
+          v-model="this.Char.nick"
+        />
+      </div>
+      <div>
+        <input
+          class="inpname"
+          type="text"
+          placeholder="ROLE"
+          v-model="this.Char.role"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -65,11 +79,32 @@ export default {
 }
 
 .block {
-  margin-top: 15px;
+  margin: auto;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   width: 1000px;
   border: 3px solid red;
+}
+@media (max-width: 4000px) {
+  .blockbody {
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+@media (max-width: 1100px) {
+  .block {
+    width: 500px;
+  }
+  .blockbody {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .btnblock {
   border: none;
@@ -89,10 +124,7 @@ h2 {
 .blockbody {
   max-height: 500px;
   transition: 1s;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  margin: auto;
 }
 .show {
   max-height: 0px;

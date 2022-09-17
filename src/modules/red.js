@@ -5,6 +5,7 @@ export default {
     return {
       Char: {},
       Stats: [],
+      Savestats: {},
     };
   },
 
@@ -15,12 +16,15 @@ export default {
     setStats(state, i) {
       state.Stats = i;
     },
+    setSavestats(state, i) {
+      state.Savestats = i;
+    },
 
     setRedChar(state, i) {
       state.Char = i.Char;
 
       state.Stats = i.Stats;
-
+      state.Savestats = i.Savestats;
       state.isLoadChar = true;
 
       setTimeout(() => {

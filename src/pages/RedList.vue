@@ -11,21 +11,30 @@
         @click="saveRedChar"
       ></base-buttonborder>
     </div>
+    <div class="ruls">
+      <h4>Cyberpunk RED Easy Mode</h4>
+      <a href="https://vk.com/@cyberpunk2020-cyberpunk-red-easy-mode"
+        >Руководство на русском</a
+      >
+    </div>
 
     <redname-role></redname-role>
     <red-stats></red-stats>
+    <red-morestats></red-morestats>
   </div>
 </template>
 
 <script>
 import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import RedStats from "@/redlist/RedStats.vue";
+import RedMorestats from "@/redlist/RedMorestats.vue";
 import RednameRole from "@/redlist/RednameRole.vue";
 export default {
   components: {
     RedStats,
     BaseButtonborder,
     RednameRole,
+    RedMorestats,
   },
   data() {
     return {};
@@ -77,6 +86,7 @@ export default {
   max-width: 1000px;
   align-self: center;
   margin: auto;
+  align-items: center;
   /*  height: 100vh; */
 }
 .bbsave {
@@ -85,5 +95,12 @@ export default {
 .save {
   margin: auto;
   margin-bottom: 3px;
+  margin-top: 15px;
+}
+.ruls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

@@ -203,7 +203,7 @@ nav {
   transition: 0.5s;
   padding: 0 15px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   nav {
     flex-direction: column;
     justify-content: center;

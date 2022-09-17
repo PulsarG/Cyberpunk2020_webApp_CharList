@@ -98,11 +98,21 @@ export default {
 }
 
 .block {
-  margin-top: 15px;
+  margin: auto;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   width: 1000px;
   border: 3px solid red;
+}
+@media (max-width: 1100px) {
+  .block {
+    width: 500px;
+  }
+  .blockbody {
+    flex-wrap: wrap;
+    margin: auto;
+  }
 }
 .btnblock {
   border: none;
