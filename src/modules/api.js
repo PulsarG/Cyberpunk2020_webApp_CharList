@@ -159,6 +159,7 @@ export default {
             Char: store.state.red.Char,
             Stats: store.state.red.Stats,
             Savestats: store.state.red.Savestats,
+            Redskills: store.state.redskills,
             Bio: store.state.red.Bio,
             Style: store.state.red.Style,
           });

@@ -272,13 +272,13 @@ input {
 }
 
 .links {
-  width: 350px;
+  width: 450px;
   height: auto;
   display: flex;
   /*  flex-direction: column; */
   justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .hiname {
   font-family: "Qore";
@@ -316,6 +316,7 @@ a {
   border: none;
   cursor: pointer;
   border-bottom: 1px solid black;
+  width: 160px;
 }
 
 .dislogo {

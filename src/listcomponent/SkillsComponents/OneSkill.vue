@@ -78,6 +78,10 @@ export default {
 </script>
 
 <style scoped>
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .skill {
   display: flex;
   flex-direction: row;
@@ -97,6 +101,7 @@ export default {
   background-color: #e4dbbf;
   border: 1px solid #383127;
   color: #383127;
+  text-align: center;
 }
 .skillpointsinpsecond {
   width: 70%;

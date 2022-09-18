@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 
 import skills from "@/modules/skills.js";
+import redskills from "@/modules/redskills.js";
 import cyberneticsshop from "@/modules/cyberneticsshop.js";
 import customs from "@/modules/customs";
 import weaponsshop from "@/modules/weaponsshop.js";
@@ -23,6 +24,7 @@ const store = createStore({
     cheapshop,
     specshop,
     red,
+    redskills,
   },
 
   state: () => ({
@@ -120,8 +122,6 @@ const store = createStore({
     Weapons: [],
     BioText: "",
     LookText: "",
-
-    
 
     isLoadChar: false,
     isReloadChars: false,
@@ -243,8 +243,6 @@ const store = createStore({
 
       state.savePoint = i.savePoint;
       state.DmgChecks = i.DmgChecks;
-
-      
 
       state.skills = i.Skills;
 

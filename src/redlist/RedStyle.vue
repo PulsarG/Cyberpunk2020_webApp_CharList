@@ -1,7 +1,7 @@
 <template>
   <div class="block">
     <button class="btnblock" @click="showList"><h2>STYLE</h2></button>
-    <div class="blockbody" id="5id">
+    <div class="blockbody" id="6id">
       <textarea
         class="textarea"
         maxlength="2000"
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     showList() {
-      document.getElementById("5id").classList.toggle("show");
+      document.getElementById("6id").classList.toggle("show");
     },
     setStyleFromStore() {
       this.Savestats = this.$store.state.red.style;

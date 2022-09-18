@@ -13,7 +13,9 @@
     </div>
     <div class="ruls">
       <h4>Cyberpunk RED Easy Mode</h4>
-      <a href="https://vk.com/@cyberpunk2020-cyberpunk-red-easy-mode"
+      <a
+        href="https://vk.com/@cyberpunk2020-cyberpunk-red-easy-mode"
+        target="_blank"
         >Руководство на русском</a
       >
     </div>
@@ -21,6 +23,7 @@
     <redname-role></redname-role>
     <red-stats></red-stats>
     <red-morestats></red-morestats>
+    <red-skills></red-skills>
     <red-bio></red-bio>
     <red-style></red-style>
   </div>
@@ -30,6 +33,7 @@
 import BaseButtonborder from "@/components/BaseButtonborder.vue";
 import RedStats from "@/redlist/RedStats.vue";
 import RedMorestats from "@/redlist/RedMorestats.vue";
+import RedSkills from "@/redlist/RedSkills.vue";
 import RedBio from "@/redlist/RedBio.vue";
 import RedStyle from "@/redlist/RedStyle.vue";
 import RednameRole from "@/redlist/RednameRole.vue";
@@ -41,6 +45,7 @@ export default {
     RedMorestats,
     RedBio,
     RedStyle,
+    RedSkills,
   },
   data() {
     return {};
