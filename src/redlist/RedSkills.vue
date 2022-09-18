@@ -26,25 +26,53 @@
         </div>
         <p class="total0">TOTAL</p>
       </div>
-      <div class="skilllist" v-for="i in this.$store.state.redskills.Cool" :key="i.name">
+      <div
+        class="skilllist"
+        v-for="i in this.$store.state.redskills.Cool"
+        :key="i.name"
+      >
         <red-oneskill :i="i" :Stat="CoolStat"></red-oneskill>
       </div>
-      <div class="skilllist" v-for="i in this.$store.state.redskills.Emp" :key="i.name">
+      <div
+        class="skilllist"
+        v-for="i in this.$store.state.redskills.Emp"
+        :key="i.name"
+      >
         <red-oneskill :i="i" :Stat="EmpStat"></red-oneskill>
       </div>
-      <div class="skilllist" v-for="i in this.$store.state.redskills.Int" :key="i.name">
+      <div
+        class="skilllist"
+        v-for="i in this.$store.state.redskills.Int"
+        :key="i.name"
+      >
         <red-oneskill :i="i" :Stat="IntStat"></red-oneskill>
       </div>
-      <div class="skilllist" v-for="i in this.$store.state.redskills.Ref" :key="i.name">
+      <div
+        class="skilllist"
+        v-for="i in this.$store.state.redskills.Ref"
+        :key="i.name"
+      >
         <red-oneskill :i="i" :Stat="RefStat"></red-oneskill>
       </div>
-      <div class="skilllist" v-for="i in this.$store.state.redskills.Will" :key="i.name">
+      <div
+        class="skilllist"
+        v-for="i in this.$store.state.redskills.Will"
+        :key="i.name"
+      >
         <red-oneskill :i="i" :Stat="WillStat"></red-oneskill>
       </div>
-      <div class="skilllist" v-for="i in this.$store.state.redskills.Tech" :key="i.name">
+      <div
+        class="skilllist"
+        v-for="i in this.$store.state.redskills.Tech"
+        :key="i.name"
+      >
         <red-oneskill :i="i" :Stat="TechStat"></red-oneskill>
       </div>
-      <div class="skilllist" v-for="i in this.$store.state.redskills.Dex" :key="i.name">
+      <div
+        class="skilllist"
+        v-for="i in this.$store.state.redskills.Dex"
+        :key="i.name"
+      >
         <red-oneskill :i="i" :Stat="DexStat"></red-oneskill>
       </div>
     </div>
@@ -124,14 +152,14 @@ export default {
     showList() {
       document.getElementById("5id").classList.toggle("show");
     },
-    setBioFromStore() {
+    setSkillsFromStore() {
       this.Savestats = this.$store.state.red.redskills;
     },
   },
   mounted() {},
   watch: {
     isLoadChar(v) {
-      if (v) this.setBioFromStore();
+      if (v) this.setSkillsFromStore();
     },
     isShowSkillsLocal(v) {
       this.$store.commit("red/setShowSkills", v);

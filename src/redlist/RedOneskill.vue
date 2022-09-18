@@ -1,12 +1,20 @@
 <template>
   <div class="skill" v-show="isShowSkillLocal">
-    <h3 class="nameskill">{{ i.name }}</h3>
+    <button @click="checkSkill" class="nameskill">{{ i.name }}</button>
     <div class="lvl">
       <button class="btnskillinc" @click="upSkill(1)">+</button>
       <h3 class="skilllvl">{{ i.count }}</h3>
       <button class="btnskillinc" @click="upSkill(-1)">-</button>
     </div>
-    <button class="total">{{ this.totalCount }}</button>
+    <button class="total" @click="checkSkill">{{ this.totalCount }}</button>
+  </div>
+  <div class="checkskill" v-show="isShowCheck">
+    <p>1d10 roll = {{ diceRoll }}</p>
+    <p class="critroll" v-show="isShowMoreDiceRoll">
+      Критический успех + {{ moreDiceRoll }}
+    </p>
+    <p class="result">Результат проверки умения: ... {{ checkResult }}</p>
+    <button class="closecheck" @click="closeCheck">X</button>
   </div>
 </template>
 
@@ -20,6 +28,11 @@ export default {
     return {
       totalCount: 0,
       isShowSkillLocal: true,
+      isShowCheck: false,
+      isShowMoreDiceRoll: false,
+      diceRoll: 0,
+      moreDiceRoll: 0,
+      checkResult: 0,
     };
   },
   computed: {
@@ -33,6 +46,20 @@ export default {
   methods: {
     upSkill(i) {
       this.i.count += i;
+    },
+    checkSkill() {
+      this.isShowMoreDiceRoll = false;
+      this.moreDiceRoll = 0;
+      this.diceRoll = Math.floor(Math.random() * (11 - 1) + 1);
+      if (this.diceRoll == 10) {
+        this.moreDiceRoll = Math.floor(Math.random() * (11 - 1) + 1);
+        this.isShowMoreDiceRoll = true;
+      }
+      this.checkResult = this.totalCount + this.diceRoll + this.moreDiceRoll;
+      this.isShowCheck = true;
+    },
+    closeCheck() {
+      this.isShowCheck = false;
     },
   },
   mounted() {},
@@ -58,6 +85,30 @@ export default {
 </script>
 
 <style scoped>
+  .closecheck {
+    width: 30px;
+    height: 30px;
+    background-color: inherit;
+    cursor: pointer;
+  }
+.checkskill {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+p {
+  font-family: "Ktf";
+  font-size: 20px;
+}
+.critroll {
+  color: red;
+}
+.result {
+  color: blue;
+}
 .skill {
   display: flex;
   flex-direction: row;
@@ -77,6 +128,13 @@ export default {
   border: 1px solid brown;
   /* font-family: "Ktf"; */
   font-size: 15px;
+  background-color: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+.nameskill:hover {
+  font-size: 20px;
+  text-shadow: 0 0 25px red;
 }
 .lvl {
   display: flex;
