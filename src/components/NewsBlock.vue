@@ -1,10 +1,10 @@
 <template>
   <div class="onenews">
     <button class="btnnews" @click="openNews">
-      <h2>Релиз Бета-версии</h2>
-      <p class="date">08/09/2022 ver 0.9.020.4</p>
+      <h2>{{title}}</h2>
+      <p class="date">{{date}}</p>
     </button>
-    <div class="newsbody" id="IDD">
+    <div class="newsbody">
       <p class="textnews">
         <slot></slot>
       </p>
@@ -14,6 +14,10 @@
 
 <script>
 export default {
+  props:{
+    date: String,
+    title: String,
+  }
 };
 </script>
 

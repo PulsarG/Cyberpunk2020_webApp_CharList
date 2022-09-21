@@ -63,7 +63,7 @@
               this.$store.commit('setShowMenu', false);
             "
           >
-            ver 0.9.020.7 от 8.09.22
+            ver 0.9.025.1 от 18.09.22
           </button>
         </div>
         <div class="comunity">

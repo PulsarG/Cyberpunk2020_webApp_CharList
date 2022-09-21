@@ -21,25 +21,36 @@
             class="btn"
             @click="
               $router.push('/');
-              this.showChars = true;
+              openMenuSection(true, false, false);
             "
             >2020</base-buttonglitch
           >
         </div>
 
         <div>
-          <base-buttonglitch class="btn bred" @click="$router.push('/red')"
+          <base-buttonglitch
+            class="btn bred"
+            @click="
+              $router.push('/red');
+              openMenuSection(true, false, false);
+            "
             >.RED</base-buttonglitch
           >
         </div>
 
         <div>
-          <base-buttonglitch class="btn bshop" @click="this.showChars = false"
+          <base-buttonglitch
+            class="btn bshop"
+            @click="openMenuSection(false, true, false)"
             >SHOP</base-buttonglitch
           >
         </div>
         <div>
-          <base-buttonglitch class="btn bred">F.A.Q.</base-buttonglitch>
+          <base-buttonglitch
+            class="btn bsession"
+            @click="openMenuSection(false, false, true)"
+            >SESSION</base-buttonglitch
+          >
         </div>
       </div>
     </div>
@@ -72,8 +83,16 @@ export default {
     return {
       showChars: true,
       showShop: false,
+      showSession: false,
       showFaq: false,
     };
+  },
+  methods: {
+    openMenuSection(boolForChar, boolForShop, boolForSession) {
+      this.showChars = boolForChar;
+      this.showShop = boolForShop;
+      this.showSession = boolForSession;
+    },
   },
 };
 </script>
@@ -144,6 +163,11 @@ h1 {
 .bshop {
   color: yellow;
   text-shadow: 0 0 20px yellow;
+}
+.bsession {
+  color: red;
+  text-shadow: 0 0 20px red;
+  margin-right: 50px;
 }
 .mainmenu {
   width: 100%;

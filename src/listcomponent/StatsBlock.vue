@@ -81,7 +81,7 @@ export default {
 
   computed: {
     role() {
-      return this.$store.state.role;
+      return this.$store.state.Char.role;
     },
     isLoadChar() {
       return this.$store.state.isLoadChar;
