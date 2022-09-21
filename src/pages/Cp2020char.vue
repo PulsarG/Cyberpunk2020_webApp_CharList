@@ -7,9 +7,20 @@
       <base-buttonborder
         class="bbsave"
         id="savebtn"
-        v-show="this.$store.state.api.isLoginIn"
+        v-show="
+          this.$store.state.api.isLoginIn &&
+          !this.$store.state.api.isSessionChar
+        "
         @click="saveChar"
-      ></base-buttonborder>
+        >Сохранить Персонажа</base-buttonborder
+      >
+      <base-buttonborder
+        class="bbsave"
+        id="savebtn"
+        v-show="this.$store.state.api.isSessionChar"
+        @click="saveSessionChar"
+        >Обновить Персонажа Сессии</base-buttonborder
+      >
     </div>
 
     <div class="charlist">
@@ -19,9 +30,8 @@
           <p class="cleartext">Очистить лист</p>
         </button>
       </div>
-      
+
       <char-list class="hero" id="charlist"></char-list>
-     
     </div>
 
     <div class="deck">
@@ -115,6 +125,10 @@ export default {
       this.disableButtonSave();
     },
 
+    saveSessionChar() {
+      this.$store.dispatch("api/saveSessionChar");
+    },
+
     disableButtonSave() {
       let btn = document.getElementById("savebtn");
       btn.setAttribute("disabled", true);
@@ -132,7 +146,6 @@ export default {
 </script>
 
 <style scoped>
-
 .hero {
   max-height: 5000px;
   transition: 1s;

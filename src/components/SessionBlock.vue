@@ -45,6 +45,7 @@ export default {
     },
     getChar(i) {
       this.$store.dispatch("api/getSessionChar", i);
+      this.$store.commit("api/setSessionCharAdress", i);
     },
   },
   watch: {

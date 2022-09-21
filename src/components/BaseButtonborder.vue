@@ -4,7 +4,7 @@
     <span></span>
     <span></span>
     <span></span>
-    Сохранить / Обновить персонажа
+    <slot></slot>
   </button>
 </template>
 

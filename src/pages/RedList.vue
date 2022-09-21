@@ -7,9 +7,19 @@
       <base-buttonborder
         class="bbsave"
         id="savebtn"
-        v-show="this.$store.state.api.isLoginIn"
+        v-show="
+          this.$store.state.api.isLoginIn &&
+          !this.$store.state.api.isSessionChar
+        "
         @click="saveRedChar"
       ></base-buttonborder>
+      <base-buttonborder
+        class="bbsave"
+        id="savebtn"
+        v-show="this.$store.state.api.isSessionRedChar"
+        @click="saveSessionChar"
+        >Обновить Персонажа Сессии</base-buttonborder
+      >
     </div>
     <div class="ruls">
       <h4>Cyberpunk RED Easy Mode</h4>
@@ -68,6 +78,9 @@ export default {
         this.$store.dispatch("api/getChars");
       }
       this.disableButtonSave();
+    },
+    saveSessionRedChar() {
+
     },
     checkCanSave() {
       for (let i = 0; i < this.$store.state.api.Chars.length; i++) {

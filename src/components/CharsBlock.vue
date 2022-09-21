@@ -75,6 +75,7 @@ export default {
       } else {
         this.$store.commit("setChar", i);
       }
+      this.$store.commit("api/setIsSessionChar", false);
     },
 
     deleteChar(i) {

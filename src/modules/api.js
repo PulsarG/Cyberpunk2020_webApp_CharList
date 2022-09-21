@@ -27,6 +27,8 @@ export default {
       sessionChars: [],
       oneSessionChar: [],
       isLoadSessionChar: false,
+      isSessionChar: false,
+      sessionCharAdress: [],
     };
   },
 
@@ -39,6 +41,13 @@ export default {
     },
     setPondsmith(state) {
       state.isPondsmith = true;
+    },
+    setIsSessionChar(state, b) {
+      state.isSessionChar = b;
+    },
+
+    setSessionCharAdress(state, x) {
+      state.sessionCharAdress = x;
     },
   },
 
@@ -122,8 +131,34 @@ export default {
       }
     },
 
-    async checkSessionChar({state}, bool){
+    async saveSessionChar({state}) {
+      try {
+        await setDoc(doc(db, state.sessionCharAdress.user, state.sessionCharAdress.char), {
+          isRed: false,
+          Char: store.state.Char,
 
+          Stats: store.state.Stats,
+          Morestats: store.state.Morestats,
+          Armor: store.state.Armor,
+
+          savePoint: store.state.savePoint,
+          DmgChecks: store.state.DmgChecks,
+
+          Skills: store.state.skills,
+
+          Cybernetics: store.state.Cybernetics,
+          Weapons: store.state.Weapons,
+          Gear: store.state.Gear,
+
+          BioText: store.state.BioText,
+          LookText: store.state.LookText,
+        });
+
+        alert("Сохранено");
+      } catch (e) {
+        alert("Ой, что-то поло не так");
+        console.log(e);
+      }
     },
 
     async saveChar({ dispatch }) {
@@ -350,8 +385,10 @@ export default {
         setTimeout(() => {
           state.isLoadSessionChar = false;
         }, 1000);
+
+        state.isSessionChar = true;
       } catch (e) {
-        alert("ЧТо-то пошло не так с загрузкой персонажей");
+        alert("Что-то пошло не так с загрузкой персонажей");
         console.log(e);
       }
     },
