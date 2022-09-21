@@ -11,6 +11,8 @@ import {
   query,
   where,
   updateDoc,
+  orderBy,
+  limit,
 } from "firebase/firestore";
 import store from "@/store/store";
 
@@ -22,7 +24,6 @@ export default {
       CONTROL_Chars: [],
       isPondsmith: false,
       userId: "",
-      redForNick: "(RED)",
     };
   },
 
@@ -277,6 +278,29 @@ export default {
       } catch (e) {
         console.log(e);
       }
+    },
+
+    async findMaster({ state, dispatch }, masterLogin) {
+      try {
+        const q = query(
+          collection(db, "User"),
+          where("login", "==", masterLogin)
+        );
+
+        const querySnapshot = await getDocs(q);
+        let items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        if (items[0].isLogin) dispatch("sendToMaster", masterLogin);
+      } catch (e) {
+        console.log(e);
+        alert("Такого пользователя не существует!");
+      }
+    },
+
+    async sendToMaster({ state, dispatch }, masterLogin) {
+      alert(masterLogin);
     },
   },
 

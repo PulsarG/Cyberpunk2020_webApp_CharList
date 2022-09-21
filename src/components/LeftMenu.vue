@@ -57,8 +57,11 @@
 
     <chars-block class="cb" v-show="this.showChars"></chars-block>
 
-    <div style="margin-top: 15px" v-show="!this.showChars">
+    <div style="margin-top: 15px" v-show="this.showShop">
       <shop-menu class="shopmenu"></shop-menu>
+    </div>
+    <div class="sessionblock" v-show="this.showSession">
+      <session-block></session-block>
     </div>
   </div>
   <settings-block class="sett" v-show="this.showChars"></settings-block>
@@ -70,6 +73,7 @@ import BaseButtonneon from "@/components/BaseButtonneon.vue";
 import SettingsBlock from "@/components/SettingsBlock.vue";
 import ShopMenu from "@/components/ShopMenu.vue";
 import CharsBlock from "@/components/CharsBlock.vue";
+import SessionBlock from "@/components/SessionBlock.vue";
 
 export default {
   components: {
@@ -78,6 +82,7 @@ export default {
     ShopMenu,
     BaseButtonneon,
     BaseButtonglitch,
+    SessionBlock,
   },
   data() {
     return {
@@ -200,6 +205,12 @@ h1 {
 }
 
 .cb {
+  margin-top: 90px;
+  display: flex;
+  align-self: center;
+}
+
+.sessionblock {
   margin-top: 90px;
   display: flex;
   align-self: center;

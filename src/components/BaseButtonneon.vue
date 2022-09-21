@@ -19,11 +19,13 @@ export default {};
   align-items: center;
   justify-content: center;
   height: 25px;
-  background-color: white;
+  background-color: inherit;
   transition: all 0.5s;
 }
 .neonbtn:hover {
   color: yellow;
 }
-
+.neonp {
+  font-family: 'Qore';
+}
 </style>

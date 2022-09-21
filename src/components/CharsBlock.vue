@@ -6,6 +6,12 @@
       :nickCharForDelete="nickCharForDelete"
     >
     </modale-deletechar>
+
+    <module-sendforsession
+      class="moddel"
+      v-model:isShowSendForSession="isShowSendForSession"
+    ></module-sendforsession>
+
     <div class="charslist" v-show="isOpenSettings">
       <div class="urchars" v-show="isEmptyList">
         <h2 style="color: orange">Список ваших Персонажей</h2>
@@ -16,6 +22,9 @@
           <base-buttonslice class="btnchars" @click="setChar(i)"
             >{{ i.Char.nick }} ( {{ i.Char.role }} )
           </base-buttonslice>
+          <base-buttonneon class="btnsession" @click="sendCharForSession()"
+            >S</base-buttonneon
+          >
           <base-buttonneonred class="deletebtn" @click="deleteChar(i)"
             >X</base-buttonneonred
           >
@@ -27,14 +36,23 @@
 
 <script>
 import BaseButtonslice from "@/components/BaseButtonslice.vue";
-import ModaleDeletechar from "@/components/ModaleDeletechar";
+import ModaleDeletechar from "@/components/ModaleDeletechar.vue";
 import BaseButtonneonred from "@/components/BaseButtonneonred.vue";
+import BaseButtonneon from "@/components/BaseButtonneon.vue";
+import ModuleSendforsession from "@/components/ModuleSendforsession.vue";
 export default {
-  components: { ModaleDeletechar, BaseButtonneonred, BaseButtonslice },
+  components: {
+    ModaleDeletechar,
+    BaseButtonneonred,
+    BaseButtonslice,
+    BaseButtonneon,
+    ModuleSendforsession,
+  },
   data() {
     return {
       isOpenSettings: true,
       isShowDel: false,
+      isShowSendForSession: false,
       nickCharForDelete: "",
       isEmptyList: true,
     };
@@ -60,6 +78,10 @@ export default {
     deleteChar(i) {
       this.nickCharForDelete = i.Char.nick;
       this.isShowDel = true;
+    },
+
+    sendCharForSession() {
+      this.isShowSendForSession = true;
     },
   },
 
@@ -134,7 +156,8 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
 }
 .redlabel {
   color: red;
