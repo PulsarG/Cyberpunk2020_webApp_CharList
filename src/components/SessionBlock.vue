@@ -9,9 +9,11 @@
         <div class="onechar">
           <p class="redlabel" v-show="i.isRed">RED</p>
           <base-buttonslice class="btnchars" @click="getChar(i)"
-            >{{ i.user }} ( {{ i.char }} )
+            >{{ i.char }} ( {{ i.role }} )
           </base-buttonslice>
-          <base-buttonneonred class="deletebtn">X</base-buttonneonred>
+          <base-buttonneonred class="deletebtn" @click="deleteSessionChar(i)"
+            >X</base-buttonneonred
+          >
         </div>
       </div>
     </div>
@@ -46,6 +48,9 @@ export default {
     getChar(i) {
       this.$store.dispatch("api/getSessionChar", i);
       this.$store.commit("api/setSessionCharAdress", i);
+    },
+    deleteSessionChar(i) {
+      this.$store.dispatch("api/checkForDeleteSessionChar", i);
     },
   },
   watch: {
@@ -133,8 +138,8 @@ export default {
   color: yellow;
   cursor: pointer;
   border: 1px solid yellow;
-  margin-top: 50px;
-  font-family: 'Ktf';
+  margin-top: 30px;
+  font-family: "Ktf";
   font-size: 15px;
 }
 .update:hover {

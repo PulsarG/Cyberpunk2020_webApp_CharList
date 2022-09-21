@@ -12,12 +12,11 @@
           !this.$store.state.api.isSessionChar
         "
         @click="saveRedChar"
-      ></base-buttonborder>
+      >Сохранить Персонажа</base-buttonborder>
       <base-buttonborder
         class="bbsave"
         id="savebtn"
         v-show="this.$store.state.api.isSessionRedChar"
-        @click="saveSessionChar"
         >Обновить Персонажа Сессии</base-buttonborder
       >
     </div>

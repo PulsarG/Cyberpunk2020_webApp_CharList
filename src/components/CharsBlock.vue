@@ -11,6 +11,7 @@
       class="moddel"
       v-model:isShowSendForSession="isShowSendForSession"
       :nickCharForSend="nickCharForSend"
+      :roleCharForSend="roleCharForSend"
     ></module-sendforsession>
 
     <div class="charslist" v-show="isOpenSettings">
@@ -61,6 +62,7 @@ export default {
       nickCharForDelete: "",
       isEmptyList: true,
       nickCharForSend: "",
+      roleCharForSend: "",
     };
   },
 
@@ -89,6 +91,7 @@ export default {
 
     sendCharForSession(i) {
       this.nickCharForSend = i.Char.nick;
+      this.roleCharForSend = i.Char.role;
       this.isShowSendForSession = true;
     },
 

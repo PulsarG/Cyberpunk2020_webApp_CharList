@@ -131,28 +131,31 @@ export default {
       }
     },
 
-    async saveSessionChar({state}) {
+    async saveSessionChar({ state }) {
       try {
-        await setDoc(doc(db, state.sessionCharAdress.user, state.sessionCharAdress.char), {
-          isRed: false,
-          Char: store.state.Char,
+        await setDoc(
+          doc(db, state.sessionCharAdress.user, state.sessionCharAdress.char),
+          {
+            isRed: false,
+            Char: store.state.Char,
 
-          Stats: store.state.Stats,
-          Morestats: store.state.Morestats,
-          Armor: store.state.Armor,
+            Stats: store.state.Stats,
+            Morestats: store.state.Morestats,
+            Armor: store.state.Armor,
 
-          savePoint: store.state.savePoint,
-          DmgChecks: store.state.DmgChecks,
+            savePoint: store.state.savePoint,
+            DmgChecks: store.state.DmgChecks,
 
-          Skills: store.state.skills,
+            Skills: store.state.skills,
 
-          Cybernetics: store.state.Cybernetics,
-          Weapons: store.state.Weapons,
-          Gear: store.state.Gear,
+            Cybernetics: store.state.Cybernetics,
+            Weapons: store.state.Weapons,
+            Gear: store.state.Gear,
 
-          BioText: store.state.BioText,
-          LookText: store.state.LookText,
-        });
+            BioText: store.state.BioText,
+            LookText: store.state.LookText,
+          }
+        );
 
         alert("Сохранено");
       } catch (e) {
@@ -349,6 +352,7 @@ export default {
         let Y = {
           user: x.user,
           char: x.nick,
+          role: x.role,
         };
         await addDoc(collection(db, sessionid), Y);
       } catch (e) {
@@ -389,6 +393,34 @@ export default {
         state.isSessionChar = true;
       } catch (e) {
         alert("Что-то пошло не так с загрузкой персонажей");
+        console.log(e);
+      }
+    },
+
+    async checkForDeleteSessionChar({ dispatch }, i) {
+      try {
+        let sessionid = "Session" + store.state.login;
+        const q = query(collection(db, sessionid), where("char", "==", i.char));
+
+        const querySnapshot = await getDocs(q);
+        let id = "";
+        querySnapshot.forEach((doc) => {
+          id = doc.id;
+        });
+        dispatch("deleteSessionChar", id);
+      } catch (e) {
+        alert("Что-то пошло не так!");
+        console.log(e);
+      }
+    },
+
+    async deleteSessionChar({ state }, id) {
+      try {
+        let sessionid = "Session" + store.state.login;
+        await deleteDoc(doc(db, sessionid, id));
+        alert("Персонаж удален из Сессии!");
+      } catch (e) {
+        alert("Что-то пошло не так!");
         console.log(e);
       }
     },

@@ -45,6 +45,7 @@ export default {
   props: {
     isShowSendForSession: Boolean,
     nickCharForSend: String,
+    roleCharForSend: String,
   },
   data() {
     return {
@@ -57,6 +58,7 @@ export default {
         master: this.masterLogin,
         user: this.$store.state.login,
         nick: this.nickCharForSend,
+        role: this.roleCharForSend,
       };
       this.$store.dispatch("api/findMaster", X);
       this.hideModal();
