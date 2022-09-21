@@ -1,5 +1,5 @@
 <template>
-  <div class="mainmenu">
+  <div class="mainmenuchars">
     <modale-deletechar
       class="moddel"
       v-model:isShowDel="isShowDel"
@@ -23,7 +23,10 @@
           <base-buttonslice class="btnchars" @click="setChar(i)"
             >{{ i.Char.nick }} ( {{ i.Char.role }} )
           </base-buttonslice>
-          <base-buttonneon class="btnsession" @click="sendCharForSession(i)"
+          <base-buttonneon
+            class="btnsession"
+            @click="sendCharForSession(i)"
+            title="Присоединиться к сессии"
             >S</base-buttonneon
           >
           <base-buttonneonred class="deletebtn" @click="deleteChar(i)"
@@ -32,6 +35,7 @@
         </div>
       </div>
     </div>
+    <button @click="updateList" class="update">ОБНОВИТЬ СПИСОК</button>
   </div>
 </template>
 
@@ -87,6 +91,10 @@ export default {
       this.nickCharForSend = i.Char.nick;
       this.isShowSendForSession = true;
     },
+
+    updateList() {
+      this.$store.dispatch("api/getChars");
+    },
   },
 
   computed: {
@@ -110,9 +118,10 @@ export default {
 </script>
 
 <style scoped>
-.mainmenu {
+.mainmenuchars {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 }
 
 .btn {
@@ -131,7 +140,7 @@ export default {
 }
 
 .deletebtn {
-  margin-left: 30px;
+  margin-left: 10px;
   height: 35px;
   display: flex;
   justify-content: center;
@@ -146,11 +155,12 @@ export default {
 .charslist {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   width: 100%;
+  height: 450px;
   overflow: auto;
-  height: 50vh;
+  margin-top: 20px;
 }
 .charslist::-webkit-scrollbar {
   width: 0;
@@ -184,5 +194,18 @@ export default {
 .charslist::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: orange;
+}
+.update {
+  width: 150px;
+  background-color: inherit;
+  color: yellow;
+  cursor: pointer;
+  border: 1px solid yellow;
+  font-family: "Ktf";
+  font-size: 15px;
+  /* margin-top: 30px; */
+}
+.btnsession {
+  margin-left: 15px;
 }
 </style>

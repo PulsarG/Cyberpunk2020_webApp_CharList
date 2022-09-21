@@ -9,7 +9,7 @@
       </h2>
     </div>
 
-    <div class="mainmenu">
+    <div class="mainmenubtns">
       <div class="hero-container">
         <h1 class="hero glitch layers">
           <span>CYBERPUNK</span>
@@ -174,13 +174,15 @@ h1 {
   text-shadow: 0 0 20px red;
   margin-right: 50px;
 }
-.mainmenu {
+.mainmenubtns {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: -80px;
+ /*  margin-bottom: -80px;
+  height: 100px;
+  margin-top: 10px; */
 }
 .btnsmenu {
   display: flex;
@@ -205,7 +207,7 @@ h1 {
 }
 
 .cb {
-  margin-top: 90px;
+  /* margin-top: 90px; */
   display: flex;
   align-self: center;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="mainsession">
-    <button @click="updateSession">UPDATE SESSION</button>
+    <button @click="updateSession" class="update">ОБНОВИТЬ СПИСОК</button>
     <div class="charslist">
       <div class="urchars">
         <h2 style="color: orange">Список Персонажей в вашей Сессии</h2>
@@ -59,7 +59,9 @@ export default {
 <style scoped>
 .mainsession {
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 .btnchars {
   height: 35px;
@@ -123,5 +125,20 @@ export default {
 .charslist::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: orange;
+}
+
+.update {
+  width: 150px;
+  background-color: inherit;
+  color: yellow;
+  cursor: pointer;
+  border: 1px solid yellow;
+  margin-top: 50px;
+  font-family: 'Ktf';
+  font-size: 15px;
+}
+.update:hover {
+  /* color: red; */
+  /* box-shadow: 0 0 15px red; */
 }
 </style>

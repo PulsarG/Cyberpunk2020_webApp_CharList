@@ -60,6 +60,21 @@
           </label>
         </div>
       </div>
+      <div class="check">
+        <div>
+          <h4>Альтернативный лист 2020</h4>
+        </div>
+        <div>
+          <label class="checkbox-green">
+            <input type="checkbox" disabled />
+            <span
+              class="checkbox-green-switch"
+              data-label-on="On"
+              data-label-off="Off"
+            ></span>
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 </template>
