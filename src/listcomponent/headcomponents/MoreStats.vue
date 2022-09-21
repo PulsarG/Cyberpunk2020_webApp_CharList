@@ -16,7 +16,7 @@
       <h4>CURRENT IP</h4>
       <input
         type="text"
-        v-model="Morestats.rep"
+        v-model="Morestats.ip"
         v-bind:class="{
           morestatsinp: !this.isTheme77,
           morestatsinpsecond: this.isTheme77,
@@ -28,7 +28,7 @@
       <h4>HUMANITY</h4>
       <input
         type="text"
-        v-model="Morestats.rep"
+        v-model="Morestats.humanity"
         v-bind:class="{
           morestatsinp: !this.isTheme77,
           morestatsinpsecond: this.isTheme77,

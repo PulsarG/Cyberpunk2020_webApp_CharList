@@ -44,6 +44,7 @@ export default {
   components: { BaseButtonneonred },
   props: {
     isShowSendForSession: Boolean,
+    nickCharForSend: String,
   },
   data() {
     return {
@@ -52,7 +53,12 @@ export default {
   },
   methods: {
     sendChar() {
-      this.$store.dispatch("api/findMaster", this.masterLogin);
+      let X = {
+        master: this.masterLogin,
+        user: this.$store.state.login,
+        nick: this.nickCharForSend,
+      };
+      this.$store.dispatch("api/findMaster", X);
       this.hideModal();
     },
     hideModal() {

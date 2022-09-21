@@ -10,6 +10,7 @@
     <module-sendforsession
       class="moddel"
       v-model:isShowSendForSession="isShowSendForSession"
+      :nickCharForSend="nickCharForSend"
     ></module-sendforsession>
 
     <div class="charslist" v-show="isOpenSettings">
@@ -22,7 +23,7 @@
           <base-buttonslice class="btnchars" @click="setChar(i)"
             >{{ i.Char.nick }} ( {{ i.Char.role }} )
           </base-buttonslice>
-          <base-buttonneon class="btnsession" @click="sendCharForSession()"
+          <base-buttonneon class="btnsession" @click="sendCharForSession(i)"
             >S</base-buttonneon
           >
           <base-buttonneonred class="deletebtn" @click="deleteChar(i)"
@@ -55,6 +56,7 @@ export default {
       isShowSendForSession: false,
       nickCharForDelete: "",
       isEmptyList: true,
+      nickCharForSend: "",
     };
   },
 
@@ -80,7 +82,8 @@ export default {
       this.isShowDel = true;
     },
 
-    sendCharForSession() {
+    sendCharForSession(i) {
+      this.nickCharForSend = i.Char.nick;
       this.isShowSendForSession = true;
     },
   },

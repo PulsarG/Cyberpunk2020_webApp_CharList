@@ -261,6 +261,7 @@ const store = createStore({
   },
 
   actions: {},
+  namespaced: true,
 });
 
 export default store;

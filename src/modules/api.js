@@ -24,6 +24,9 @@ export default {
       CONTROL_Chars: [],
       isPondsmith: false,
       userId: "",
+      sessionChars: [],
+      oneSessionChar: [],
+      isLoadSessionChar: false,
     };
   },
 
@@ -103,7 +106,11 @@ export default {
         state.Chars.length = 0;
         const querySnapshot = await getDocs(collection(db, store.state.login));
         querySnapshot.forEach((doc) => {
-          if (doc.id == "CustomShop" || doc.id == "Code") {
+          if (
+            doc.id == "CustomShop" ||
+            doc.id == "Code" ||
+            doc.id == "Session"
+          ) {
             return;
           }
           state.Chars.push(doc.data());
@@ -113,6 +120,10 @@ export default {
         alert("ЧТо-то пошло не так с загрузкой персонажей");
         console.log(e);
       }
+    },
+
+    async checkSessionChar({state}, bool){
+
     },
 
     async saveChar({ dispatch }) {
@@ -280,27 +291,69 @@ export default {
       }
     },
 
-    async findMaster({ state, dispatch }, masterLogin) {
+    async findMaster({ state, dispatch }, x) {
       try {
-        const q = query(
-          collection(db, "User"),
-          where("login", "==", masterLogin)
-        );
+        const q = query(collection(db, "User"), where("login", "==", x.master));
 
         const querySnapshot = await getDocs(q);
         let items = [];
         querySnapshot.forEach((doc) => {
           items.push(doc.data());
         });
-        if (items[0].isLogin) dispatch("sendToMaster", masterLogin);
+        if (items[0].isLogin) dispatch("sendToMaster", x);
       } catch (e) {
         console.log(e);
         alert("Такого пользователя не существует!");
       }
     },
 
-    async sendToMaster({ state, dispatch }, masterLogin) {
-      alert(masterLogin);
+    async sendToMaster({ state, dispatch }, x) {
+      try {
+        let id = Math.random() * 999999999;
+        let sessionid = "Session" + x.master;
+        let Y = {
+          user: x.user,
+          char: x.nick,
+        };
+        await addDoc(collection(db, sessionid), Y);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
+    async updateSession({ state }) {
+      try {
+        state.sessionChars.length = 0;
+        let sessionid = "Session" + store.state.login;
+        const querySnapshot = await getDocs(collection(db, sessionid));
+        querySnapshot.forEach((doc) => {
+          state.sessionChars.push(doc.data());
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+
+    async getSessionChar({ state, commit }, x) {
+      try {
+        state.oneSessionChar.length = 0;
+        const querySnapshot = await getDocs(collection(db, x.user));
+        querySnapshot.forEach((doc) => {
+          if (doc.id != x.char) {
+            return;
+          }
+          state.oneSessionChar.push(doc.data());
+        });
+
+        state.isLoadSessionChar = true;
+
+        setTimeout(() => {
+          state.isLoadSessionChar = false;
+        }, 1000);
+      } catch (e) {
+        alert("ЧТо-то пошло не так с загрузкой персонажей");
+        console.log(e);
+      }
     },
   },
 
