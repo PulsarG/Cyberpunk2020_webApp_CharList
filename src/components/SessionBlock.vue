@@ -1,9 +1,27 @@
 <template>
   <div class="mainsession">
-    <button @click="updateSession" class="update">ОБНОВИТЬ СПИСОК</button>
+    <button
+      @click="updateSession"
+      class="update"
+      title="Список Персонажей в вашей Сессии
+Здесь рефери может смотреть и изменять
+персонажей игроков.
+Для этого каждый игрок должен отправить
+своего персонажа при помощи
+кнопки Присоединиться к сессии
+в списке своих персонажей"
+    >
+      ОБНОВИТЬ СПИСОК
+    </button>
     <div class="charslist">
-      <div class="urchars">
-        <h2 style="color: orange">Список Персонажей в вашей Сессии</h2>
+      <div v-show="this.isShowInfoSession" class="urchars">
+        <h3 style="color: orange">Список Персонажей в вашей Сессии</h3>
+        <h3 style="color: orange">Здесь рефери может смотреть и изменять</h3>
+        <h3 style="color: orange">персонажей игроков.</h3>
+        <h3 style="color: orange">Для этого каждый игрок должен отправить</h3>
+        <h3 style="color: orange">своего персонажа при помощи</h3>
+        <h3 style="color: orange">кнопки "Присоединиться к сессии"</h3>
+        <h3 style="color: orange">в списке своих персонажей</h3>
       </div>
       <div v-for="i in this.sessionChars" :key="i.user">
         <div class="onechar">
@@ -30,6 +48,11 @@ export default {
     BaseButtonslice,
     BaseButtonneon,
   },
+  data() {
+    return {
+      isShowInfoSession: true,
+    };
+  },
   computed: {
     sessionChars() {
       return this.$store.state.api.sessionChars;
@@ -44,6 +67,7 @@ export default {
   methods: {
     updateSession() {
       this.$store.dispatch("api/updateSession");
+      this.setShowInfoSession();
     },
     getChar(i) {
       this.$store.dispatch("api/getSessionChar", i);
@@ -51,6 +75,11 @@ export default {
     },
     deleteSessionChar(i) {
       this.$store.dispatch("api/checkForDeleteSessionChar", i);
+    },
+    setShowInfoSession() {
+      if (this.isShowInfoSession == true) {
+        this.isShowInfoSession = false;
+      }
     },
   },
   watch: {
