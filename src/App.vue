@@ -63,7 +63,7 @@
               this.$store.commit('setShowMenu', false);
             "
           >
-           Новости разработки ver 0.9.026.4 от 18.09.22
+           Новости разработки ver 0.9.28 от 15.01.23
           </button>
         </div>
         <div class="comunity">

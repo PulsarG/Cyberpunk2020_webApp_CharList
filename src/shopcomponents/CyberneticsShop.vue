@@ -4,20 +4,20 @@
     <submenu-shop :Items="BodyShop" :NameShop="NameBody"></submenu-shop>
     <submenu-shop :Items="BioUpgrade" :NameShop="NameBioUp"></submenu-shop>
     <submenu-shop :Items="MeleeWeapons" :NameShop="NameMelee"></submenu-shop>
-    <submenu-shop :Items="BodyShop" :NameShop="NameOptical"></submenu-shop>
-    <submenu-shop :Items="BodyShop" :NameShop="NameAudio"></submenu-shop>
-    <submenu-shop :Items="BodyShop" :NameShop="NameArmsLegs"></submenu-shop>
-    <submenu-shop :Items="BodyShop" :NameShop="NameForArmsLegs"></submenu-shop>
+    <submenu-shop :Items="OpticaShop" :NameShop="NameOptical"></submenu-shop>
+    <submenu-shop :Items="AudioShop" :NameShop="NameAudio"></submenu-shop>
+    <submenu-shop :Items="HandlegShop" :NameShop="NameArmsLegs"></submenu-shop>
+    <submenu-shop :Items="ArmfootShop" :NameShop="NameForArmsLegs"></submenu-shop>
     <submenu-shop
-      :Items="BodyShop"
+      :Items="ElementsforlimbShop"
       :NameShop="NameItemsFOrArmsLegs"
     ></submenu-shop>
     <submenu-shop
-      :Items="BodyShop"
+      :Items="RangeweaponforlimbShop"
       :NameShop="NameRangeWeaponForArmsLegs"
     ></submenu-shop>
-    <submenu-shop :Items="BodyShop" :NameShop="NameArmor"></submenu-shop>
-    <submenu-shop :Items="BodyShop" :NameShop="NameRams"></submenu-shop>
+    <submenu-shop :Items="ExzoarmorShop" :NameShop="NameArmor"></submenu-shop>
+    <submenu-shop :Items="RamaShop" :NameShop="NameRams"></submenu-shop>
     <custom-cybernetics></custom-cybernetics>
   </div>
 </template>
@@ -58,6 +58,30 @@ export default {
     },
     MeleeWeapons() {
       return this.$store.state.cyberneticsshop.Meleeweapons;
+    },
+    OpticaShop() {
+      return this.$store.state.cyberneticsshop.Optica;
+    },
+    AudioShop() {
+      return this.$store.state.cyberneticsshop.Audio;
+    },
+    HandlegShop() {
+      return this.$store.state.cyberneticsshop.Handleg;
+    },
+    ArmfootShop() {
+      return this.$store.state.cyberneticsshop.Armfoot;
+    },
+    ElementsforlimbShop() {
+      return this.$store.state.cyberneticsshop.Elementsforlimb;
+    },
+    RangeweaponforlimbShop() {
+      return this.$store.state.cyberneticsshop.Rangeweaponforlimb;
+    },
+    ExzoarmorShop() {
+      return this.$store.state.cyberneticsshop.Exzoarmor;
+    },
+    RamaShop() {
+      return this.$store.state.cyberneticsshop.Rama;
     },
   },
 };
