@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from "@/store/store"
 import '@/fonts/CyberpunkFont/font.css'
+import FloatingVue from 'floating-vue'
+import 'floating-vue/dist/style.css'
 
 import 'firebase/database';
 
@@ -26,5 +28,6 @@ export const db = getFirestore(app);
 
 createApp(App)
     .use(store)
+    .use(FloatingVue)
     .use(router)
     .mount('#app')

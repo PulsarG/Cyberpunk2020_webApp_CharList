@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr class="item" v-for="i in Items" :key="i.name">
-        <th class="nameitem">{{ i.name }}</th>
+        <th class="nameitem" v-tooltip="i.title">{{ i.name }}</th>
         <td class="code">{{ i.code }}</td>
         <td class="price">{{ i.price }}</td>
         <td class="hum">{{ i.humanity }}</td>
