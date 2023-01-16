@@ -91,7 +91,7 @@ export default {
       }
     },
 
-    setWidth() {
+    /* setWidth() {
       if (this.setWidthcount) {
         document.getElementById("mainlist").style.width = "60%";
         this.setWidthcount -= 1;
@@ -99,9 +99,9 @@ export default {
         document.getElementById("mainlist").style.width = "50%";
         this.setWidthcount += 1;
       }
-    },
+    }, */
 
-    checkCanSave() {
+    /* checkCanSave() {
       for (let i = 0; i < this.$store.state.api.Chars.length; i++) {
         if (
           this.$store.state.api.CONTROL_Chars[i] == this.$store.state.Char.nick
@@ -109,19 +109,19 @@ export default {
           return true;
       }
       return false;
-    },
+    }, */
 
     saveChar() {
-      if (
+     /*  if (
         this.$store.state.api.isPondsmith ||
         this.AmountChars < 5 ||
         this.checkCanSave()
-      ) {
+      ) { */
         this.$store.dispatch("api/saveChar");
-      } else if (this.AmountChars >= 5 && !this.$store.state.api.isPondsmith) {
+      /* } else if (this.AmountChars >= 5 && !this.$store.state.api.isPondsmith) {
         alert("Нет свободных ячеек для персонажей");
         this.$store.dispatch("api/getChars");
-      }
+      } */
       this.disableButtonSave();
     },
 

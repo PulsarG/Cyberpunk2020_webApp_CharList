@@ -66,22 +66,24 @@ export default {
   },
   methods: {
     saveRedChar() {
-      if (
+      /* if (
         this.$store.state.api.isPondsmith ||
         this.AmountChars < 5 ||
         this.checkCanSave()
-      ) {
+      ) { */
         this.$store.dispatch("api/saveRedChar");
-      } else if (this.AmountChars >= 5 && !this.$store.state.api.isPondsmith) {
+     /*  } else if (this.AmountChars >= 5 && !this.$store.state.api.isPondsmith) {
         alert("Нет свободных ячеек для персонажей");
         this.$store.dispatch("api/getChars");
-      }
+      } */
       this.disableButtonSave();
     },
+
     saveSessionRedChar() {
 
     },
-    checkCanSave() {
+    
+    /* checkCanSave() {
       for (let i = 0; i < this.$store.state.api.Chars.length; i++) {
         if (
           this.$store.state.api.CONTROL_Chars[i] == this.$store.state.Char.nick
@@ -89,7 +91,7 @@ export default {
           return true;
       }
       return false;
-    },
+    }, */
     disableButtonSave() {
       let btn = document.getElementById("savebtn");
       btn.setAttribute("disabled", true);

@@ -1,7 +1,7 @@
 <template>
   <div class="mainsetting">
     <div>
-      <h4 v-show="!this.$store.state.api.isPondsmith">
+      <!-- <h4 v-show="!this.$store.state.api.isPondsmith">
         Изначально доступно пять ячеек персонажей. <br />
         Чтобы получить больше обратитесь
         <a href="https://vk.com/cyberpunk2020"
@@ -9,7 +9,7 @@
         >
         или
         <a href="https://discord.gg/PPpHEzf67H">канал в Дискорде</a>
-      </h4>
+      </h4> -->
       <div>
         <faq-block></faq-block>
       </div>
@@ -51,7 +51,12 @@
         </div>
         <div>
           <label class="checkbox-green">
-            <input type="checkbox" v-model="isCheckTheme" disabled id="theme77" />
+            <input
+              type="checkbox"
+              v-model="isCheckTheme"
+              disabled
+              id="theme77"
+            />
             <span
               class="checkbox-green-switch"
               data-label-on="On"
@@ -234,4 +239,11 @@ h4 {
 .checkbox-green.focused .checkbox-green-switch:after {
   box-shadow: inset 0px 0px 4px #ff5623;
 }
+
+/* .resset-code {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
 </style>

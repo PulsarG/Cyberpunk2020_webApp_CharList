@@ -206,9 +206,11 @@ export default {
   border: 1px solid yellow;
   font-family: "Ktf";
   font-size: 15px;
+  margin: auto;
   /* margin-top: 30px; */
 }
 .btnsession {
   margin-left: 15px;
+  color: orangered;
 }
 </style>
