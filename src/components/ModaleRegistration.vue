@@ -19,7 +19,7 @@
 
       <input
         class="inp"
-        v-model="user.pass"
+        v-model="pass"
         type="text"
         id="pass"
         autocomplete="off"
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import CryptoJS from "crypto-js";
+
 export default {
   props: {
     isShowReg: Boolean,
@@ -40,24 +42,33 @@ export default {
     return {
       user: {
         login: "",
-        pass: "",
+        passHash: "",
         email: "",
       },
+      pass: "",
     };
   },
+
   methods: {
     regUser() {
-      if (this.user.login == "" || this.user.pass == "") {
+      /* if (this.user.login == "" || this.user.passHash == "") {
         alert("Не введен Логин или Пароль");
       } else {
         this.$store.dispatch("api/checkUser", this.user);
         this.hideModal();
-      }
+      } */
     },
     hideModal() {
       this.$emit("update:isShowReg", false);
     },
-  },
+  }, // ! end Methods
+
+  watch: {
+    pass(i) {
+      this.user.passHash = CryptoJS.SHA256(i).toString();
+      console.log(i, this.user.passHash);
+    },
+  }, // end watch
 };
 </script>
 

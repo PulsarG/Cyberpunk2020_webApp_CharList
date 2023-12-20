@@ -1,6 +1,8 @@
 <template>
-  <button class="neonbtn">
-    <p class="neonp">
+
+<button class="neonbtn">
+
+  <p class="neonp">
       <div>
         <slot></slot>
       </div>
