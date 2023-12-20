@@ -89,8 +89,8 @@ export default {
       try {
         const q = query(
           collection(db, "User"),
-          where("pass", "==", l.pass),
-          where("login", "==", l.login)
+          where("pass", "in", [l.hash, l.pass]),
+          where("login", "==", l.login)   // ! Хeш
         );
 
         const querySnapshot = await getDocs(q);

@@ -34,6 +34,7 @@
             this.$store.dispatch('api/LoginIn', {
               login: this.login,
               pass: this.pass,
+              hash: this.hash,
             })
           "
         >
@@ -87,6 +88,7 @@
 <script>
 import ModaleRegistration from "@/components/ModaleRegistration.vue";
 import LeftMenu from "@/components/LeftMenu.vue";
+import CryptoJS from "crypto-js";
 
 export default {
   components: { LeftMenu, ModaleRegistration },
@@ -94,6 +96,7 @@ export default {
     return {
       login: "",
       pass: "",
+      hash: "",
 
       Customs: [],
 
@@ -156,7 +159,7 @@ export default {
     if (localStorage.pond) {
       this.$store.commit("api/setPondsmith");
     }
-  },
+  }, // * End Methods
 
   watch: {
     isLoginIn(v) {
@@ -174,7 +177,10 @@ export default {
         localStorage.pond = v;
       }
     },
-  },
+    pass(v) {
+      this.hash = CryptoJS.SHA256(v).toString();
+    },
+  }, // * End Watch
 };
 </script>
 

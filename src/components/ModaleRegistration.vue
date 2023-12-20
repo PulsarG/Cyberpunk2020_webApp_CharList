@@ -51,24 +51,22 @@ export default {
 
   methods: {
     regUser() {
-      /* if (this.user.login == "" || this.user.passHash == "") {
+      this.user.passHash = CryptoJS.SHA256(this.pass).toString();
+      console.log(this.pass, this.user.passHash);
+      // ! Удалить выше две строки
+      if (this.user.login == "" || this.user.passHash == "") {
         alert("Не введен Логин или Пароль");
       } else {
+        this.user.passHash = CryptoJS.SHA256(this.pass).toString();
+        this.pass = "";
         this.$store.dispatch("api/checkUser", this.user);
         this.hideModal();
-      } */
+      }
     },
     hideModal() {
       this.$emit("update:isShowReg", false);
     },
-  }, // ! end Methods
-
-  watch: {
-    pass(i) {
-      this.user.passHash = CryptoJS.SHA256(i).toString();
-      console.log(i, this.user.passHash);
-    },
-  }, // end watch
+  }, // * end Methods
 };
 </script>
 
