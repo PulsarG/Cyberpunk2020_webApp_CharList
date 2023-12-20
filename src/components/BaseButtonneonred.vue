@@ -6,8 +6,10 @@
       <div>
         <slot></slot>
       </div>
-    </p>
-  </button>
+  </p>
+  
+</button>
+
 </template>
 
 <script>
