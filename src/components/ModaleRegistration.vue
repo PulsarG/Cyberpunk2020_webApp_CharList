@@ -51,9 +51,6 @@ export default {
 
   methods: {
     regUser() {
-      this.user.passHash = CryptoJS.SHA256(this.pass).toString();
-      console.log(this.pass, this.user.passHash);
-      // ! Удалить выше две строки
       if (this.user.login == "" || this.user.passHash == "") {
         alert("Не введен Логин или Пароль");
       } else {
