@@ -13,6 +13,7 @@
     <nav>
       <div class="login" v-show="!this.$store.state.api.isLoginIn">
         <input
+          v-on:keyup.enter="enterLogin"
           class="inplogin"
           v-model="login"
           type="text"
@@ -21,6 +22,7 @@
           placeholder="Login"
         />
         <input
+          v-on:keyup.enter="enterLogin"
           class="inppass"
           v-model="pass"
           type="text"
@@ -28,18 +30,7 @@
           autocomplete="off"
           placeholder="Password"
         />
-        <button
-          class="loginbtn"
-          @click="
-            this.$store.dispatch('api/LoginIn', {
-              login: this.login,
-              pass: this.pass,
-              hash: this.hash,
-            })
-          "
-        >
-          Войти
-        </button>
+        <button class="loginbtn" @click="enterLogin">Войти</button>
 
         <modale-registration
           v-model:isShowReg="isShowReg"
@@ -64,7 +55,7 @@
               this.$store.commit('setShowMenu', false);
             "
           >
-           Новости разработки ver 0.9.29 от 16.01.23
+            Новости разработки ver 0.9.30 от 20.12.23
           </button>
         </div>
         <div class="comunity">
@@ -132,6 +123,14 @@ export default {
 
     getCustoms(l) {
       this.$store.dispatch("api/getCustoms");
+    },
+
+    enterLogin() {
+      this.$store.dispatch("api/LoginIn", {
+        login: this.login,
+        pass: this.pass,
+        hash: this.hash,
+      });
     },
   },
 
