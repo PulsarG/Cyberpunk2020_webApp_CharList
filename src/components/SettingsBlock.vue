@@ -49,14 +49,14 @@
       </div>
       <div class="check">
         <div>
-          <h4>Тема 2077</h4>
+          <h4>Тема 2077 (test)</h4>
         </div>
         <div>
           <label class="checkbox-green">
             <input
               type="checkbox"
               v-model="isCheckTheme"
-              disabled
+              
               id="theme77"
             />
             <span
