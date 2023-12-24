@@ -89,8 +89,8 @@ export default {
       try {
         const q = query(
           collection(db, "User"),
-          where("pass", "in", [l.hash, l.pass]),
-          where("login", "==", l.login)   // ! Хeш
+          where("pass", "in", [l.hash, l.pass]), // Изначально хеширования не было, поэтому первые аккаунты входят через пароль. Отчего и проверка идет и на пароль, и на хэш. Но пароли только у самых первых десятков аккаунтов
+          where("login", "==", l.login)
         );
 
         const querySnapshot = await getDocs(q);

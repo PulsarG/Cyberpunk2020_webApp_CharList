@@ -10,9 +10,11 @@
         или
         <a href="https://discord.gg/PPpHEzf67H">канал в Дискорде</a>
       </h4> -->
-      <div>
+
+      <!-- <div>
         <faq-block></faq-block>
-      </div>
+      </div> -->
+      
     </div>
     <div class="settings">
       <div class="check">

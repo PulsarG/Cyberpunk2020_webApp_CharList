@@ -6,7 +6,7 @@
       <div>
         <slot></slot>
       </div>
-    </p>
+      </p>
   </button>
 </template>
 
