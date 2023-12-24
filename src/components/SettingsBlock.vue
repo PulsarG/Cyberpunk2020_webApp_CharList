@@ -10,9 +10,11 @@
         или
         <a href="https://discord.gg/PPpHEzf67H">канал в Дискорде</a>
       </h4> -->
-      <div>
+
+      <!-- <div>
         <faq-block></faq-block>
-      </div>
+      </div> -->
+      
     </div>
     <div class="settings">
       <div class="check">
@@ -47,14 +49,14 @@
       </div>
       <div class="check">
         <div>
-          <h4>Тема 2077</h4>
+          <h4>Тема 2077 (test)</h4>
         </div>
         <div>
           <label class="checkbox-green">
             <input
               type="checkbox"
               v-model="isCheckTheme"
-              disabled
+              
               id="theme77"
             />
             <span
